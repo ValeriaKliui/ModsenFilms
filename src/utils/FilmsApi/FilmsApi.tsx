@@ -22,6 +22,9 @@ const filmsApi = rtkApi.injectEndpoints({
           _page: page,
           _limit: 50,
         },
+        headers: {
+          'Cache-Control': 'public',
+        },
       }),
     }),
   }),

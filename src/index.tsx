@@ -7,37 +7,37 @@ import { Provider } from 'react-redux';
 import { store } from './store/index';
 import { DarkThemeProvider } from './utils/DarkTheme/providers/DarkThemeProvider/DarkThemeProvider';
 import { Error } from './components/Error/index';
-import ErrorBoundary from './utils/DarkTheme/ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from './utils/ErrorBoundary/ErrorBoundary';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement as Element);
 const ErrorBoundaryLayout: React.FC = () => (
-  <ErrorBoundary fallback={<Error />}>
-    <Outlet />
-  </ErrorBoundary>
+    <ErrorBoundary fallback={<Error />}>
+        <Outlet />
+    </ErrorBoundary>
 );
 
 const router = createBrowserRouter([
-  {
-    element: <ErrorBoundaryLayout />,
-    children: [
-      {
-        path: '/',
-        element: <Main />,
-      },
-    ],
-  },
+    {
+        element: <ErrorBoundaryLayout />,
+        children: [
+            {
+                path: '/',
+                element: <Main />,
+            },
+        ],
+    },
 ]);
 
 root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <DarkThemeProvider>
-        <GlobalStyle />
-        <ErrorBoundary fallback={<Error />}>
-          <RouterProvider router={router} />{' '}
-        </ErrorBoundary>
-      </DarkThemeProvider>
-    </Provider>
-  </StrictMode>,
+    <StrictMode>
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <GlobalStyle />
+                <ErrorBoundary fallback={<Error />}>
+                    <RouterProvider router={router} />{' '}
+                </ErrorBoundary>
+            </DarkThemeProvider>
+        </Provider>
+    </StrictMode>,
 );

@@ -1,6 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../index';
-import { FilmType } from '../../utils/FilmsApi/types';
+import { type FilmType } from '../../utils/FilmsApi/types';
 import { FILM_LOADING_AMOUNT } from '../../constants/constants';
 
 interface ShowingFilmsState {
@@ -10,29 +10,29 @@ interface ShowingFilmsState {
 }
 
 const initialState: ShowingFilmsState = {
-  showingFilms: [],
-  step: -1,
-  page: 1,
+    showingFilms: [],
+    step: -1,
+    page: 1,
 };
 
 export const showingFilmsSlice = createSlice({
-  name: 'showingFilms',
-  initialState,
-  reducers: {
-    addShowingFilms: (state, action: PayloadAction<FilmType[]>) => {
-      state.showingFilms = [
-        ...state.showingFilms,
-        ...action.payload.slice(
-          state.step === 0 ? 0 : state.step * FILM_LOADING_AMOUNT,
-          state.step === 0 ? FILM_LOADING_AMOUNT : (state.step + 1) * FILM_LOADING_AMOUNT,
-        ),
-      ];
-      state.step = state.step > 1 ? 0 : state.step + 1;
+    name: 'showingFilms',
+    initialState,
+    reducers: {
+        addShowingFilms: (state, action: PayloadAction<FilmType[]>) => {
+            state.showingFilms = [
+                ...state.showingFilms,
+                ...action.payload.slice(
+                    state.step === 0 ? 0 : state.step * FILM_LOADING_AMOUNT,
+                    state.step === 0 ? FILM_LOADING_AMOUNT : (state.step + 1) * FILM_LOADING_AMOUNT,
+                ),
+            ];
+            state.step = state.step > 1 ? 0 : state.step + 1;
+        },
+        increasePage: (state) => {
+            state.page = state.page + 1;
+        },
     },
-    increasePage: (state) => {
-      state.page = state.page + 1;
-    },
-  },
 });
 
 export const { addShowingFilms, increasePage } = showingFilmsSlice.actions;
