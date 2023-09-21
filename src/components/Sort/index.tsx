@@ -1,8 +1,7 @@
-import React from 'react';
-import * as S from './styles';
+import * as S from './styled';
 const options = ['All', 'action', 'drama', 'crime', 'romantic', 'horror', 'documentary'];
 
-export const Sort = () => {
+export const Sort: React.FC = () => {
   return (
     <S.Options>
       {options.map((option) => (

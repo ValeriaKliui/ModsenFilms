@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true
   },
-  "include": [".eslintrc.js", "global.d.ts"],
+  "include": [".eslintrc.js", "global.d.ts", "src"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

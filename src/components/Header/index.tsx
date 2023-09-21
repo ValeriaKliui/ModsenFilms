@@ -1,11 +1,11 @@
-import React from 'react';
 import logoPic from '../../assets/img/logo.svg';
-import * as S from './styles';
+import * as S from './styled';
 import { useAppDispatch } from '../../store/hooks/hooks';
 import { toggleTheme } from '../../store/slices/ThemeSlice';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
+
   return (
     <S.StyledHeader>
       <S.Logo>

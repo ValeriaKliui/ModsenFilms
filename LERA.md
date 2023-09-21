@@ -3,6 +3,10 @@
 ##font
 ##прибить к низу футер не flex direction
 ##save theme to local storage
+##сделать норм fallback в index error boundary
+##maybe to split reducres and actions
+##сделать чтобы в films и film не приходилось дублировать пропсы
+##обработать ошибку при неправильной ссылке
 
 ## Необходимый функционал
 
