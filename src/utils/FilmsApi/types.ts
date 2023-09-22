@@ -4,3 +4,6 @@ export interface FilmType {
   backdrop_path: string;
   id?: string;
 }
+export interface FilmsResponse {
+  results: FilmType[];
+}

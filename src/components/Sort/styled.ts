@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
-export const Options = styled.div`
+export const Genres = styled.div`
   display: flex;
   gap: 1em;
   justify-content: center;
   padding: 2em 0;
 `;
-export const Option = styled.div`
+export const Genre = styled.div`
   padding: 0.5em 1em;
   background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: 15px;

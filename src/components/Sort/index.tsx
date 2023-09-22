@@ -1,12 +1,12 @@
-import { Options, Option } from './styled';
-const options = ['All', 'action', 'drama', 'crime', 'romantic', 'horror', 'documentary'];
-
+import { useShowingFilms } from '../../utils/FilmsApi/hooks/useShowingFilms';
+import { Genres, Genre } from './styled';
+const genres = ['All', 'action', 'drama', 'crime', 'romantic', 'horror', 'documentary'];
 export const Sort: React.FC = () => {
   return (
-    <Options>
-      {options.map((option) => (
-        <Option key={option}>{option}</Option>
+    <Genres>
+      {genres.map((genre) => (
+        <Genre key={genre}>{genre}</Genre>
       ))}
-    </Options>
+    </Genres>
   );
 };

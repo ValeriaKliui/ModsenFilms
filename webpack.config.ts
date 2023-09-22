@@ -30,6 +30,9 @@ export default (env: BuildEnv) => {
       new SourceMapDevToolPlugin({
         filename: '[file].map',
       }),
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env),
+      }),
     ],
     module: {
       rules: [

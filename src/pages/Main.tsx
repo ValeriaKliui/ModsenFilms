@@ -3,7 +3,7 @@ import { Header } from '../components/Header';
 import { Sort } from '../components/Sort/index';
 import { Button } from '../components/Button/index';
 import { Films } from '../components/Films';
-import { useShowingFilms } from '../utils/FilmsApi/hooks';
+import { useShowingFilms } from '../utils/FilmsApi/hooks/useShowingFilms';
 export const Main: React.FC = () => {
   const { showMoreFilms } = useShowingFilms();
   return (

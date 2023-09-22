@@ -1,7 +1,7 @@
 import { Film } from '../Film';
-import { FilmsSection, FilmsStyled } from './styled';
+import { FilmsStyled } from './styled';
 import { type FilmType } from '../../utils/FilmsApi/types';
-import { useShowingFilms } from '../../utils/FilmsApi/hooks';
+import { useShowingFilms } from '../../utils/FilmsApi/hooks/useShowingFilms';
 import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
 export const Films = () => {
   const { isLoading, showingFilms } = useShowingFilms();

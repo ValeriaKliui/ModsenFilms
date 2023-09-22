@@ -1,4 +1,10 @@
 import { rtkApi } from '../../store/rtkApi/rtkApi';
+import { FilmType, FilmsResponse } from './types';
+
+interface Params {
+  genre: string | null;
+  page: number;
+}
 
 const filmsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -11,14 +17,21 @@ const filmsApi = rtkApi.injectEndpoints({
           language: 'en-US',
           include_video: true,
         },
-        headers: {
-          accept: 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NWE4ZDhkODE5ZmZkMGQyYjQ5Y2VjMzFiZDNmOTdlZCIsInN1YiI6IjY1MGQ0MmM2ZjkyNTMyMDBjOTRhM2Y5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7LA5lTIaIErCDA1dko8s8akXGco6zojahF-tsWPa9GA',
+      }),
+    }),
+    fetchByGenre: build.query<FilmsResponse, Params>({
+      query: ({ genre, page }) => ({
+        method: 'GET',
+        url: '/discover/movie',
+        params: {
+          page,
+          with_genres: genre,
+          include_video: true,
         },
       }),
     }),
   }),
   overrideExisting: false,
 });
-export const useGetFilms = filmsApi.useGetFilmsQuery;
+export const useGetFilmsQuery = filmsApi.useGetFilmsQuery;
+export const useFetchByGenre = filmsApi.useFetchByGenreQuery;
