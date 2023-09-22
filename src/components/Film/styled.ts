@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Film = styled.div`
+export const FilmStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;

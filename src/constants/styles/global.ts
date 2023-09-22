@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import RobotoWoff from '../fonts/Roboto.woff';
-import RobotoWoff2 from '../fonts/Roboto.woff2';
+import RobotoWoff from '../../assets/fonts/Roboto.woff';
+import RobotoWoff2 from '../../assets/fonts/Roboto.woff2';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {

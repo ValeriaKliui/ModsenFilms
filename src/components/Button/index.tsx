@@ -1,10 +1,10 @@
-import * as S from './styled';
+import { ButtonStyled } from './styled';
 
 interface ButtonProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-    return <S.ButtonStyled onClick={onClick}>{text}</S.ButtonStyled>;
+  return <ButtonStyled onClick={onClick}>{text}</ButtonStyled>;
 };

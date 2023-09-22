@@ -1,15 +1,14 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import {
-    addShowingFilms,
-    increasePage,
-    selectPage,
-    selectShowingFilms,
-    selectStep,
+  displayMoreFilms,
+  increasePage,
+  selectPage,
+  selectShowingFilms,
+  setMoviesInitial,
 } from '../../store/slices/ShowingFilms';
 import { useGetFilms } from './FilmsApi';
 import { type FilmType } from './types';
-import { FILM_LOADING_AMOUNT } from '../../constants/constants';
 
 interface hookProps {
   films: FilmType[];
@@ -19,25 +18,22 @@ interface hookProps {
 }
 
 export const useShowingFilms = (): hookProps => {
-    const page = useAppSelector(selectPage);
-    const step = useAppSelector(selectStep);
-    const dispatch = useAppDispatch();
-    const { isLoading, data } = useGetFilms(page);
-    //   const films = data && data.results;
-    const films = data && data;
-    const showingFilms = useAppSelector(selectShowingFilms);
+  const page = useAppSelector(selectPage);
+  const dispatch = useAppDispatch();
+  const { isLoading, data } = useGetFilms(page);
+  const films = data && data.results;
+  const showingFilms = useAppSelector(selectShowingFilms);
+  const showMoreFilms = () => {
+    dispatch(increasePage());
+    dispatch(displayMoreFilms(films));
+  };
 
-    useEffect(() => {
-        if (films?.length) dispatch(addShowingFilms(films));
-    }, [isLoading]);
+  useEffect(() => {
+    if (films?.length) {
+      dispatch(setMoviesInitial(films));
+      dispatch(increasePage());
+    }
+  }, [isLoading]);
 
-    useEffect(() => {
-        if (films && (step + 2) * FILM_LOADING_AMOUNT > films.length) dispatch(increasePage());
-    }, [step]);
-
-    const showMoreFilms = () => {
-        dispatch(addShowingFilms(films));
-    };
-
-    return { films, isLoading, showingFilms, showMoreFilms };
+  return { films, isLoading, showingFilms, showMoreFilms };
 };

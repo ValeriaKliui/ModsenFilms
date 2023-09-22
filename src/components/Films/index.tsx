@@ -9,8 +9,13 @@ export const Films = () => {
     <FilmsStyled>
       {isLoading
         ? new Array(8).fill(1).map((e, index) => <SkeletonLoader key={index} />)
-        : showingFilms.map(({ title, released, imageurl, imdbid }: FilmType) => (
-            <Film imageurl={imageurl} title={title} released={released} key={imdbid} />
+        : showingFilms.map(({ title, released, backdrop_path, id }: FilmType) => (
+            <Film
+              backdrop_path={`https://image.tmdb.org/t/p/w300${backdrop_path}`}
+              title={title}
+              released={released}
+              key={id}
+            />
           ))}
     </FilmsStyled>
   );

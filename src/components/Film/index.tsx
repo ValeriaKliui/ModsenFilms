@@ -1,18 +1,18 @@
 import { type FilmType } from '../../utils/FilmsApi/types';
-import * as S from './styled';
+import { FilmStyled, Title } from './styled';
 import noImage from '../../assets/img/no-image.png';
 
-export const Film: React.FC<FilmType> = ({ title, released, imageurl }) => {
+export const Film: React.FC<FilmType> = ({ title, released, backdrop_path }) => {
   const photo = () => {
-    if (!imageurl?.length) return <img src={noImage} alt={title} />;
-    return <img src={imageurl[0]} alt={title} />;
+    if (backdrop_path.includes('null')) return <img src={noImage} alt={title} />;
+    return <img src={backdrop_path} alt={title} />;
   };
 
   return (
-    <S.Film>
+    <FilmStyled>
       {photo()}
-      <S.Title>{title}</S.Title>
+      <Title>{title}</Title>
       <p>{released}</p>
-    </S.Film>
+    </FilmStyled>
   );
 };

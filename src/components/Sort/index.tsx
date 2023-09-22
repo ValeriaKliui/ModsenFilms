@@ -1,12 +1,12 @@
-import * as S from './styled';
+import { Options, Option } from './styled';
 const options = ['All', 'action', 'drama', 'crime', 'romantic', 'horror', 'documentary'];
 
 export const Sort: React.FC = () => {
-    return (
-        <S.Options>
-            {options.map((option) => (
-                <S.Option key={option}>{option}</S.Option>
-            ))}
-        </S.Options>
-    );
+  return (
+    <Options>
+      {options.map((option) => (
+        <Option key={option}>{option}</Option>
+      ))}
+    </Options>
+  );
 };

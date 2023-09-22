@@ -1,1 +1,6 @@
-export interface FilmType { title: string; released: number; imageurl: string[]; imdbid?: string }
+export interface FilmType {
+  title: string;
+  released: number;
+  backdrop_path: string;
+  id?: string;
+}
