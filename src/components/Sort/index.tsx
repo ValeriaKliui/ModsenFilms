@@ -1,12 +1,35 @@
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../store/hooks/hooks';
+import { setFilms, setFirstPage, setGenre } from '../../store/slices/ShowingFilmsSlice';
+import { Genres } from './styled';
 import { useShowingFilms } from '../../utils/FilmsApi/hooks/useShowingFilms';
-import { Genres, Genre } from './styled';
-const genres = ['All', 'action', 'drama', 'crime', 'romantic', 'horror', 'documentary'];
+import { genres, GenresType } from '../../constants/types/genres';
+import { Genre } from '../Genre/index';
 export const Sort: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { page, films, genre, isLoading } = useShowingFilms();
+
+  const handleClickGenre = (genre: GenresType) => {
+    dispatch(setGenre(genres[genre] === genres.ALL ? null : genres[genre]));
+  };
+
+  useEffect(() => {
+    if (page === 1 && films && !isLoading) {
+      dispatch(setFilms(films));
+    }
+  }, [genre, isLoading, films]);
+
+  useEffect(() => {
+    dispatch(setFirstPage());
+  }, [genre]);
+
   return (
     <Genres>
-      {genres.map((genre) => (
-        <Genre key={genre}>{genre}</Genre>
-      ))}
+      {Object.keys(genres)
+        .filter((key) => Number.parseInt(key) !== +key)
+        .map((genre) => (
+          <Genre key={genre} onClick={() => handleClickGenre(genre as GenresType)} genre={genre as GenresType} />
+        ))}
     </Genres>
   );
 };

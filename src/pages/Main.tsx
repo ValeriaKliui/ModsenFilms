@@ -4,8 +4,21 @@ import { Sort } from '../components/Sort/index';
 import { Button } from '../components/Button/index';
 import { Films } from '../components/Films';
 import { useShowingFilms } from '../utils/FilmsApi/hooks/useShowingFilms';
+import { displayMoreFilms, increasePage } from '../store/slices/ShowingFilmsSlice';
+import { useAppDispatch } from '../store/hooks/hooks';
+import { useEffect } from 'react';
 export const Main: React.FC = () => {
-  const { showMoreFilms } = useShowingFilms();
+  const { page, films } = useShowingFilms();
+  const dispatch = useAppDispatch();
+  const showMoreFilms = () => {
+    dispatch(increasePage());
+  };
+  useEffect(() => {
+    if (films && page != 1) {
+      dispatch(displayMoreFilms(films));
+    }
+  }, [films]);
+
   return (
     <>
       <Header />
