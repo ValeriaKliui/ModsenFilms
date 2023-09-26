@@ -16,19 +16,19 @@ interface hookProps {
 }
 
 export const useSearchedFilms = ({ searchQuery }: hookProps): hookReturned => {
-  const dispatch = useAppDispatch();
-  const { isLoading, data, isFetching, isError } = useGetFilmsByTitleQuery(
-    { searchQuery },
-    { skip: searchQuery.length < 4 },
-  );
-  const searchedFilms: FilmType[] = (data && data.results) || [];
-  const searchedFilmsAmount = (data && data.total_results) || undefined;
+    const dispatch = useAppDispatch();
+    const { isLoading, data, isFetching, isError } = useGetFilmsByTitleQuery(
+        { searchQuery },
+        { skip: searchQuery.length < 4 },
+    );
+    const searchedFilms: FilmType[] = data?.results ?? [];
+    const searchedFilmsAmount = data?.total_results ?? undefined;
 
-  useEffect(() => {
-    if (!isLoading) {
-      dispatch(setSearchedGilms(searchedFilms));
-    }
-  }, [isLoading]);
+    useEffect(() => {
+        if (!isLoading) {
+            dispatch(setSearchedGilms(searchedFilms));
+        }
+    }, [isLoading]);
 
-  return { searchedFilms, isLoading, isFetching, isError, searchedFilmsAmount };
+    return { searchedFilms, isLoading, isFetching, isError, searchedFilmsAmount };
 };

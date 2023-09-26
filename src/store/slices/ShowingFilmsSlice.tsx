@@ -12,54 +12,54 @@ interface ShowingFilmsState {
 }
 
 const initialState: ShowingFilmsState = {
-  showingFilms: [],
-  searchedFilms: [],
-  page: 1,
-  genre: null,
-  searchQuery: '',
-  isSearching: false,
+    showingFilms: [],
+    searchedFilms: [],
+    page: 1,
+    genre: null,
+    searchQuery: '',
+    isSearching: false,
 };
 
 export const showingFilmsSlice = createSlice({
-  name: 'showingFilms',
-  initialState,
-  reducers: {
-    setFilms: (state, action: PayloadAction<FilmType[]>) => {
-      state.showingFilms = action.payload;
+    name: 'showingFilms',
+    initialState,
+    reducers: {
+        setFilms: (state, action: PayloadAction<FilmType[]>) => {
+            state.showingFilms = action.payload;
+        },
+        displayMoreFilms: (state, action: PayloadAction<FilmType[]>) => {
+            state.showingFilms = [...state.showingFilms, ...action.payload];
+        },
+        increasePage: (state) => {
+            state.page = state.page + 1;
+        },
+        setFirstPage: (state) => {
+            state.page = 1;
+        },
+        setGenre: (state, action: PayloadAction<number | null>) => {
+            state.genre = action.payload;
+        },
+        setSearchQuery: (state, action: PayloadAction<string>) => {
+            state.searchQuery = action.payload;
+        },
+        setSearchedGilms: (state, action: PayloadAction<FilmType[]>) => {
+            state.searchedFilms = action.payload;
+        },
+        setIsSearching: (state, action: PayloadAction<boolean>) => {
+            state.isSearching = action.payload;
+        },
     },
-    displayMoreFilms: (state, action: PayloadAction<FilmType[]>) => {
-      state.showingFilms = [...state.showingFilms, ...action.payload];
-    },
-    increasePage: (state) => {
-      state.page = state.page + 1;
-    },
-    setFirstPage: (state) => {
-      state.page = 1;
-    },
-    setGenre: (state, action: PayloadAction<number | null>) => {
-      state.genre = action.payload;
-    },
-    setSearchQuery: (state, action: PayloadAction<string>) => {
-      state.searchQuery = action.payload;
-    },
-    setSearchedGilms: (state, action: PayloadAction<FilmType[]>) => {
-      state.searchedFilms = action.payload;
-    },
-    setIsSearching: (state, action: PayloadAction<boolean>) => {
-      state.isSearching = action.payload;
-    },
-  },
 });
 
 export const {
-  increasePage,
-  displayMoreFilms,
-  setGenre,
-  setFilms,
-  setFirstPage,
-  setSearchQuery,
-  setSearchedGilms,
-  setIsSearching,
+    increasePage,
+    displayMoreFilms,
+    setGenre,
+    setFilms,
+    setFirstPage,
+    setSearchQuery,
+    setSearchedGilms,
+    setIsSearching,
 } = showingFilmsSlice.actions;
 
 export const selectShowingFilms = (state: RootState) => state.showingFilms.showingFilms;

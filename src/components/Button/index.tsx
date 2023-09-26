@@ -6,5 +6,5 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return <ButtonStyled onClick={onClick}>{text}</ButtonStyled>;
+    return <ButtonStyled onClick={onClick}>{text}</ButtonStyled>;
 };

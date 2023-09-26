@@ -11,6 +11,7 @@
 ##чтобы показывалось по 16 фильмов##rtk search should be debounced and skipped
 ##обработать если нет vpn
 ##make search closable
+##made input throttle debounce
 
 ## Необходимый функционал
 

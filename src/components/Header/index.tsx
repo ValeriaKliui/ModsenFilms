@@ -5,20 +5,20 @@ import { toggleTheme } from '../../store/slices/ThemeSlice';
 import { Button } from '../Button';
 
 export const Header: React.FC = () => {
-  const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-  return (
-    <StyledHeader>
-      <Logo>
-        <img src={logoPic} alt="ModsenFilms" />
-        <h1>ModsenFilms</h1>
-      </Logo>
-      <Button
-        text="change theme"
-        onClick={() => {
-          dispatch(toggleTheme());
-        }}
-      />
-    </StyledHeader>
-  );
+    return (
+        <StyledHeader>
+            <Logo>
+                <img src={logoPic} alt="ModsenFilms" />
+                <h1>ModsenFilms</h1>
+            </Logo>
+            <Button
+                text="change theme"
+                onClick={() => {
+                    dispatch(toggleTheme());
+                }}
+            />
+        </StyledHeader>
+    );
 };

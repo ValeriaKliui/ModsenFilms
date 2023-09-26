@@ -5,7 +5,7 @@ export const FilmStyled = styled.div`
   flex-direction: column;
   gap: 1em;
 `;
-export const Title = styled.p``;
+export const Text = styled.p``;
 export const Dot = styled.div`
   width: 3px;
   background-color: ${({ theme }) => theme.colors.font};
