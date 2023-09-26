@@ -9,15 +9,15 @@ interface GenreProps {
 }
 
 export const Genre: React.FC<GenreProps> = ({ onClick, genre }) => {
-    const genreActive = useAppSelector(selectGenre);
-    const isActiveGenre = () => {
-        if (genres[genre] === 0 && !genreActive) return true;
-        else return genreActive === genres[genre];
-    };
+  const genreActive = useAppSelector(selectGenre);
+  const isActiveGenre = (): boolean => {
+    if (genres[genre] === 0 && !genreActive) return true;
+    else return genreActive === genres[genre];
+  };
 
-    return (
-        <GenreStyled onClick={onClick} $isActive={isActiveGenre()}>
-            {genre.toLowerCase()}
-        </GenreStyled>
-    );
+  return (
+      <GenreStyled onClick={onClick} $isActive={isActiveGenre()}>
+          {genre.toLowerCase()}
+      </GenreStyled>
+  );
 };

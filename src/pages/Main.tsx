@@ -10,31 +10,31 @@ import { useEffect } from 'react';
 import { Search } from '../components/Search';
 
 export const Main: React.FC = () => {
-    const { page, films } = useShowingFilms();
+  const { page, films } = useShowingFilms();
 
-    const dispatch = useAppDispatch();
-    const showMoreFilms = () => {
-        dispatch(increasePage());
-    };
-    useEffect(() => {
-        if (films.length > 0 && page !== 1) {
-            dispatch(displayMoreFilms(films));
-        }
-    }, [films]);
+  const dispatch = useAppDispatch();
+  const showMoreFilms = (): void => {
+    dispatch(increasePage());
+  };
+  useEffect(() => {
+    if (films.length > 0 && page !== 1) {
+      dispatch(displayMoreFilms(films));
+    }
+  }, [films]);
 
-    return (
-        <>
-            <Header />
-            <Search />
-            <Sort />
-            <Films />
-            <Button
-                text="Show More"
-                onClick={() => {
-                    showMoreFilms();
-                }}
-            />
-            <Footer />
-        </>
-    );
+  return (
+      <>
+          <Header />
+          <Search />
+          <Sort />
+          <Films />
+          <Button
+              text="Show More"
+              onClick={() => {
+          showMoreFilms();
+        }}
+      />
+          <Footer />
+      </>
+  );
 };

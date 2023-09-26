@@ -1,25 +1,28 @@
 module.exports = {
   env: {
-    browser: true,
     es2021: true,
+    node: true,
+    browser: true,
   },
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'prettier'],
   settings: {
     react: {
       version: 'detect',
     },
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'prettier'],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
+
+  // extends: ['standard-with-typescript', 'plugin:react/recommended', 'prettier'],
+  // overrides: [
+  //   {
+  //     env: {
+  //       node: true,
+  //     },
+  //     files: ['.eslintrc.{js,cjs}'],
+  //     parserOptions: {
+  //       sourceType: 'script',
+  //     },
+  //   },
+  // ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -31,7 +34,6 @@ module.exports = {
   rules: {
     'react/jsx-indent': [2, 4],
     'react/jsx-indent-props': [2, 4],
-    indent: [2, 4],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
