@@ -11,7 +11,6 @@ type GenreProps = {
 export const Genre: React.FC<GenreProps> = ({ onClick, genre }) => {
   const genreActive = useAppSelector(selectGenre);
   const isActiveGenre = () => {
-    console.log(genreActive);
     if (genres[genre] === 0 && !genreActive) return true;
     else return genreActive === genres[genre];
   };

@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 * {

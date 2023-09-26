@@ -12,18 +12,22 @@ export interface ITheme {
     bg: string;
     font: string;
     fontActive: string;
-    bgDark: string;
+    bgActive: string;
+    border: string;
+    borderDarker: string;
   };
 }
 
 export const baseTheme: ITheme = {
   colors: {
     primary: '#ff8a00',
-    secondary: '#0000001a',
+    secondary: 'rgba(0, 0, 0, 0.06)',
     bg: '#ffffff',
     font: '#000000',
     fontActive: '#ffffff',
-    bgDark: '#000000',
+    bgActive: '#000000',
+    border: '#0000001a',
+    borderDarker: '#C4C4C4',
   },
 };
 
@@ -46,5 +50,7 @@ export const darkTheme: DefaultTheme = {
     bg: '#0f0f0f',
     font: '#E5E4E8',
     secondary: '#ffffff8a',
+    bgActive: '#ffffff',
+    fontActive: '#000000',
   },
 };
