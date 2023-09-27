@@ -21,7 +21,7 @@ export const SearchedFilm: React.FC<SearchedFilmProps> = ({
   amount,
 }) => {
   const extraInfo = (): JSX.Element | null => {
-    if (noFilm) return <SearchedDetail>Film wasn`&apos;`t found.</SearchedDetail>;
+    if (noFilm) return <SearchedDetail>Film wasn&apos;t found.</SearchedDetail>;
     else if (amount) return <SearchedDetail>We found {amount} films.</SearchedDetail>;
     else return null;
   };

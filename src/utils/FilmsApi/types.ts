@@ -4,10 +4,18 @@ export interface FilmType {
   backdrop_path: string;
   poster_path: string;
   vote_average: string;
-  id?: string;
+  id: number;
   overview?: string;
 }
 export interface FilmsResponse {
   results: FilmType[];
   total_results?: number;
+}
+export interface VideoI {
+  id: number;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  size: number;
 }

@@ -8,6 +8,6 @@ interface DarkThemeProviderProps {
   children?: ReactNode;
 }
 export const DarkThemeProvider: React.FC<DarkThemeProviderProps> = ({ children }: DarkThemeProviderProps) => {
-    const darkThemeEnabled = useAppSelector(selectTheme);
-    return <ThemeProvider theme={darkThemeEnabled.type === 'dark' ? darkTheme : lightTheme}>{children}</ThemeProvider>;
+  const darkThemeEnabled = useAppSelector(selectTheme);
+  return <ThemeProvider theme={darkThemeEnabled.type === 'dark' ? darkTheme : lightTheme}>{children}</ThemeProvider>;
 };

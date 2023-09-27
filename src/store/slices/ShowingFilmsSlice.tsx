@@ -8,7 +8,7 @@ interface ShowingFilmsState {
   page: number;
   genre: number | null;
   searchQuery: string;
-  isSearching: boolean;
+  movieID: number;
 }
 
 const initialState: ShowingFilmsState = {
@@ -17,7 +17,7 @@ const initialState: ShowingFilmsState = {
   page: 1,
   genre: null,
   searchQuery: '',
-  isSearching: false,
+  movieID: 0,
 };
 
 export const showingFilmsSlice = createSlice({
@@ -42,11 +42,11 @@ export const showingFilmsSlice = createSlice({
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
     },
-    setSearchedGilms: (state, action: PayloadAction<FilmType[]>) => {
+    setSearchedFilms: (state, action: PayloadAction<FilmType[]>) => {
       state.searchedFilms = action.payload;
     },
-    setIsSearching: (state, action: PayloadAction<boolean>) => {
-      state.isSearching = action.payload;
+    setMovieID: (state, action: PayloadAction<number>) => {
+      state.movieID = action.payload;
     },
   },
 });
@@ -58,14 +58,14 @@ export const {
   setFilms,
   setFirstPage,
   setSearchQuery,
-  setSearchedGilms,
-  setIsSearching,
+  setSearchedFilms,
+  setMovieID,
 } = showingFilmsSlice.actions;
 
 export const selectShowingFilms = (state: RootState): FilmType[] => state.showingFilms.showingFilms;
 export const selectPage = (state: RootState): number => state.showingFilms.page;
 export const selectGenre = (state: RootState): number | null => state.showingFilms.genre;
 export const selectSearchQuery = (state: RootState): string => state.showingFilms.searchQuery;
-export const selectIsSearching = (state: RootState): boolean => state.showingFilms.isSearching;
+export const selectMovieID = (state: RootState): number => state.showingFilms.movieID;
 
 export default showingFilmsSlice.reducer;

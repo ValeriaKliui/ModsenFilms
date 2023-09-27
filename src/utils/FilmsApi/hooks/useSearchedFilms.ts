@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../../store/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks/hooks';
 import { useGetFilmsByTitleQuery } from '../FilmsApi';
 import { type FilmType } from '../types';
-import { setSearchedGilms } from '../../../store/slices/ShowingFilmsSlice';
+import { selectPage, selectShowingFilms, setSearchedFilms } from '../../../store/slices/ShowingFilmsSlice';
 
 interface hookReturned {
   isLoading: boolean;
@@ -10,25 +10,30 @@ interface hookReturned {
   isError: boolean;
   searchedFilms: FilmType[];
   searchedFilmsAmount: number | undefined;
+  isSuccess: boolean;
+  showingFilmsSearched: FilmType[];
+  page: number;
 }
 interface hookProps {
   searchQuery: string;
 }
 
 export const useSearchedFilms = ({ searchQuery }: hookProps): hookReturned => {
-    const dispatch = useAppDispatch();
-    const { isLoading, data, isFetching, isError } = useGetFilmsByTitleQuery(
-        { searchQuery },
-        { skip: searchQuery.length < 4 },
-    );
-    const searchedFilms: FilmType[] = data?.results ?? [];
-    const searchedFilmsAmount = data?.total_results ?? undefined;
+  const page = useAppSelector(selectPage);
+  const dispatch = useAppDispatch();
+  const { isLoading, data, isFetching, isError, isSuccess } = useGetFilmsByTitleQuery(
+    { searchQuery, page },
+    { skip: searchQuery.length < 4 },
+  );
+  const searchedFilms: FilmType[] = data?.results ?? [];
+  const searchedFilmsAmount = data?.total_results ?? undefined;
+  const showingFilmsSearched = useAppSelector(selectShowingFilms);
 
-    useEffect(() => {
-        if (!isLoading) {
-            dispatch(setSearchedGilms(searchedFilms));
-        }
-    }, [isLoading]);
+  useEffect(() => {
+    if (!isLoading) {
+      dispatch(setSearchedFilms(searchedFilms));
+    }
+  }, [isLoading]);
 
-    return { searchedFilms, isLoading, isFetching, isError, searchedFilmsAmount };
+  return { searchedFilms, page, showingFilmsSearched, isSuccess, isLoading, isFetching, isError, searchedFilmsAmount };
 };
