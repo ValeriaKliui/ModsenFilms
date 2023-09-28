@@ -54,4 +54,4 @@ const filmsApi = rtkApi.injectEndpoints({
 });
 export const useGetFilmsQuery = filmsApi.useGetFilmsQuery;
 export const useGetFilmsByTitleQuery = filmsApi.useGetFilmsByTitleQuery;
-export const useGetFilmVideo = filmsApi.useGetFilmVideoQuery;
+export const useGetFilmVideoQuery = filmsApi.useGetFilmVideoQuery;

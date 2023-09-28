@@ -40,19 +40,14 @@ export const Search: React.FC = () => {
           </SearchField>
           {isSearchOpened && (
           <SearchedFilms>
-              {searchedFilms.map(({ title, id, overview, poster_path, release_date, vote_average }) => (
-                  <SearchedFilm
-                      key={id}
-                      title={title}
-                      overview={overview}
-                      poster_path={poster_path}
-                      release_date={release_date}
-                      vote_average={vote_average}
-            />
+              {searchedFilms.map((film) => (
+                  <SearchedFilm key={film.id} film={film} />
           ))}
-              {searchQuery.length > 3 && searchedFilms.length === 0 && <SearchedFilm noFilm />}
+              {searchQuery.length > 3 && searchedFilms.length === 0 && (
+              <SearchedFilm replacementText="Film wasn't found." />
+          )}
               {searchedFilms.length > 0 && searchedFilms.length !== searchedFilmsAmount && (
-              <SearchedFilm amount={searchedFilmsAmount} />
+              <SearchedFilm replacementText={`We found ${searchedFilmsAmount} films.`} />
           )}
           </SearchedFilms>
       )}

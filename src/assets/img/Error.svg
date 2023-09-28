@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="300" viewBox="0 0 1 180" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 1)" id="517a84e7-032a-4d30-86d4-a60e12450263"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 1 1)" id="956f3bd8-0d8b-42d4-a65a-c41621bd8cbe"  >
+</g>
+<g transform="matrix(1 0 0 1 1 100)"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: #ff8a00; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-50, -1002.36)" d="M 20.5 970.36217 C 12.19 970.36217 5.5 977.05217 5.5 985.36217 L 5.5 1007.3622 C 5.5 1015.6722 12.190000000000001 1022.3622 20.5 1022.3622 L 63.7188 1022.3622 L 76.5 999.36219 L 81.4688 1008.2997 C 81.48780000000001 1007.9868 81.49980000000001 1007.6801 81.49980000000001 1007.3622 L 81.49980000000001 985.36217 C 81.49980000000001 977.05217 74.80980000000001 970.36217 66.49980000000001 970.36217 L 20.499800000000008 970.36217 z M 38.5 985.36217 L 56.5 996.3621899999999 L 38.5 1007.3621999999999 L 38.5 985.3621699999999 z M 76.5 1002.3622 L 58.5 1034.3622 L 94.5 1034.3622 L 76.5 1002.3622 z M 76.5 1010.3622 C 77.6046 1010.3622 78.5 1011.2576 78.5 1012.3622 L 78.5 1023.3622 C 78.5 1024.4668 77.6046 1025.3622 76.5 1025.3622 C 75.3953 1025.3622 74.5 1024.4668 74.5 1023.3622 L 74.5 1012.3622 C 74.5 1011.2576 75.3953 1010.3622 76.5 1010.3622 z M 76.5 1026.3622 C 77.8807 1026.3622 79 1027.4815 79 1028.8622 C 79 1030.2429 77.8807 1031.3622 76.5 1031.3622 C 75.1192 1031.3622 74 1030.2429 74 1028.8622 C 74 1027.4815 75.1192 1026.3622 76.5 1026.3622 z" stroke-linecap="round" />
+</g>
+</svg>

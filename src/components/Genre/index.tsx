@@ -11,7 +11,7 @@ interface GenreProps {
 export const Genre: React.FC<GenreProps> = ({ onClick, genre }) => {
   const genreActive = useAppSelector(selectGenre);
   const isActiveGenre = (): boolean => {
-    if (genres[genre] === 0 && !genreActive) return true;
+    if (genres[genre] === 0 && genreActive === null) return true;
     else return genreActive === genres[genre];
   };
 

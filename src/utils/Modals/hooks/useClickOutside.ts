@@ -30,7 +30,7 @@ export const useClickOutside = ({ isOpened, setIsOpened }: useClickOutsideProps)
     return () => {
       document.removeEventListener('click', handleClick);
     };
-  }, [isOpened, ref, setIsOpened]);
+  }, [isOpened, setIsOpened, ref]);
 
   return { ref, toIgnoreRef };
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { hoverAnimation } from '../../constants/styles/animation';
 
 interface GenreProps {
   $isActive: boolean;
@@ -13,6 +14,7 @@ export const GenreStyled = styled.div<GenreProps>`
   border-radius: 15px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   cursor: pointer;
+  ${hoverAnimation}
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgActive};
     color: ${({ theme }) => theme.colors.fontActive};

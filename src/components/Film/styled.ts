@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { scaleAnimation } from '../../constants/styles/animation';
 
 export const FilmStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
+  cursor: pointer;
+  ${scaleAnimation}
+  &:hover {
+    box-shadow: ${({ theme }) => theme.colors.shadow};
+  }
 `;
 export const Text = styled.p``;
 export const Dot = styled.div`
@@ -24,6 +30,7 @@ export const InfoContainer = styled.div`
   display: flex;
   align-content: center;
   gap: 1em;
+  padding: 0.5em;
 `;
 export const Details = styled.div`
   display: flex;

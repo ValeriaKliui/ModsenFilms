@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SearchedFilmStyled = styled.li`
   display: flex;
   gap: 1em;
-  border: 1px solid ${({ theme }) => theme.colors.borderDarker};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   border-collapse: collapse;
   justify-content: space-between;
   padding: 1em;
@@ -16,7 +16,7 @@ export const FilmInfo = styled.div`
 `;
 export const SearchedTitle = styled.h4``;
 export const SearchedDetail = styled.p`
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   display: block;
   -webkit-box-orient: vertical;
   overflow: hidden;

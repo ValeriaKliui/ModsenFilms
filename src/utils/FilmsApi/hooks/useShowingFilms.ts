@@ -10,7 +10,7 @@ import {
 import { useGetFilmsQuery } from '../FilmsApi';
 import { type FilmType } from '../types';
 
-interface hookProps {
+interface hookReturn {
   films: FilmType[];
   isLoading: boolean;
   isFetching: boolean;
@@ -21,7 +21,7 @@ interface hookProps {
   genre: number | null;
 }
 
-export const useShowingFilms = (): hookProps => {
+export const useShowingFilms = (): hookReturn => {
   const page = useAppSelector(selectPage);
   const genre = useAppSelector(selectGenre) === 0 ? null : useAppSelector(selectGenre);
   const dispatch = useAppDispatch();

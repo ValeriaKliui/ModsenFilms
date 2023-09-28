@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import RobotoWoff from '../../assets/fonts/Roboto.woff';
 import RobotoWoff2 from '../../assets/fonts/Roboto.woff2';
 
@@ -9,19 +9,20 @@ export const GlobalStyle = createGlobalStyle`
     url(${RobotoWoff2}) format('woff2'),
     url(${RobotoWoff}) format('woff');
 }
+html {
+  height: 100%;
+}
 body {
   color: ${({ theme }) => theme.colors.font};
   background-color: ${({ theme }) => theme.colors.bg};
   font-family: 'Roboto Condensed';
   font-size: 16px;
+  height: 100%;
 }
 #root {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  max-width: 1400px;
-  margin: 0 auto;
+  height: 100%;
 }
 * {
   margin: 0;
@@ -39,4 +40,13 @@ a {
 li {
   list-style-type: none;
 }  
+`;
+export const wrapper = css`
+  max-width: 1440px;
+  padding: 1.3em 0;
+  margin: 0 auto;
+  width: 100%;
+`;
+export const border = css`
+  border-bottom: 2px solid ${({ theme }) => theme.colors.border};
 `;

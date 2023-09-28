@@ -18,4 +18,5 @@ export interface VideoI {
   official: boolean;
   published_at: string;
   size: number;
+  type: string;
 }
