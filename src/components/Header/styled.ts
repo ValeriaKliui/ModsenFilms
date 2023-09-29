@@ -12,4 +12,5 @@ export const Container = styled.div`
 export const Logo = styled.div`
   display: flex;
   gap: 0.5em;
+  align-items: center;
 `;

@@ -1,14 +1,14 @@
 import { useGetFilmVideoQuery } from '../FilmsApi';
 
 interface hookProps {
-  movieID: number;
+  movieID: number | null;
 }
 interface hookReturns {
   src: string;
 }
 
 export const useVideo = ({ movieID }: hookProps): hookReturns => {
-  const { data } = useGetFilmVideoQuery({ movieID }, { skip: movieID === 0 });
+  const { data } = useGetFilmVideoQuery({ movieID }, { skip: movieID === null });
   const video = data?.results.filter((film) => film.type === 'Trailer');
   const src =
     video != null && video.length > 0

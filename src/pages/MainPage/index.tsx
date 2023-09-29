@@ -6,8 +6,9 @@ import { displayMoreFilms, increasePage, selectSearchQuery } from '../../store/s
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import { useEffect } from 'react';
 import { useSearchedFilms } from '../../utils/FilmsApi/hooks/useSearchedFilms';
-import { Modal } from '../../components/Modal';
 import { Main, Container } from './styled';
+import { Video } from '../../components/Video';
+import { Modal } from '../../components/Modal';
 
 export const MainPage: React.FC = () => {
   const searchQuery = useAppSelector(selectSearchQuery);
@@ -29,13 +30,13 @@ export const MainPage: React.FC = () => {
       dispatch(displayMoreFilms(searchedFilms));
     }
   }, [searchedFilms]);
-  // const movieID = useAppSelector(selectMovieID);
-
-  // const { data } = useGetFilmVideoQuery({ movieID }, { skip: movieID === 0 });
 
   return (
       <>
           <Sort />
+          <Modal>
+              <Video />
+          </Modal>
           <Main>
               <Container>
                   <Films />
@@ -47,7 +48,6 @@ export const MainPage: React.FC = () => {
           />
               </Container>
           </Main>
-          <Modal />
       </>
   );
 };

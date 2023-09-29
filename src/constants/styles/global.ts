@@ -14,7 +14,7 @@ html {
 }
 body {
   color: ${({ theme }) => theme.colors.font};
-  background-color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) => theme.colors.background};
   font-family: 'Roboto Condensed';
   font-size: 16px;
   height: 100%;

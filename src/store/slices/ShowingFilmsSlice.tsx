@@ -8,7 +8,7 @@ interface ShowingFilmsState {
   page: number;
   genre: number | null;
   searchQuery: string;
-  movieID: number;
+  movieID: number | null;
 }
 
 const initialState: ShowingFilmsState = {
@@ -17,7 +17,7 @@ const initialState: ShowingFilmsState = {
   page: 1,
   genre: null,
   searchQuery: '',
-  movieID: 0,
+  movieID: null,
 };
 
 export const showingFilmsSlice = createSlice({
@@ -45,7 +45,7 @@ export const showingFilmsSlice = createSlice({
     setSearchedFilms: (state, action: PayloadAction<FilmType[]>) => {
       state.searchedFilms = action.payload;
     },
-    setMovieID: (state, action: PayloadAction<number>) => {
+    setMovieID: (state, action: PayloadAction<number | null>) => {
       state.movieID = action.payload;
     },
   },
@@ -66,6 +66,6 @@ export const selectShowingFilms = (state: RootState): FilmType[] => state.showin
 export const selectPage = (state: RootState): number => state.showingFilms.page;
 export const selectGenre = (state: RootState): number | null => state.showingFilms.genre;
 export const selectSearchQuery = (state: RootState): string => state.showingFilms.searchQuery;
-export const selectMovieID = (state: RootState): number => state.showingFilms.movieID;
+export const selectMovieID = (state: RootState): number | null => state.showingFilms.movieID;
 
 export default showingFilmsSlice.reducer;

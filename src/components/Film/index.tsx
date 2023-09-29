@@ -1,8 +1,8 @@
 import { type FilmType } from '../../utils/FilmsApi/types';
 import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot } from './styled';
 import noImage from '../../assets/img/no-image.png';
-import { useAppDispatch } from '../../store/hooks/hooks';
 import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
+import { useAppDispatch } from '../../store/hooks/hooks';
 import { setIsModalOpened } from '../../store/slices/ModalsSlice';
 
 interface FilmProps {

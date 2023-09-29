@@ -57,11 +57,9 @@ export default (env: BuildEnv) => {
           type: 'asset/resource',
         },
         {
-          test: /\.svg$/,
-          type: 'asset/resource',
-          generator: {
-            filename: path.join('icons', '[name].[contenthash][ext]'),
-          },
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          use: ['@svgr/webpack'],
         },
         {
           test: /\.m?js$/,

@@ -8,7 +8,7 @@ export const AnimatedBlock = styled.div`
       rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0) 60%
     )
-    ${({ theme }) => theme.colors.bg};
+    ${({ theme }) => theme.colors.background};
   background-size: 200% 100%;
   background-position-x: 180%;
   animation: 1.5s ${loading} ease-in-out infinite;

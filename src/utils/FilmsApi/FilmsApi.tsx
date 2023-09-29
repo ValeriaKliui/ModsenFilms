@@ -14,7 +14,7 @@ interface VideoResponse {
   results: VideoI[];
 }
 interface VideoParams {
-  movieID: number;
+  movieID: number | null;
 }
 
 const filmsApi = rtkApi.injectEndpoints({

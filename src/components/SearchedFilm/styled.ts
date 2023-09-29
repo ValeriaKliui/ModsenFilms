@@ -3,11 +3,10 @@ import styled from 'styled-components';
 export const SearchedFilmStyled = styled.li`
   display: flex;
   gap: 1em;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   border-collapse: collapse;
   justify-content: space-between;
   padding: 1em;
-  width: 570px;
 `;
 export const FilmInfo = styled.div`
   display: flex;

@@ -6,5 +6,4 @@ export const ErrorStyled = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const ErrorImg = styled.img``;
 export const ErrorTitle = styled.h2``;

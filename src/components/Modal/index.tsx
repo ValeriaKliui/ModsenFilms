@@ -1,32 +1,29 @@
-import { useAppSelector } from '../../store/hooks/hooks';
-import { selectIsModalOpened } from '../../store/slices/ModalsSlice';
-import { selectMovieID } from '../../store/slices/ShowingFilmsSlice';
-import { useVideo } from '../../utils/FilmsApi/hooks/useVideo';
-import { ModalContainer, Video, CloseIcon } from './styled';
-import closeIcon from '../../assets/img/close_icon.svg';
+import { type ReactNode } from 'react';
+import { Content, ModalStyled, Overlay } from './styled';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import { selectIsModalOpened, setIsModalOpened } from '../../store/slices/ModalsSlice';
+import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
 
-export const Modal: React.FC = () => {
+interface ModalProps {
+  children?: ReactNode;
+}
+
+export const Modal: React.FC<ModalProps> = ({ children }) => {
   const isModalOpened = useAppSelector(selectIsModalOpened);
-  //   const { ref } = useClickOutside({ isOpened: isModalOpened, setIsOpened: setIsModalOpened });
-  //   console.log(ref.current);
-  const movieID = useAppSelector(selectMovieID);
-  const { src } = useVideo({ movieID });
+  const dispatch = useAppDispatch();
 
+  const closeHandler = (): void => {
+    dispatch(setIsModalOpened(false));
+    dispatch(setMovieID(null));
+  };
+  const onContentClick = (e: React.MouseEvent): void => {
+    e.stopPropagation();
+  };
   return (
-      <>
-          {isModalOpened && (
-          <ModalContainer $isOpened={isModalOpened}>
-              <CloseIcon src={closeIcon} />
-              <Video
-                  width="50%"
-                  height="50%"
-                  src={src}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Embedded youtube"
-          />
-          </ModalContainer>
-      )}
-      </>
+      <ModalStyled $opened={isModalOpened}>
+          <Overlay onClick={closeHandler}>
+              <Content onClick={onContentClick}>{children}</Content>
+          </Overlay>
+      </ModalStyled>
   );
 };
