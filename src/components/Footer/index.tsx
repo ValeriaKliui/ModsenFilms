@@ -1,18 +1,31 @@
-import { FooterStyled, FooterInfo, Text } from './styled';
+import { Link } from 'react-router-dom';
+import { FooterStyled, FooterInfo } from './styled';
 
 export const Footer: React.FC = () => {
-    return (
-        <FooterStyled>
-            <FooterInfo>
-                <Text>TermsPrivacyPolicy & Safety </Text>
-                <Text>How YouTube works</Text>
-                <Text>Test new features</Text>
-            </FooterInfo>
-            <FooterInfo>
-                <Text>About Press Copyright </Text>
-                <Text>Contact us Creators</Text>
-                <Text>Advertise Developers</Text>
-            </FooterInfo>
-        </FooterStyled>
-    );
+  return (
+      <FooterStyled>
+          <FooterInfo>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  TermsPrivacyPolicy & Safety{' '}
+              </Link>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  How YouTube works
+              </Link>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  Test new features
+              </Link>
+          </FooterInfo>
+          <FooterInfo>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  About Press Copyright{' '}
+              </Link>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  Contact us Creators
+              </Link>
+              <Link to="https://www.modsen-software.com/" target="_blank">
+                  Advertise Developers
+              </Link>
+          </FooterInfo>
+      </FooterStyled>
+  );
 };

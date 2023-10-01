@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { hoverAnimation } from '../../constants/styles/animation';
 
 export const SearchContainer = styled.div`
   width: 570px;
@@ -10,6 +11,10 @@ export const SearchContainer = styled.div`
       fill: ${({ theme }) => theme.colors.font};
     }
   }
+  &:hover {
+    border: ${({ theme }) => theme.colors.primary} 2px solid;
+  }
+  ${hoverAnimation}
 `;
 export const Input = styled.input`
   width: 100%;
@@ -23,7 +28,7 @@ export const Input = styled.input`
   color: ${({ theme }) => theme.colors.font};
 `;
 
-export const SearchField = styled.div`
+export const SearchForm = styled.form`
   display: flex;
 `;
 export const SearchButton = styled.button`
@@ -35,4 +40,14 @@ export const SearchButton = styled.button`
   background-color: ${({ theme }) => theme.colors.background};
   border: none;
   border-left: 2px solid ${({ theme }) => theme.colors.border};
+  ${hoverAnimation}
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-left: 2px solid ${({ theme }) => theme.colors.primary};
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.fontActive};
+      }
+    }
+  }
 `;

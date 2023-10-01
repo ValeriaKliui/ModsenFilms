@@ -12,6 +12,3 @@ export const FooterInfo = styled.div`
   gap: 0.5em;
   font-weight: 700;
 `;
-export const Text = styled.p`
-  margin: 0;
-`;

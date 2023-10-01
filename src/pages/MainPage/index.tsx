@@ -12,8 +12,8 @@ import { Modal } from '../../components/Modal';
 
 export const MainPage: React.FC = () => {
   const searchQuery = useAppSelector(selectSearchQuery);
-  const { page: initialPage, films: initialFilms } = useShowingFilms();
-  const { page: searchedPage, searchedFilms } = useSearchedFilms({ searchQuery });
+  const { page: initialPage, films: initialFilms, isSuccess: isInitFilmsSuccess } = useShowingFilms();
+  const { page: searchedPage, searchedFilms, isSuccess: isSearchedFilmsSucess } = useSearchedFilms({ searchQuery });
 
   const dispatch = useAppDispatch();
   const showMoreFilms = (): void => {
@@ -31,6 +31,8 @@ export const MainPage: React.FC = () => {
     }
   }, [searchedFilms]);
 
+  const isSuccesfull = isInitFilmsSuccess || isSearchedFilmsSucess;
+
   return (
       <>
           <Sort />
@@ -40,12 +42,14 @@ export const MainPage: React.FC = () => {
           <Main>
               <Container>
                   <Films />
+                  {isSuccesfull && (
                   <Button
                       text="Show More"
                       onClick={() => {
-              showMoreFilms();
-            }}
-          />
+                showMoreFilms();
+              }}
+            />
+          )}
               </Container>
           </Main>
       </>

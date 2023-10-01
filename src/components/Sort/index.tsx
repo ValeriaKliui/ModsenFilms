@@ -17,7 +17,7 @@ export const Sort: React.FC = () => {
     if (page === 1 && !isLoading && isSuccess) {
       dispatch(setFilms(films));
     }
-    dispatch(setSearchQuery(''));
+    if (isSuccess) dispatch(setSearchQuery(''));
   }, [genre, isLoading, films]);
 
   useEffect(() => {

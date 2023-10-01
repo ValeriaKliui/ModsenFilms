@@ -21,5 +21,5 @@ export const scaleAnimation = css`
   }
 `;
 export const hoverAnimation = css`
-  transition: 0.2s ease-in-out all;
+  transition: 0.2s ease all;
 `;
