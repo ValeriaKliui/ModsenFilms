@@ -3,13 +3,16 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import { selectTheme, toggleTheme } from '../../store/slices/ThemeSlice';
 import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './styled';
 
-export const Toggler: React.FC = () => {
+interface TogglerProps {
+  shouldBeHidden?: boolean;
+}
+
+export const Toggler: React.FC<TogglerProps> = ({ shouldBeHidden = false }) => {
   const dispatch = useAppDispatch();
-  console.log(useAppSelector(selectTheme).type);
   const theme = useAppSelector(selectTheme);
 
   return (
-    <TogglerContainer>
+    <TogglerContainer $shouldBeHidden={shouldBeHidden}>
       <TogglerInput
         type="checkbox"
         id="dark"

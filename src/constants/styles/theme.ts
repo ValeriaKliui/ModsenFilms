@@ -17,6 +17,7 @@ export interface ITheme {
     videoBg: string;
     shadow: string;
     lightest: string;
+    copyright: string;
   };
 }
 
@@ -32,6 +33,7 @@ export const baseTheme: ITheme = {
     videoBg: 'rgba(0, 0, 0, 0.6)',
     shadow: '4px 4px 8px 0px rgba(34, 60, 80, 0.2)',
     lightest: '#ffffff',
+    copyright: 'rgba(0, 0, 0, 0.40)',
   },
 };
 
@@ -57,5 +59,6 @@ export const darkTheme: DefaultTheme = {
     bgActive: '#ffffff',
     fontActive: '#000000',
     border: '#383838',
+    copyright: 'rgba(255, 255, 255, 0.40)',
   },
 };
