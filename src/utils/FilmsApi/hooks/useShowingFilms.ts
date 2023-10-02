@@ -8,15 +8,15 @@ import {
   setFilms,
 } from '../../../store/slices/ShowingFilmsSlice';
 import { useGetFilmsQuery } from '../FilmsApi';
-import { type FilmType } from '../types';
+import { type FilmI } from '../types';
 
 interface hookReturn {
-  films: FilmType[];
+  films: FilmI[];
   isLoading: boolean;
   isFetching: boolean;
   isSuccess: boolean;
   isError: boolean;
-  showingFilms: FilmType[];
+  showingFilms: FilmI[];
   page: number;
   genre: number | null;
 }
@@ -30,7 +30,7 @@ export const useShowingFilms = (): hookReturn => {
     { page, genre },
     { skip: searchQuery.length > 0 },
   );
-  const films: FilmType[] = data?.results ?? [];
+  const films: FilmI[] = data?.results ?? [];
   const showingFilms = useAppSelector(selectShowingFilms);
 
   useEffect(() => {

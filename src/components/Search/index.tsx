@@ -22,31 +22,31 @@ export const Search: React.FC = () => {
     searchQuery: debouncedSearchQuery,
   });
 
-  const handleClick = (): void => {
-    console.log('j');
+  const handleClick = (e: React.MouseEvent): void => {
+    e.preventDefault();
     if (searchedFilms.length > 1) {
       dispatch(setFilms(searchedFilms));
       dispatch(setIsSearchOpened(false));
     }
   };
-  const ref = useClickOutside(() => dispatch(setIsSearchOpened(false)));
+  const ref = useClickOutside<HTMLDivElement>(() => dispatch(setIsSearchOpened(false)));
   return (
-      <SearchContainer ref={ref} onSubmit={handleClick}>
-          <SearchForm>
-              <Input onChange={handleChange} placeholder="Search" value={searchQuery} />
-              <SearchButton onClick={handleClick}>
-                  <SearchIcon />
-              </SearchButton>
-          </SearchForm>
-          {isSearchOpened && (
-          <SearchedFilms
-              searchedFilms={searchedFilms}
-              isFetching={isFetching}
-              searchedFilmsAmount={searchedFilmsAmount}
-              isError={isError}
-              isSuccess={isSuccess}
+    <SearchContainer ref={ref}>
+      <SearchForm>
+        <Input onChange={handleChange} placeholder="Search" value={searchQuery} />
+        <SearchButton onClick={handleClick}>
+          <SearchIcon />
+        </SearchButton>
+      </SearchForm>
+      {isSearchOpened && (
+        <SearchedFilms
+          searchedFilms={searchedFilms}
+          isFetching={isFetching}
+          searchedFilmsAmount={searchedFilmsAmount}
+          isError={isError}
+          isSuccess={isSuccess}
         />
       )}
-      </SearchContainer>
+    </SearchContainer>
   );
 };

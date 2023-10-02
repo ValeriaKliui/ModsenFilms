@@ -1,10 +1,10 @@
-import { type FilmType } from '../../utils/FilmsApi/types';
+import { type FilmI } from '../../utils/FilmsApi/types';
 import { SearchedFilm } from '../SearchedFilm';
 import { Spinner } from '../Spinner';
 import { Info, InfoContainer, SearchedFilmsContainer } from './styled';
 
 interface SearchedFilmProps {
-  searchedFilms: FilmType[];
+  searchedFilms: FilmI[];
   isFetching: boolean;
   searchedFilmsAmount: number | undefined;
   isError: boolean;

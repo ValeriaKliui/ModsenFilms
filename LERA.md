@@ -1,10 +1,4 @@
 ##decide where to put global.d.ts, interfaces
-##fix svg loader
-##font
-##прибить к низу футер не flex direction
-##save theme to local storage
-##сделать норм fallback в index error boundary
-##maybe to split reducres and actions
 ##сделать чтобы в films и film не приходилось дублировать пропсы
 ##обработать ошибку при неправильной ссылке
 ##пофиксить чтобы отправлялся только один запрос при get films
@@ -12,6 +6,7 @@
 ##обработать если нет vpn
 ##make search closable
 ##made input throttle debounce
+##made skeletonLoaders after search
 
 ## Необходимый функционал
 

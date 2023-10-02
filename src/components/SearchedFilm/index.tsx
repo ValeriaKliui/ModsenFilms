@@ -1,9 +1,9 @@
 import { FilmInfo, PosterSearched, SearchedDetail, SearchedFilmStyled, SearchedTitle } from './styled';
 import noImage from '../../assets/img/no-image.png';
-import { type FilmType } from '../../utils/FilmsApi/types';
+import { type FilmI } from '../../utils/FilmsApi/types';
 
 interface SearchedFilmProps {
-  film?: FilmType;
+  film?: FilmI;
 }
 
 export const SearchedFilm: React.FC<SearchedFilmProps> = ({ film }) => {

@@ -16,7 +16,6 @@ export const AnimatedBlock = styled.div`
 
 export const Skeleton = styled(AnimatedBlock)`
   width: 100%;
-  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,10 +23,24 @@ export const Skeleton = styled(AnimatedBlock)`
 export const Image = styled(AnimatedBlock)`
   background-color: ${({ theme }) => theme.colors.secondary};
   width: 100%;
-  height: 220px;
+  height: 180px;
 `;
-export const Description = styled(AnimatedBlock)`
+export const Description = styled.div`
+  display: flex;
+  gap: 1em;
+  padding: 0.5em;
+  padding-right: 0;
+  align-items: center;
+`;
+export const Avatar = styled(AnimatedBlock)`
+  background-color: ${({ theme }) => theme.colors.secondary};
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+`;
+export const Info = styled(AnimatedBlock)`
   background-color: ${({ theme }) => theme.colors.secondary};
   width: 100%;
-  height: 50px;
+  height: 35px;
 `;

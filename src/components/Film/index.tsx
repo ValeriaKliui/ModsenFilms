@@ -1,15 +1,17 @@
-import { type FilmType } from '../../utils/FilmsApi/types';
-import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot } from './styled';
-import noImage from '../../assets/img/no-image.png';
+import { type FilmI } from '../../utils/FilmsApi/types';
+import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
+import noImage from '../../assets/img/no-image.jpg';
 import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
 import { useAppDispatch } from '../../store/hooks/hooks';
 import { setIsModalOpened } from '../../store/slices/ModalsSlice';
+import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
 
 interface FilmProps {
-  film: FilmType;
+  film: FilmI;
+  isFetching?: boolean;
 }
 
-export const Film: React.FC<FilmProps> = ({ film }) => {
+export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
   const {
     backdrop_path: backdropPath,
     poster_path: posterPath,
@@ -20,9 +22,9 @@ export const Film: React.FC<FilmProps> = ({ film }) => {
   } = film;
 
   const dispatch = useAppDispatch();
-  const photo = (): JSX.Element => {
-    if (backdropPath != null && backdropPath.includes('null')) return <img src={noImage} alt={title} />;
-    return <img src={`https://image.tmdb.org/t/p/w300${backdropPath}`} alt={title} />;
+  const photoSrc = (src: string): string => {
+    if (src === null) return noImage;
+    else return `https://image.tmdb.org/t/p/w300${src}`;
   };
   const handleFilmClick = (): void => {
     dispatch(setMovieID(id));
@@ -30,19 +32,25 @@ export const Film: React.FC<FilmProps> = ({ film }) => {
   };
 
   return (
-      <FilmStyled onClick={handleFilmClick}>
-          {photo()}
-          <InfoContainer>
-              <Poster src={`https://image.tmdb.org/t/p/w300${posterPath}`} alt={title} />
-              <Details>
-                  <Text>{title}</Text>
-                  <SubDetails>
-                      <Text>{new Date(releaseDate).getFullYear()}</Text>
-                      <Dot />
-                      <Text>Rating: {voteAverage}</Text>
-                  </SubDetails>
-              </Details>
-          </InfoContainer>
-      </FilmStyled>
+      <>
+          {isFetching !== undefined && isFetching ? (
+              <SkeletonLoader />
+      ) : (
+          <FilmStyled onClick={handleFilmClick}>
+              <Preview src={photoSrc(backdropPath)} alt={title} />
+              <InfoContainer>
+                  <Poster src={photoSrc(posterPath)} alt={title} />
+                  <Details>
+                      <Text>{title}</Text>
+                      <SubDetails>
+                          <Text>{new Date(releaseDate).getFullYear()}</Text>
+                          <Dot />
+                          <Text>Rating: {voteAverage}</Text>
+                      </SubDetails>
+                  </Details>
+              </InfoContainer>
+          </FilmStyled>
+      )}
+      </>
   );
 };

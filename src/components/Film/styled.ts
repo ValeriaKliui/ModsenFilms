@@ -18,6 +18,11 @@ export const Dot = styled.div`
   height: 3px;
   border-radius: 100px;
 `;
+export const Preview = styled.img`
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+`;
 export const Poster = styled.img`
   border-radius: 50%;
   width: 40px;

@@ -1,10 +1,13 @@
-import { Skeleton, Image, Description } from './styled';
+import { Skeleton, Image, Description, Avatar, Info } from './styled';
 
 export const SkeletonLoader: React.FC = () => {
   return (
       <Skeleton>
           <Image />
-          <Description />
+          <Description>
+              <Avatar />
+              <Info />
+          </Description>
       </Skeleton>
   );
 };

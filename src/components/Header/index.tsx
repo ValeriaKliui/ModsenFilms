@@ -6,6 +6,7 @@ import { Button } from '../Button';
 import { Search } from '../Search';
 import { NavLink } from 'react-router-dom';
 import { setFirstPage, setGenre } from '../../store/slices/ShowingFilmsSlice';
+import { Toggler } from '../Toggler';
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,22 +16,17 @@ export const Header: React.FC = () => {
   };
 
   return (
-      <StyledHeader>
-          <Container>
-              <NavLink to="/" onClick={handleClick}>
-                  <Logo>
-                      <LogoPic />
-                      <LogoTitle>ModsenFilms</LogoTitle>
-                  </Logo>
-              </NavLink>
-              <Search />
-              <Button
-                  text="change theme"
-                  onClick={() => {
-            dispatch(toggleTheme());
-          }}
-        />
-          </Container>
-      </StyledHeader>
+    <StyledHeader>
+      <Container>
+        <NavLink to="/" onClick={handleClick}>
+          <Logo>
+            <LogoPic />
+            <LogoTitle>ModsenFilms</LogoTitle>
+          </Logo>
+        </NavLink>
+        <Search />
+        <Toggler />
+      </Container>
+    </StyledHeader>
   );
 };
