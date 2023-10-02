@@ -19,15 +19,15 @@ export const SearchedFilms: React.FC<SearchedFilmProps> = ({
   isSuccess,
 }) => {
   return (
-      <SearchedFilmsContainer $isScrolled={!isFetching && searchedFilms.length > 0}>
-          <InfoContainer>
-              {isFetching && <Spinner size={50} />}
-              {!isError && !isFetching && isSuccess && searchedFilmsAmount !== searchedFilms.length && (
-              <Info>Found: {searchedFilmsAmount} films.</Info>
+    <SearchedFilmsContainer $isScrolled={!isFetching && searchedFilms.length > 0}>
+      <InfoContainer>
+        {isFetching && <Spinner size={50} />}
+        {!isError && !isFetching && isSuccess && searchedFilmsAmount !== searchedFilms.length && (
+          <Info>Found: {searchedFilmsAmount} films.</Info>
         )}
-              {!isFetching && searchedFilms.length === 0 && <Info>Nothing was found.</Info>}
-          </InfoContainer>
-          {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
-      </SearchedFilmsContainer>
+        {!isFetching && searchedFilms.length === 0 && <Info>Nothing was found.</Info>}
+      </InfoContainer>
+      {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
+    </SearchedFilmsContainer>
   );
 };

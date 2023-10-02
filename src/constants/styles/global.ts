@@ -54,28 +54,31 @@ li {
 `;
 export const wrapper = css`
   max-width: 1440px;
-  padding: 1.3em 0;
+  padding: 1.3em;
   margin: 0 auto;
   width: 100%;
   @media ${devices['2xl']} {
-    max-width: 1240px;
+    max-width: 1440px;
   }
   @media ${devices.xl} {
-    max-width: 1000px;
+    max-width: 1240px;
   }
   @media ${devices.lg} {
-    max-width: 900px;
+    max-width: 1000px;
   }
   @media ${devices.md} {
-    max-width: 700px;
+    max-width: 730px;
   }
   @media ${devices.sm} {
     max-width: 600px;
   }
   @media ${devices.xs} {
-    max-width: 300px;
+    max-width: 290px;
   }
 `;
 export const border = css`
   border-bottom: 2px solid ${({ theme }) => theme.colors.border};
+  @media ${devices.sm} {
+    border: none;
+  }
 `;

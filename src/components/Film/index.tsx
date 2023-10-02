@@ -32,25 +32,25 @@ export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
   };
 
   return (
-      <>
-          {isFetching !== undefined && isFetching ? (
-              <SkeletonLoader />
+    <>
+      {isFetching !== undefined && isFetching ? (
+        <SkeletonLoader />
       ) : (
-          <FilmStyled onClick={handleFilmClick}>
-              <Preview src={photoSrc(backdropPath)} alt={title} />
-              <InfoContainer>
-                  <Poster src={photoSrc(posterPath)} alt={title} />
-                  <Details>
-                      <Text>{title}</Text>
-                      <SubDetails>
-                          <Text>{new Date(releaseDate).getFullYear()}</Text>
-                          <Dot />
-                          <Text>Rating: {voteAverage}</Text>
-                      </SubDetails>
-                  </Details>
-              </InfoContainer>
-          </FilmStyled>
+        <FilmStyled onClick={handleFilmClick}>
+          <Preview src={photoSrc(backdropPath)} alt={title} />
+          <InfoContainer>
+            <Poster src={photoSrc(posterPath)} alt={title} />
+            <Details>
+              <Text>{title}</Text>
+              <SubDetails>
+                <Text>{new Date(releaseDate).getFullYear()}</Text>
+                <Dot />
+                <Text>Rating: {voteAverage}</Text>
+              </SubDetails>
+            </Details>
+          </InfoContainer>
+        </FilmStyled>
       )}
-      </>
+    </>
   );
 };

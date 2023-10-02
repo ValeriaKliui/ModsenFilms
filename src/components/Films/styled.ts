@@ -11,8 +11,13 @@ export const FilmsStyled = styled.div<FilmsStyledProps>`
     grid-template-columns: repeat(3, minmax(150px, 340px));
     gap: 1em;
   }
+  @media ${devices.md} {
+    grid-template-columns: repeat(2, minmax(150px, 340px));
+    gap: 1em;
+  }
   @media ${devices.sm} {
-    grid-template-columns: repeat(1, minmax(150px, 340px));
+    grid-template-columns: repeat(1, minmax(150px, 500px));
     gap: 2em;
+    justify-content: center;
   }
 `;

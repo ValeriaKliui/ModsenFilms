@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { border, wrapper } from '../../constants/styles/global';
 
 export const Main = styled.main`
-  ${border};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.border};
   flex: 1 0 auto;
   display: flex;
   justify-content: center;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { scaleAnimation } from '../../constants/styles/animation';
+import { devices } from '../../constants/styles/media';
 
 export const FilmStyled = styled.div`
   display: flex;
@@ -7,8 +8,10 @@ export const FilmStyled = styled.div`
   gap: 0.5em;
   cursor: pointer;
   ${scaleAnimation}
-  &:hover {
-    box-shadow: ${({ theme }) => theme.colors.shadow};
+  @media (pointer: fine) {
+    &:hover {
+      box-shadow: ${({ theme }) => theme.colors.shadow};
+    }
   }
 `;
 export const Text = styled.p``;
@@ -22,6 +25,10 @@ export const Preview = styled.img`
   width: 100%;
   max-height: 180px;
   object-fit: cover;
+  object-position: top;
+  @media ${devices.sm} {
+    max-height: 220px;
+  }
 `;
 export const Poster = styled.img`
   border-radius: 50%;

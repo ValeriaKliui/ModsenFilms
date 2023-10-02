@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { hoverAnimation } from '../../constants/styles/animation';
+import { devices } from '../../constants/styles/media';
 
 export const SearchContainer = styled.div`
-  width: 570px;
   border: 2px solid ${({ theme }) => theme.colors.border};
   position: relative;
   z-index: 100;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 627px;
+  justify-self: center;
   svg {
     path {
       fill: ${({ theme }) => theme.colors.font};
@@ -15,6 +19,9 @@ export const SearchContainer = styled.div`
     border: ${({ theme }) => theme.colors.primary} 2px solid;
   }
   ${hoverAnimation}
+  @media ${devices.sm} {
+    grid-area: 2 / 1 / 2 / 4;
+  }
 `;
 export const Input = styled.input`
   width: 100%;

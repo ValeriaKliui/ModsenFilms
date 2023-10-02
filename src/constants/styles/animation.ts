@@ -16,8 +16,10 @@ export const spin = keyframes`
 `;
 export const scaleAnimation = css`
   transition: 0.2s ease-in-out all;
-  &:hover {
-    transform: scale(1.1);
+  @media (pointer: fine) {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 export const hoverAnimation = css`

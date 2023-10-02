@@ -9,7 +9,11 @@ export const Container = styled.div`
   display: flex;
   gap: 1em;
   justify-content: center;
+  flex-wrap: wrap;
   @media ${devices.md} {
     gap: 0.5em;
+  }
+  @media ${devices.sm} {
+    justify-content: flex-start;
   }
 `;

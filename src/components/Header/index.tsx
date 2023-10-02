@@ -1,12 +1,12 @@
 import LogoPic from '../../assets/img/logo.svg';
-import { StyledHeader, Logo, Container, LogoTitle } from './styled';
+import { StyledHeader, Logo, Container, LogoTitle, Burger, BurgerLine } from './styled';
 import { useAppDispatch } from '../../store/hooks/hooks';
 import { toggleTheme } from '../../store/slices/ThemeSlice';
 import { Button } from '../Button';
-import { Search } from '../Search';
 import { NavLink } from 'react-router-dom';
 import { setFirstPage, setGenre } from '../../store/slices/ShowingFilmsSlice';
 import { Toggler } from '../Toggler';
+import { Search } from '../Search';
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +26,11 @@ export const Header: React.FC = () => {
         </NavLink>
         <Search />
         <Toggler />
+        <Burger>
+          <BurgerLine />
+          <BurgerLine />
+          <BurgerLine />
+        </Burger>
       </Container>
     </StyledHeader>
   );

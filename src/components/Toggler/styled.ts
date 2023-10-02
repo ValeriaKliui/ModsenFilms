@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { devices } from '../../constants/styles/media';
 
 export const TogglerContainer = styled.div`
   display: flex;
+  justify-content: flex-end;
 `;
 export const TogglerInput = styled.input`
   height: 0;
@@ -14,12 +16,16 @@ export const TogglerLabel = styled.label`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 80px;
+  width: 70px;
   height: 40px;
   border-radius: 100px;
   border: 3px solid ${({ theme }) => theme.colors.primary};
   position: relative;
   transition: background-color 0.2s;
+  @media ${devices.md} {
+    width: 50px;
+    height: 30px;
+  }
 `;
 
 export const TogglerButton = styled.span`
@@ -39,5 +45,10 @@ export const TogglerButton = styled.span`
 
   ${TogglerLabel}:active & {
     width: 45px;
+  }
+  @media ${devices.md} {
+    width: 30px;
+    height: 30px;
+    border-radius: 35px;
   }
 `;
