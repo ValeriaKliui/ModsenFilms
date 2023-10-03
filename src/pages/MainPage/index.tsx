@@ -10,28 +10,7 @@ import { useFilms } from '../../utils/hooks/useFilms/useFilms';
 import { FILMS_LIMIT } from '../../constants/filmsConstants';
 
 export const MainPage: React.FC = () => {
-  // const searchQuery = useAppSelector(selectSearchQuery);
-  // const { page: initialPage, films: initialFilms, isSuccess: isInitFilmsSuccess } = useShowingFilms();
-  // const { page: searchedPage, searchedFilms, isSuccess: isSearchedFilmsSucess } = useSearchedFilms({ searchQuery });
-
   const dispatch = useAppDispatch();
-
-  // const showMoreFilms = (): void => {
-  //   dispatch(increasePage());
-  // };
-  // useEffect(() => {
-  //   if (searchQuery.length === 0 && initialFilms.length > 0 && initialPage !== 1) {
-  //     dispatch(displayMoreFilms(initialFilms));
-  //   }
-  // }, [initialFilms]);
-
-  // useEffect(() => {
-  //   if (searchedFilms.length > 0 && searchedPage !== 1) {
-  //     dispatch(displayMoreFilms(searchedFilms));
-  //   }
-  // }, [searchedFilms]);
-
-  // const isSuccesfull = isInitFilmsSuccess || isSearchedFilmsSucess;
   const { filmLimitPerPage, filmsReceived } = useFilms();
 
   const increaseFilmsLimit = (): void => {
@@ -40,25 +19,17 @@ export const MainPage: React.FC = () => {
   };
 
   return (
-      <>
-          <Sort />
-          <Modal>
-              <Video />
-          </Modal>
-          <Main>
-              <Container>
-                  <Films />
-                  <Button text="Show More" onClick={increaseFilmsLimit} />
-                  {/* {isSuccesfull && (
-            <Button
-              text="Show More"
-              onClick={() => {
-                showMoreFilms();
-              }}
-            />
-          )} */}
-              </Container>
-          </Main>
-      </>
+    <>
+      <Sort />
+      <Modal>
+        <Video />
+      </Modal>
+      <Main>
+        <Container>
+          <Films />
+          {filmsReceived.length > 0 && <Button text="Show More" onClick={increaseFilmsLimit} />}
+        </Container>
+      </Main>
+    </>
   );
 };

@@ -7,14 +7,15 @@ import { useEffect } from 'react';
 import { clearFilms, setFilmsReceived } from '../../store/slices/filmsSlice';
 import { useFilms } from '../../utils/hooks/useFilms/useFilms';
 import { useSearch } from '../../utils/hooks/useSearch/useSearch';
+import { Error } from '../Error';
+import { FILMS_LIMIT } from '../../constants/filmsConstants';
 export const Films: React.FC = () => {
   const dispatch = useAppDispatch();
   const { page, filmLimitPerPage, filmsReceived, genre } = useFilms();
   const { searchQuery } = useSearch();
 
-  const { data, isError } = useGetFilmsQuery({ page, genre }, { skip: searchQuery.length > 0 });
+  const { data, isError, isFetching } = useGetFilmsQuery({ page, genre }, { skip: searchQuery.length > 0 });
   const films: FilmI[] = data?.results ?? [];
-
   useEffect(() => {
     dispatch(clearFilms());
   }, [genre]);
@@ -24,12 +25,15 @@ export const Films: React.FC = () => {
   }, [data]);
 
   return (
-      <>
-          <FilmsStyled $isError={isError}>
-              {filmsReceived.slice(0, filmLimitPerPage).map((film) => (
-                  <Film film={film} key={film.id} />
+    <>
+      <FilmsStyled $isError={isError}>
+        {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
+        {filmsReceived.slice(0, filmLimitPerPage).map((film) => (
+          <Film film={film} key={film.id} />
         ))}
-          </FilmsStyled>
-      </>
+        {isFetching &&
+          new Array(FILMS_LIMIT).fill({}).map((film, index) => <Film film={film} isFetching={true} key={index} />)}
+      </FilmsStyled>
+    </>
   );
 };

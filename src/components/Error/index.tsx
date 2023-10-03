@@ -1,10 +1,13 @@
 import ErrorPic from '../../assets/img/Error.svg';
 import { ErrorStyled, ErrorTitle } from './styled';
-export const Error: React.FC = () => {
+interface ErrorProps {
+  text: string;
+}
+export const Error: React.FC<ErrorProps> = ({ text }) => {
   return (
-      <ErrorStyled>
-          <ErrorPic />
-          <ErrorTitle>Sorry, you have to enable VPN for this site to run</ErrorTitle>
-      </ErrorStyled>
+    <ErrorStyled>
+      <ErrorPic />
+      <ErrorTitle>{text}</ErrorTitle>
+    </ErrorStyled>
   );
 };

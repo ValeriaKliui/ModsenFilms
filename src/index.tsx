@@ -15,11 +15,11 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement as Element);
 
 const BasicLayout: React.FC = () => (
-    <ErrorBoundary fallback={<Error />}>
-        <Header />
-        <Outlet />
-        <Footer />
-    </ErrorBoundary>
+  <ErrorBoundary fallback={<Error text="Something went wrong" />}>
+    <Header />
+    <Outlet />
+    <Footer />
+  </ErrorBoundary>
 );
 
 const router = createBrowserRouter([
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-    <StrictMode>
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <GlobalStyle />
-                <RouterProvider router={router} />{' '}
-            </DarkThemeProvider>
-        </Provider>
-    </StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <DarkThemeProvider>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </DarkThemeProvider>
+    </Provider>
+  </StrictMode>,
 );

@@ -9,7 +9,7 @@ export interface FilmI {
 }
 export interface FilmsResponse {
   results: FilmI[];
-  total_results?: number;
+  total_results: number;
 }
 export interface VideoI {
   id: number;
