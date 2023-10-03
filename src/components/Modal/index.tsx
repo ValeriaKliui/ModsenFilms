@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 import { Content, ModalStyled, Overlay } from './styled';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import { selectIsModalOpened, setIsModalOpened } from '../../store/slices/ModalsSlice';
-import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
+import { setMovieID } from '../../store/slices/filmsSlice';
 
 interface ModalProps {
   children?: ReactNode;

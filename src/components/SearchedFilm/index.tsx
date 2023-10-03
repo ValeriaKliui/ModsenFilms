@@ -2,8 +2,8 @@ import { FilmInfo, PosterSearched, SearchedDetail, SearchedFilmStyled, SearchedT
 import noImage from '../../assets/img/no-image.jpg';
 import { type FilmI } from '../../utils/FilmsApi/types';
 import { useAppDispatch } from '../../store/hooks/hooks';
-import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
 import { setIsModalOpened, setIsSearchOpened } from '../../store/slices/ModalsSlice';
+import { setMovieID } from '../../store/slices/filmsSlice';
 
 interface SearchedFilmProps {
   film?: FilmI;
@@ -28,17 +28,17 @@ export const SearchedFilm: React.FC<SearchedFilmProps> = ({ film }) => {
   };
 
   return (
-    <SearchedFilmStyled onClick={handleFilmClick}>
-      <FilmInfo>
-        <SearchedTitle>{title}</SearchedTitle>
-        <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
-        <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
-        <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
-      </FilmInfo>
-      <PosterSearched
-        src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
-        alt={title}
+      <SearchedFilmStyled onClick={handleFilmClick}>
+          <FilmInfo>
+              <SearchedTitle>{title}</SearchedTitle>
+              <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
+              <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
+              <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
+          </FilmInfo>
+          <PosterSearched
+              src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
+              alt={title}
       ></PosterSearched>
-    </SearchedFilmStyled>
+      </SearchedFilmStyled>
   );
 };

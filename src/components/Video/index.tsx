@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../store/hooks/hooks';
-import { selectMovieID } from '../../store/slices/ShowingFilmsSlice';
+import { selectMovieID } from '../../store/selectors/filmsSelectors';
 import { useVideo } from '../../utils/FilmsApi/hooks/useVideo';
 import { VideoStyled } from './styled';
 

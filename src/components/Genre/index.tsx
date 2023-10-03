@@ -1,6 +1,5 @@
 import { genres, type GenresType } from '../../constants/types/genres';
-import { useAppSelector } from '../../store/hooks/hooks';
-import { selectGenre } from '../../store/slices/ShowingFilmsSlice';
+import { useFilms } from '../../utils/hooks/useFilms/useFilms';
 import { GenreStyled } from './styled';
 
 interface GenreProps {
@@ -9,7 +8,7 @@ interface GenreProps {
 }
 
 export const Genre: React.FC<GenreProps> = ({ onClick, genre }) => {
-  const genreActive = useAppSelector(selectGenre);
+  const { genre: genreActive } = useFilms();
   const isActiveGenre = (): boolean => {
     if (genres[genre] === 0 && genreActive === null) return true;
     else return genreActive === genres[genre];

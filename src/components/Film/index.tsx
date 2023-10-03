@@ -1,10 +1,10 @@
 import { type FilmI } from '../../utils/FilmsApi/types';
 import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
 import noImage from '../../assets/img/no-image.jpg';
-import { setMovieID } from '../../store/slices/ShowingFilmsSlice';
 import { useAppDispatch } from '../../store/hooks/hooks';
 import { setIsModalOpened } from '../../store/slices/ModalsSlice';
 import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
+import { setMovieID } from '../../store/slices/filmsSlice';
 
 interface FilmProps {
   film: FilmI;
@@ -32,25 +32,25 @@ export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
   };
 
   return (
-    <>
-      {isFetching !== undefined && isFetching ? (
-        <SkeletonLoader />
+      <>
+          {isFetching !== undefined && isFetching ? (
+              <SkeletonLoader />
       ) : (
-        <FilmStyled onClick={handleFilmClick}>
-          <Preview src={photoSrc(backdropPath)} alt={title} />
-          <InfoContainer>
-            <Poster src={photoSrc(posterPath)} alt={title} />
-            <Details>
-              <Text>{title}</Text>
-              <SubDetails>
-                <Text>{new Date(releaseDate).getFullYear()}</Text>
-                <Dot />
-                <Text>Rating: {voteAverage}</Text>
-              </SubDetails>
-            </Details>
-          </InfoContainer>
-        </FilmStyled>
+          <FilmStyled onClick={handleFilmClick}>
+              <Preview src={photoSrc(backdropPath)} alt={title} />
+              <InfoContainer>
+                  <Poster src={photoSrc(posterPath)} alt={title} />
+                  <Details>
+                      <Text>{title}</Text>
+                      <SubDetails>
+                          <Text>{new Date(releaseDate).getFullYear()}</Text>
+                          <Dot />
+                          <Text>Rating: {voteAverage}</Text>
+                      </SubDetails>
+                  </Details>
+              </InfoContainer>
+          </FilmStyled>
       )}
-    </>
+      </>
   );
 };

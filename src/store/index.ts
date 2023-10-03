@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import ThemeReducer from './slices/ThemeSlice';
-import ShowingFilmsReducer from './slices/ShowingFilmsSlice';
 import ModalsReducer from './slices/ModalsSlice';
+import FilmsReducer from './slices/filmsSlice';
 import { rtkApi } from './rtkApi/rtkApi';
 export const store = configureStore({
   reducer: {
     theme: ThemeReducer,
-    showingFilms: ShowingFilmsReducer,
     modals: ModalsReducer,
+    films: FilmsReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),

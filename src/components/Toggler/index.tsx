@@ -12,16 +12,16 @@ export const Toggler: React.FC<TogglerProps> = ({ shouldBeHidden = false }) => {
   const theme = useAppSelector(selectTheme);
 
   return (
-    <TogglerContainer $shouldBeHidden={shouldBeHidden}>
-      <TogglerInput
-        type="checkbox"
-        id="dark"
-        onChange={() => dispatch(toggleTheme())}
-        checked={theme.type === ThemeEnum.dark}
+      <TogglerContainer $shouldBeHidden={shouldBeHidden}>
+          <TogglerInput
+              type="checkbox"
+              id="dark"
+              onChange={() => dispatch(toggleTheme())}
+              checked={theme.type === ThemeEnum.dark}
       />
-      <TogglerLabel htmlFor="dark">
-        <TogglerButton />
-      </TogglerLabel>
-    </TogglerContainer>
+          <TogglerLabel htmlFor="dark">
+              <TogglerButton />
+          </TogglerLabel>
+      </TogglerContainer>
   );
 };

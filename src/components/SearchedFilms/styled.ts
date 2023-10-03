@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 interface SearchedFilmsProps {
-  $isScrolled: boolean;
+  $isScrolled?: boolean;
 }
 
 export const SearchedFilmsContainer = styled.ul<SearchedFilmsProps>`
   max-height: 350px;
-  overflow-y: ${(props) => props.$isScrolled && 'scroll'};
+  overflow-y: ${(props) => props.$isScrolled !== null && 'scroll'};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;

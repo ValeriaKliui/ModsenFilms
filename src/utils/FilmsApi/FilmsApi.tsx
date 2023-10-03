@@ -2,8 +2,8 @@ import { rtkApi } from '../../store/rtkApi/rtkApi';
 import { type VideoI, type FilmsResponse } from './types';
 
 interface filmsParams {
-  genre: number | null;
-  page: number;
+  genre?: number | null;
+  page?: number;
 }
 interface searchParams {
   searchQuery: string;

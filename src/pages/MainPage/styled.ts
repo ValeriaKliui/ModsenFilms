@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { border, wrapper } from '../../constants/styles/global';
+import { wrapper } from '../../constants/styles/global';
 
 export const Main = styled.main`
   border-bottom: 2px solid ${({ theme }) => theme.colors.border};

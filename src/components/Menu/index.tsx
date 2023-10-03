@@ -6,8 +6,8 @@ import { MenuStyled } from './styled';
 export const Menu: React.FC = () => {
   const isMenuOpened = useAppSelector(selectIsMenuOpened);
   return (
-    <MenuStyled $isOpened={isMenuOpened}>
-      <Toggler />
-    </MenuStyled>
+      <MenuStyled $isOpened={isMenuOpened}>
+          <Toggler />
+      </MenuStyled>
   );
 };
