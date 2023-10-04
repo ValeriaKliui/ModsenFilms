@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FooterStyled, FooterLinks, FooterText, FooterNetworks, NetworkIcon, Copyright, FooterInfo } from './styled';
-import FbIcon from '../../assets/img/networks/fb.svg';
-import TwitterIcon from '../../assets/img/networks/twitter.svg';
-import IgIcon from '../../assets/img/networks/ig.svg';
-import LinkedinIcon from '../../assets/img/networks/linkedin.svg';
+import FbIcon from '@assets/img/networks/fb.svg';
+import TwitterIcon from '@assets/img/networks/twitter.svg';
+import IgIcon from '@assets/img/networks/ig.svg';
+import LinkedinIcon from '@assets/img/networks/linkedin.svg';
 import { type FC } from 'react';
 
 export const Footer: FC = () => {

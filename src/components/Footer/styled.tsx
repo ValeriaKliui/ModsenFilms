@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { scaleAnimation } from '../../constants/styles/animation';
-import { wrapper } from '../../constants/styles/global';
+import { scaleAnimation } from '@constants/styles/animation';
+import { wrapper } from '@constants/styles/global';
 
 export const FooterStyled = styled.footer`
   ${wrapper};

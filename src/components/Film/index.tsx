@@ -1,11 +1,11 @@
 import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
-import noImage from '../../assets/img/no-image.jpg';
-import { useAppDispatch } from '../../store/hooks/hooks';
-import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
-import { setMovieID } from '../../store/slices/filmsSlice';
-import { useModals } from '../../utils/hooks/useModals/useModals';
+import noImage from '@assets/img/no-image.jpg';
+import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
 import { type FC } from 'react';
-import { type IFilmProps } from '../../constants/types/interfaces';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { useModals } from '@hooks/useModals/useModals';
+import { setMovieID } from '@store/slices/filmsSlice';
+import { type IFilmProps } from '@constants/types/interfaces';
 
 export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
   const {

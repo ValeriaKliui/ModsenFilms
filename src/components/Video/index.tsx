@@ -1,8 +1,8 @@
-import { useAppSelector } from '../../store/hooks/hooks';
-import { selectMovieID } from '../../store/selectors/filmsSelectors';
-import { useVideo } from '../../utils/hooks/useVideo/useVideo';
-import { Error } from '../Error';
-import { Spinner } from '../Spinner';
+import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { selectMovieID } from '@store/selectors/filmsSelectors';
+import { useVideo } from '@hooks/useVideo/useVideo';
+import { Error } from '@components/Error';
+import { Spinner } from '@components/Spinner';
 import { VideoStyled, VideoContainer } from './styled';
 import { type FC } from 'react';
 

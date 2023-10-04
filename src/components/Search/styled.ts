@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { hoverAnimation } from '../../constants/styles/animation';
-import { devices } from '../../constants/styles/media';
+import { hoverAnimation } from '@constants/styles/animation';
+import { devices } from '@constants/styles/media';
 
 export const SearchContainer = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.border};
@@ -64,7 +64,7 @@ export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean }>`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
-  max-width: 600px;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
   &::-webkit-scrollbar {
     width: 10px;
   }

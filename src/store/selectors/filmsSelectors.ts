@@ -1,5 +1,5 @@
 import { type RootState } from '..';
-import { type IFilm } from '../../utils/FilmsApi/interface';
+import { type IFilm } from '@constants/types/interfaces';
 
 export const selectPage = (state: RootState): number => state.films.page;
 export const selectFilmLimit = (state: RootState): number => state.films.filmsPerPage;

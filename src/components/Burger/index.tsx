@@ -1,6 +1,6 @@
-import { useModals } from '../../utils/hooks/useModals/useModals';
 import { BurgerLine, BurgerContainer } from './styled';
 import { type FC } from 'react';
+import { useModals } from '@hooks/useModals/useModals';
 
 export const Burger: FC = () => {
   const { toggleMenu, isMenuOpened } = useModals();

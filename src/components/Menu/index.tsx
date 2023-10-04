@@ -1,7 +1,5 @@
-import { useAppSelector } from '../../store/hooks/hooks';
-import { selectIsMenuOpened } from '../../store/selectors/modalsSelectors';
-import { useModals } from '../../utils/hooks/useModals/useModals';
-import { Toggler } from '../Toggler';
+import { useModals } from '@hooks/useModals/useModals';
+import { Toggler } from '@components/Toggler';
 import { MenuStyled, Theme } from './styled';
 import { type FC } from 'react';
 

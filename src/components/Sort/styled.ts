@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import { border, wrapper } from '../../constants/styles/global';
-import { devices } from '../../constants/styles/media';
+import { border, wrapper } from '@constants/styles/global';
+import { devices } from '@constants/styles/media';
 export const Genres = styled.div`
   ${border}
 `;

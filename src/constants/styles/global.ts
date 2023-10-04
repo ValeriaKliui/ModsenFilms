@@ -1,8 +1,8 @@
 import { createGlobalStyle, css } from 'styled-components';
-import RobotoWoff from '../../assets/fonts/Roboto.woff';
-import RobotoWoff2 from '../../assets/fonts/Roboto.woff2';
-import { hoverAnimation } from './animation';
+import RobotoWoff from '@assets/fonts/Roboto.woff';
+import RobotoWoff2 from '@assets/fonts/Roboto.woff2';
 import { devices } from './media';
+import { hoverAnimation } from './animation';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {

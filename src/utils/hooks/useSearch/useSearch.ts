@@ -1,11 +1,11 @@
-import { useAppDispatch, useAppSelector } from '../../../store/hooks/hooks';
-import { selectSearchQuery } from '../../../store/selectors/filmsSelectors';
-import { clearFilms, setFilmsReceived, setFirstPage, setSearchQuery } from '../../../store/slices/filmsSlice';
-import { type IFilm } from '../../FilmsApi/interface';
-import { useDebounce } from '../useDebounce/useDebounce';
-import { useModals } from '../useModals/useModals';
-import { type useSearchI } from './interface';
+import { type IFilm } from '@constants/types/interfaces';
+import { selectSearchQuery } from '@store/selectors/filmsSelectors';
+import { clearFilms, setFilmsReceived, setFirstPage, setSearchQuery } from '@store/slices/filmsSlice';
 import { type ChangeEvent } from 'react';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { useDebounce } from '@hooks/useDebounce/useDebounce';
+import { useModals } from '@hooks/useModals/useModals';
+import { type useSearchI } from './interface';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();

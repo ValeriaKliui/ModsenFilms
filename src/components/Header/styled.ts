@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { scaleAnimation } from '../../constants/styles/animation';
-import { border, wrapper } from '../../constants/styles/global';
-import { devices } from '../../constants/styles/media';
+import { scaleAnimation } from '@constants/styles/animation';
+import { border, wrapper } from '@constants/styles/global';
+import { devices } from '@constants/styles/media';
 
 export const StyledHeader = styled.header`
   ${border}

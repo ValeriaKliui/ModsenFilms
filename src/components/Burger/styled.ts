@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { devices } from '../../constants/styles/media';
+import { devices } from '@constants/styles/media';
 
 export const BurgerContainer = styled.div`
   display: none;

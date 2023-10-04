@@ -1,13 +1,9 @@
-import { useAppDispatch, useAppSelector } from '../../../store/hooks/hooks';
-import {
-  selectIsMenuOpened,
-  selectIsModalOpened,
-  selectIsSearchOpened,
-} from '../../../store/selectors/modalsSelectors';
-import { setIsModalOpened, setIsSearchOpened, toggleMenu as toggle } from '../../../store/slices/modalsSlice';
-import { type useModal } from './interface';
+import { selectIsMenuOpened, selectIsModalOpened, selectIsSearchOpened } from '@store/selectors/modalsSelectors';
+import { setIsModalOpened, setIsSearchOpened, toggleMenu as toggle } from '@store/slices/modalsSlice';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { type useModalI } from './interface';
 
-export const useModals = (): useModal => {
+export const useModals = (): useModalI => {
   const dispatch = useAppDispatch();
   const isModalOpened = useAppSelector(selectIsModalOpened);
   const isSearchOpened = useAppSelector(selectIsSearchOpened);

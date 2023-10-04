@@ -1,25 +1,15 @@
-import { rtkApi } from '../../store/rtkApi/rtkApi';
-import { type VideoI, type FilmsResponse } from './interface';
-
-interface filmsParams {
-  genre?: number | null;
-  page?: number;
-}
-interface searchParams {
-  searchQuery: string;
-  page?: number;
-}
-interface VideoResponse {
-  id: number;
-  results: VideoI[];
-}
-interface VideoParams {
-  movieID: number | null;
-}
+import {
+  type IFilmsResponse,
+  type IFilmsParams,
+  type ISearchParams,
+  type IVideoResponse,
+  type IVideoParams,
+} from '@constants/types/interfaces';
+import { rtkApi } from '@store/rtkApi/rtkApi';
 
 const filmsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    getFilms: build.query<FilmsResponse, filmsParams>({
+    getFilms: build.query<IFilmsResponse, IFilmsParams>({
       query: ({ page, genre }) => ({
         method: 'GET',
         url: '/discover/movie',
@@ -31,7 +21,7 @@ const filmsApi = rtkApi.injectEndpoints({
         },
       }),
     }),
-    getFilmsByTitle: build.query<FilmsResponse, searchParams>({
+    getFilmsByTitle: build.query<IFilmsResponse, ISearchParams>({
       query: ({ searchQuery, page = 1 }) => ({
         method: 'GET',
         url: '/search/movie',
@@ -43,7 +33,7 @@ const filmsApi = rtkApi.injectEndpoints({
         },
       }),
     }),
-    getFilmVideo: build.query<VideoResponse, VideoParams>({
+    getFilmVideo: build.query<IVideoResponse, IVideoParams>({
       query: ({ movieID }) => ({
         method: 'GET',
         url: `/movie/${movieID}/videos`,

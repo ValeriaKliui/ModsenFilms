@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hoverAnimation } from '../../constants/styles/animation';
+import { hoverAnimation } from '@constants/styles/animation';
 
 export const GenreStyled = styled.div<{ $isActive: boolean }>`
   padding: 0.4em 1em;

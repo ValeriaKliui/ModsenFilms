@@ -1,19 +1,13 @@
-import { Film } from '../Film';
+import { Film } from '@components/Film';
 import { FilmsStyled } from './styled';
-import { useGetFilmsQuery } from '../../utils/FilmsApi/FilmsApi';
-import { useAppDispatch } from '../../store/hooks/hooks';
+import { useGetFilmsQuery } from '@utils/FilmsApi/FilmsApi';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useEffect, type FC } from 'react';
-import {
-  clearFilms,
-  setFilmsPerPage,
-  setFilmsReceived,
-  setFirstPage,
-  setSearchQuery,
-} from '../../store/slices/filmsSlice';
-import { useFilms } from '../../utils/hooks/useFilms/useFilms';
-import { useSearch } from '../../utils/hooks/useSearch/useSearch';
-import { Error } from '../Error';
-import { FILMS_LIMIT } from '../../constants/filmsConstants';
+import { clearFilms, setFilmsPerPage, setFilmsReceived, setFirstPage, setSearchQuery } from '@store/slices/filmsSlice';
+import { useFilms } from '@hooks/useFilms/useFilms';
+import { useSearch } from '@utils/hooks/useSearch/useSearch';
+import { Error } from '@components/Error';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
 
 export const Films: FC = () => {
   const dispatch = useAppDispatch();

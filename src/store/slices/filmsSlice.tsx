@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { type FilmsIState } from './interface';
-import { type IFilm } from '../../utils/FilmsApi/interface';
-import { FILMS_LIMIT } from '../../constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { type IFilm } from '@constants/types/interfaces';
 
 const initialState: FilmsIState = {
   filmsPerPage: FILMS_LIMIT,

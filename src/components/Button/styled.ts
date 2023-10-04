@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { scaleAnimation } from '../../constants/styles/animation';
+import { scaleAnimation } from '@constants/styles/animation';
 
 export const ButtonStyled = styled.button`
   align-self: center;

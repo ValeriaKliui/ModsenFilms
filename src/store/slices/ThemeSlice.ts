@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '../index';
-import { lightTheme, darkTheme, ThemeEnum } from '../../constants/styles/theme';
+import type { RootState } from '@store/index';
+import { lightTheme, darkTheme, ThemeEnum } from '@constants/styles/theme';
 import { type DefaultTheme } from 'styled-components';
 import { type ThemeState } from './interface';
 

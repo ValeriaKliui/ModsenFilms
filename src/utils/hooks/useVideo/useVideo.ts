@@ -1,4 +1,4 @@
-import { useGetFilmVideoQuery } from '../../FilmsApi/FilmsApi';
+import { useGetFilmVideoQuery } from '@utils/FilmsApi/FilmsApi';
 
 interface hookProps {
   movieID: number | null;

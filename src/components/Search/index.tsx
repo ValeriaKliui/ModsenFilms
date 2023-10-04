@@ -1,15 +1,15 @@
 import { Input, SearchButton, SearchContainer, SearchForm, SearchedFilmsContainer, Info } from './styled';
-import SearchIcon from '../../assets/img/search.svg';
-import { useSearch } from '../../utils/hooks/useSearch/useSearch';
-import { useFilms } from '../../utils/hooks/useFilms/useFilms';
-import { useGetFilmsByTitleQuery } from '../../utils/FilmsApi/FilmsApi';
-import { SearchedFilm } from '../SearchedFilm';
-import { Spinner } from '../Spinner';
-import { useAppDispatch } from '../../store/hooks/hooks';
-import { setFilmsReceived } from '../../store/slices/filmsSlice';
+import SearchIcon from '@assets/img/search.svg';
+import { useSearch } from '@hooks/useSearch/useSearch';
+import { useFilms } from '@hooks/useFilms/useFilms';
+import { useGetFilmsByTitleQuery } from '@utils/FilmsApi/FilmsApi';
+import { SearchedFilm } from '@components/SearchedFilm';
+import { Spinner } from '@components/Spinner';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { setFilmsReceived } from '@store/slices/filmsSlice';
 import { useEffect, type FC } from 'react';
-import { useModals } from '../../utils/hooks/useModals/useModals';
-import { useClickOutside } from '../../utils/hooks/useClickOutside/useClickOutside';
+import { useModals } from '@hooks/useModals/useModals';
+import { useClickOutside } from '@hooks/useClickOutside/useClickOutside';
 
 export const Search: FC = () => {
   const dispatch = useAppDispatch();

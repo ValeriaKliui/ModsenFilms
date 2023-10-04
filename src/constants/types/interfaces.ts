@@ -1,6 +1,5 @@
-import { type IFilm } from '../../utils/FilmsApi/interface';
-import { type GenresType } from '../filmsConstants';
 import { type ReactNode } from 'react';
+import { type GenresType } from './genres';
 
 export interface IButtonProps {
   text: string;
@@ -25,4 +24,41 @@ export interface ISearchedFilmProps {
 }
 export interface ISpinnerProps {
   size: number;
+}
+export interface IFilm {
+  title: string;
+  release_date: string;
+  backdrop_path: string;
+  poster_path: string;
+  vote_average: string;
+  id: number;
+  overview?: string;
+}
+export interface IFilmsResponse {
+  results: IFilm[];
+  total_results: number;
+}
+export interface IFilmsParams {
+  genre: number | null;
+  page: number;
+}
+export interface IVideo {
+  id: number;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  size: number;
+  type: string;
+}
+export interface ISearchParams {
+  searchQuery: string;
+  page: number;
+}
+export interface IVideoResponse {
+  id: number;
+  results: IVideo[];
+}
+export interface IVideoParams {
+  movieID: number | null;
 }

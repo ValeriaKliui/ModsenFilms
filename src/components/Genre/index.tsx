@@ -1,8 +1,8 @@
-import { genres } from '../../constants/types/genres';
-import { type IGenreProps } from '../../constants/types/interfaces';
-import { useFilms } from '../../utils/hooks/useFilms/useFilms';
+import { useFilms } from '@hooks/useFilms/useFilms';
 import { GenreStyled } from './styled';
 import { type FC } from 'react';
+import { type IGenreProps } from '@constants/types/interfaces';
+import { genres } from '@constants/types/genres';
 
 export const Genre: FC<IGenreProps> = ({ onClick, genre }) => {
   const { genre: genreActive } = useFilms();

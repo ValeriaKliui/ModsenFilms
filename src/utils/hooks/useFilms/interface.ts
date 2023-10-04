@@ -1,4 +1,4 @@
-import { type IFilm } from '../../FilmsApi/interface';
+import { type IFilm } from '@constants/types/interfaces';
 
 export interface UseFilmsI {
   page: number;

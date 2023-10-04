@@ -1,10 +1,9 @@
-import React from 'react';
-import { useAppDispatch } from '../../store/hooks/hooks';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { Genres, Container } from './styled';
-import { genres, type GenresType } from '../../constants/types/genres';
-import { Genre } from '../Genre/index';
-import { setGenre } from '../../store/slices/filmsSlice';
+import { Genre } from '@components/Genre';
+import { setGenre } from '@store/slices/filmsSlice';
 import { type FC } from 'react';
+import { genres, type GenresType } from '@constants/types/genres';
 
 export const Sort: FC = () => {
   const dispatch = useAppDispatch();

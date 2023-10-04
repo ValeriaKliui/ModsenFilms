@@ -1,6 +1,6 @@
-import { ThemeEnum } from '../../constants/styles/theme';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
-import { selectTheme, toggleTheme } from '../../store/slices/ThemeSlice';
+import { ThemeEnum } from '@styles/theme';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { selectTheme, toggleTheme } from '@store/slices/themeSlice';
 import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './styled';
 import { type FC } from 'react';
 

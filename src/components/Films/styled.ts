@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { devices } from '../../constants/styles/media';
+import { devices } from '@constants/styles/media';
 
 export const FilmsStyled = styled.div<{ $isError: boolean }>`
   display: ${({ $isError }) => ($isError ? 'block' : 'grid')};

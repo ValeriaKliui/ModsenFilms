@@ -1,4 +1,4 @@
-export interface useModal {
+export interface useModalI {
   openModal: () => void;
   closeModal: () => void;
   openSearch: () => void;

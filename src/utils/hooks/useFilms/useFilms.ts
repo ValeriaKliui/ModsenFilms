@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../../store/hooks/hooks';
-import { selectFilmLimit, selectFilmsReceived, selectGenre, selectPage } from '../../../store/selectors/filmsSelectors';
+import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { selectFilmLimit, selectFilmsReceived, selectGenre, selectPage } from '@store/selectors/filmsSelectors';
 import { type UseFilmsI } from './interface';
 
 export const useFilms = (): UseFilmsI => {
