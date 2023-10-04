@@ -7,14 +7,16 @@ export const BurgerContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
-    gap: 6px;
+    height: 20px;
+    width: 40px;
     align-items: flex-end;
+    justify-content: space-between;
     cursor: pointer;
+    z-index: 2000;
+    justify-self: flex-end;
   }
 `;
 export const BurgerLine = styled.span<{ $isMenuOpened: boolean }>`
-  z-index: 2000;
   background-color: ${({ theme }) => theme.colors.font};
   width: 30px;
   height: 2px;

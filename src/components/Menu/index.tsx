@@ -1,13 +1,18 @@
 import { useAppSelector } from '../../store/hooks/hooks';
-import { selectIsMenuOpened } from '../../store/slices/ModalsSlice';
+import { selectIsMenuOpened } from '../../store/selectors/modalsSelectors';
+import { useModals } from '../../utils/hooks/useModals/useModals';
 import { Toggler } from '../Toggler';
-import { MenuStyled } from './styled';
+import { MenuStyled, Theme } from './styled';
+import { type FC } from 'react';
 
-export const Menu: React.FC = () => {
-  const isMenuOpened = useAppSelector(selectIsMenuOpened);
+export const Menu: FC = () => {
+  const { isMenuOpened } = useModals();
+
   return (
-      <MenuStyled $isOpened={isMenuOpened}>
-          <Toggler />
-      </MenuStyled>
+    <MenuStyled $isOpened={isMenuOpened}>
+      <Theme>
+        <Toggler />
+      </Theme>
+    </MenuStyled>
   );
 };

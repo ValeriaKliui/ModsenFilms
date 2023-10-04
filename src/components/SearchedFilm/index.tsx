@@ -1,15 +1,12 @@
 import { FilmInfo, PosterSearched, SearchedDetail, SearchedFilmStyled, SearchedTitle } from './styled';
 import noImage from '../../assets/img/no-image.jpg';
-import { type FilmI } from '../../utils/FilmsApi/types';
 import { useAppDispatch } from '../../store/hooks/hooks';
-import { setIsModalOpened, setIsSearchOpened } from '../../store/slices/ModalsSlice';
 import { setMovieID } from '../../store/slices/filmsSlice';
+import { useModals } from '../../utils/hooks/useModals/useModals';
+import { type FC } from 'react';
+import { type ISearchedFilmProps } from '../../constants/types/interfaces';
 
-interface SearchedFilmProps {
-  film?: FilmI;
-}
-
-export const SearchedFilm: React.FC<SearchedFilmProps> = ({ film }) => {
+export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   const {
     poster_path: posterPath,
     title,
@@ -19,26 +16,27 @@ export const SearchedFilm: React.FC<SearchedFilmProps> = ({ film }) => {
     id,
   } = film ?? {};
   const dispatch = useAppDispatch();
+  const { openModal } = useModals();
+
   const handleFilmClick = (): void => {
     if (id !== undefined) {
       dispatch(setMovieID(id));
-      dispatch(setIsModalOpened(true));
-      dispatch(setIsSearchOpened(false));
+      openModal();
     }
   };
 
   return (
-      <SearchedFilmStyled onClick={handleFilmClick}>
-          <FilmInfo>
-              <SearchedTitle>{title}</SearchedTitle>
-              <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
-              <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
-              <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
-          </FilmInfo>
-          <PosterSearched
-              src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
-              alt={title}
+    <SearchedFilmStyled onClick={handleFilmClick}>
+      <FilmInfo>
+        <SearchedTitle>{title}</SearchedTitle>
+        <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
+        <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
+        <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
+      </FilmInfo>
+      <PosterSearched
+        src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
+        alt={title}
       ></PosterSearched>
-      </SearchedFilmStyled>
+    </SearchedFilmStyled>
   );
 };

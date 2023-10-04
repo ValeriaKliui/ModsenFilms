@@ -1,30 +1,29 @@
 import LogoPic from '../../assets/img/logo.svg';
-import { StyledHeader, Logo, Container, LogoTitle } from './styled';
-import { useAppSelector } from '../../store/hooks/hooks';
+import { StyledHeader, Logo, Container, LogoTitle, Theme } from './styled';
 import { NavLink } from 'react-router-dom';
 import { Toggler } from '../Toggler';
 import { Search } from '../Search';
-import { selectIsMenuOpened } from '../../store/slices/ModalsSlice';
 import { Menu } from '../Menu';
 import { Burger } from '../Burger';
+import { type FC } from 'react';
 
-export const Header: React.FC = () => {
-  const isMenuOpened = useAppSelector(selectIsMenuOpened);
-
+export const Header: FC = () => {
   return (
-      <StyledHeader $isMenuOpened={isMenuOpened}>
-          <Container>
-              <NavLink to="/">
-                  <Logo>
-                      <LogoPic />
-                      <LogoTitle>ModsenFilms</LogoTitle>
-                  </Logo>
-              </NavLink>
-              <Search />
-              <Toggler shouldBeHidden={true} />
-              <Burger isMenuOpened={isMenuOpened} />
-              <Menu />
-          </Container>
-      </StyledHeader>
+    <StyledHeader>
+      <Container>
+        <NavLink to="/">
+          <Logo>
+            <LogoPic />
+            <LogoTitle>ModsenFilms</LogoTitle>
+          </Logo>
+        </NavLink>
+        <Search />
+        <Theme>
+          <Toggler />
+        </Theme>
+        <Burger />
+        <Menu />
+      </Container>
+    </StyledHeader>
   );
 };

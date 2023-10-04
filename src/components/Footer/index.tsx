@@ -4,8 +4,9 @@ import FbIcon from '../../assets/img/networks/fb.svg';
 import TwitterIcon from '../../assets/img/networks/twitter.svg';
 import IgIcon from '../../assets/img/networks/ig.svg';
 import LinkedinIcon from '../../assets/img/networks/linkedin.svg';
+import { type FC } from 'react';
 
-export const Footer: React.FC = () => {
+export const Footer: FC = () => {
   const networks = [
     { link: 'https://www.facebook.com/ModsenSoftware/', Icon: FbIcon },
     { link: 'https://twitter.com/modsencompany', Icon: TwitterIcon },
@@ -13,44 +14,45 @@ export const Footer: React.FC = () => {
     { link: 'https://www.linkedin.com/company/modsen/', Icon: LinkedinIcon },
   ];
   const fakeLink = 'https://www.modsen-software.com/';
+
   return (
-      <FooterStyled>
-          <FooterInfo>
-              <FooterText>
-                  <FooterLinks>
-                      <Link to={fakeLink} target="_blank">
-                          TermsPrivacyPolicy & Safety{' '}
-                      </Link>
-                      <Link to={fakeLink} target="_blank">
-                          How YouTube works
-                      </Link>
-                      <Link to={fakeLink} target="_blank">
-                          Test new features
-                      </Link>
-                  </FooterLinks>
-                  <FooterLinks>
-                      <Link to={fakeLink} target="_blank">
-                          About Press Copyright{' '}
-                      </Link>
-                      <Link to={fakeLink} target="_blank">
-                          Contact us Creators
-                      </Link>
-                      <Link to={fakeLink} target="_blank">
-                          Advertise Developers
-                      </Link>
-                  </FooterLinks>
-              </FooterText>
-              <FooterNetworks>
-                  {networks.map(({ link, Icon }) => (
-                      <Link to={link} target="_blank" key={link}>
-                          <NetworkIcon>
-                              <Icon />
-                          </NetworkIcon>
-                      </Link>
+    <FooterStyled>
+      <FooterInfo>
+        <FooterText>
+          <FooterLinks>
+            <Link to={fakeLink} target="_blank">
+              TermsPrivacyPolicy & Safety{' '}
+            </Link>
+            <Link to={fakeLink} target="_blank">
+              How YouTube works
+            </Link>
+            <Link to={fakeLink} target="_blank">
+              Test new features
+            </Link>
+          </FooterLinks>
+          <FooterLinks>
+            <Link to={fakeLink} target="_blank">
+              About Press Copyright{' '}
+            </Link>
+            <Link to={fakeLink} target="_blank">
+              Contact us Creators
+            </Link>
+            <Link to={fakeLink} target="_blank">
+              Advertise Developers
+            </Link>
+          </FooterLinks>
+        </FooterText>
+        <FooterNetworks>
+          {networks.map(({ link, Icon }) => (
+            <Link to={link} target="_blank" key={link}>
+              <NetworkIcon>
+                <Icon />
+              </NetworkIcon>
+            </Link>
           ))}
-              </FooterNetworks>
-          </FooterInfo>
-          <Copyright>2023 Modsen company</Copyright>
-      </FooterStyled>
+        </FooterNetworks>
+      </FooterInfo>
+      <Copyright>2023 Modsen company</Copyright>
+    </FooterStyled>
   );
 };

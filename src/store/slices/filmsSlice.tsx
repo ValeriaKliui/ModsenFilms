@@ -1,6 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { type FilmsIState } from './interface';
-import { type FilmI } from '../../utils/FilmsApi/types';
+import { type IFilm } from '../../utils/FilmsApi/interface';
 import { FILMS_LIMIT } from '../../constants/filmsConstants';
 
 const initialState: FilmsIState = {
@@ -17,12 +17,15 @@ export const filmsSlice = createSlice({
   initialState,
   reducers: {
     setFilmsPerPage: (state, action: PayloadAction<number>) => {
-      state.filmsPerPage = state.filmsPerPage + action.payload;
+      state.filmsPerPage = action.payload;
     },
     increasePage: (state) => {
       state.page = state.page + 1;
     },
-    setFilmsReceived: (state, action: PayloadAction<FilmI[]>) => {
+    setFirstPage: (state) => {
+      state.page = 1;
+    },
+    setFilmsReceived: (state, action: PayloadAction<IFilm[]>) => {
       state.filmsReceived = [...state.filmsReceived, ...action.payload];
     },
     clearFilms: (state) => {
@@ -40,7 +43,15 @@ export const filmsSlice = createSlice({
   },
 });
 
-export const { setFilmsPerPage, increasePage, setFilmsReceived, setGenre, clearFilms, setSearchQuery, setMovieID } =
-  filmsSlice.actions;
+export const {
+  setFilmsPerPage,
+  increasePage,
+  setFilmsReceived,
+  setGenre,
+  clearFilms,
+  setSearchQuery,
+  setMovieID,
+  setFirstPage,
+} = filmsSlice.actions;
 
 export default filmsSlice.reducer;

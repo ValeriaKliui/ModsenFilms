@@ -1,23 +1,29 @@
 import { useAppSelector } from '../../store/hooks/hooks';
 import { selectMovieID } from '../../store/selectors/filmsSelectors';
-import { useVideo } from '../../utils/FilmsApi/hooks/useVideo';
-import { VideoStyled } from './styled';
+import { useVideo } from '../../utils/hooks/useVideo/useVideo';
+import { Error } from '../Error';
+import { Spinner } from '../Spinner';
+import { VideoStyled, VideoContainer } from './styled';
+import { type FC } from 'react';
 
-export const Video: React.FC = () => {
+export const Video: FC = () => {
   const movieID = useAppSelector(selectMovieID);
-  const { src } = useVideo({ movieID });
-  const srcToDisplay = (): string => {
-    return movieID !== null ? src : '';
-  };
+  const { src, isFetching, isError } = useVideo({ movieID });
+  const videoSrc = movieID !== null ? src : '';
+
+  if (isError) return <Error />;
+  if (isFetching) return <Spinner size={100} />;
 
   return (
+    <VideoContainer>
       <VideoStyled
-          width="100%"
-          height="100%"
-          src={srcToDisplay()}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-    />
+        width="100%"
+        height="100%"
+        src={videoSrc}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Embedded youtube"
+      />
+    </VideoContainer>
   );
 };

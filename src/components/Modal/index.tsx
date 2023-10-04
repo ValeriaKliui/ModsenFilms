@@ -1,29 +1,27 @@
-import { type ReactNode } from 'react';
+import { type FC } from 'react';
 import { Content, ModalStyled, Overlay } from './styled';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
-import { selectIsModalOpened, setIsModalOpened } from '../../store/slices/ModalsSlice';
+import { useAppDispatch } from '../../store/hooks/hooks';
 import { setMovieID } from '../../store/slices/filmsSlice';
+import { useModals } from '../../utils/hooks/useModals/useModals';
+import { type IModalProps } from '../../constants/types/interfaces';
 
-interface ModalProps {
-  children?: ReactNode;
-}
-
-export const Modal: React.FC<ModalProps> = ({ children }) => {
-  const isModalOpened = useAppSelector(selectIsModalOpened);
+export const Modal: FC<IModalProps> = ({ children }) => {
   const dispatch = useAppDispatch();
+  const { closeModal, isModalOpened } = useModals();
 
   const closeHandler = (): void => {
-    dispatch(setIsModalOpened(false));
+    closeModal();
     dispatch(setMovieID(null));
   };
   const onContentClick = (e: React.MouseEvent): void => {
     e.stopPropagation();
   };
+
   return (
-      <ModalStyled $opened={isModalOpened}>
-          <Overlay onClick={closeHandler}>
-              <Content onClick={onContentClick}>{children}</Content>
-          </Overlay>
-      </ModalStyled>
+    <ModalStyled $opened={isModalOpened}>
+      <Overlay onClick={closeHandler}>
+        <Content onClick={onContentClick}>{children}</Content>
+      </Overlay>
+    </ModalStyled>
   );
 };

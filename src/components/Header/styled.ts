@@ -2,11 +2,9 @@ import styled from 'styled-components';
 import { scaleAnimation } from '../../constants/styles/animation';
 import { border, wrapper } from '../../constants/styles/global';
 import { devices } from '../../constants/styles/media';
-export const StyledHeader = styled.header<{ $isMenuOpened: boolean }>`
+
+export const StyledHeader = styled.header`
   ${border}
-  @media ${devices.sm} {
-    overflow: ${({ $isMenuOpened }) => ($isMenuOpened ? 'hidden' : 'unset')};
-  }
 `;
 export const Container = styled.div`
   ${wrapper}
@@ -27,4 +25,9 @@ export const Logo = styled.div`
 `;
 export const LogoTitle = styled.h1`
   color: ${({ theme }) => theme.colors.font};
+`;
+export const Theme = styled.div`
+  @media ${devices.sm} {
+    display: none;
+  }
 `;

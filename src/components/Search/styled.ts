@@ -60,7 +60,7 @@ export const SearchButton = styled.button`
 `;
 export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean }>`
   max-height: 350px;
-  overflow-y: ${(props) => props.$isScrolled && 'scroll'};
+  overflow-y: ${({ $isScrolled }) => $isScrolled && 'scroll'};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;

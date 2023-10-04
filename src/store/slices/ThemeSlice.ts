@@ -2,10 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../index';
 import { lightTheme, darkTheme, ThemeEnum } from '../../constants/styles/theme';
 import { type DefaultTheme } from 'styled-components';
-
-interface ThemeState {
-  theme: DefaultTheme;
-}
+import { type ThemeState } from './interface';
 
 const initialState: ThemeState = {
   theme: lightTheme,

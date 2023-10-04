@@ -1,5 +1,5 @@
 import { rtkApi } from '../../store/rtkApi/rtkApi';
-import { type VideoI, type FilmsResponse } from './types';
+import { type VideoI, type FilmsResponse } from './interface';
 
 interface filmsParams {
   genre?: number | null;

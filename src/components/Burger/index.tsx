@@ -1,22 +1,15 @@
-import { useAppDispatch } from '../../store/hooks/hooks';
-import { toggleMenu } from '../../store/slices/ModalsSlice';
+import { useModals } from '../../utils/hooks/useModals/useModals';
 import { BurgerLine, BurgerContainer } from './styled';
+import { type FC } from 'react';
 
-interface BurgerProps {
-  isMenuOpened: boolean;
-}
-
-export const Burger: React.FC<BurgerProps> = ({ isMenuOpened }) => {
-  const dispatch = useAppDispatch();
-  const handleClick = (): void => {
-    dispatch(toggleMenu());
-  };
+export const Burger: FC = () => {
+  const { toggleMenu, isMenuOpened } = useModals();
 
   return (
-      <BurgerContainer onClick={handleClick}>
-          <BurgerLine $isMenuOpened={isMenuOpened} />
-          <BurgerLine $isMenuOpened={isMenuOpened} />
-          <BurgerLine $isMenuOpened={isMenuOpened} />
-      </BurgerContainer>
+    <BurgerContainer onClick={toggleMenu}>
+      <BurgerLine $isMenuOpened={isMenuOpened} />
+      <BurgerLine $isMenuOpened={isMenuOpened} />
+      <BurgerLine $isMenuOpened={isMenuOpened} />
+    </BurgerContainer>
   );
 };

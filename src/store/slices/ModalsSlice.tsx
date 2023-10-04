@@ -1,11 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '../index';
+import { type ModalsState } from './interface';
 
-interface ModalsState {
-  isSearchOpened: boolean;
-  isModalOpened: boolean;
-  isMenuOpened: boolean;
-}
 const initialState: ModalsState = {
   isSearchOpened: false,
   isModalOpened: false,
@@ -29,8 +24,5 @@ export const modalsSlice = createSlice({
 });
 
 export const { setIsModalOpened, setIsSearchOpened, toggleMenu } = modalsSlice.actions;
-export const selectIsSearchOpened = (state: RootState): boolean => state.modals.isSearchOpened;
-export const selectIsModalOpened = (state: RootState): boolean => state.modals.isModalOpened;
-export const selectIsMenuOpened = (state: RootState): boolean => state.modals.isMenuOpened;
 
 export default modalsSlice.reducer;

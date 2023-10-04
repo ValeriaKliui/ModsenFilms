@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 import { devices } from '../../constants/styles/media';
 
-export const TogglerContainer = styled.div<{ $shouldBeHidden: boolean }>`
+export const TogglerContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  @media ${devices.sm} {
-    display: ${(props) => (props.$shouldBeHidden ? 'none' : 'flex')};
-  }
 `;
 export const TogglerInput = styled.input`
   height: 0;

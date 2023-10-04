@@ -1,4 +1,4 @@
-export interface FilmI {
+export interface IFilm {
   title: string;
   release_date: string;
   backdrop_path: string;
@@ -8,7 +8,7 @@ export interface FilmI {
   overview?: string;
 }
 export interface FilmsResponse {
-  results: FilmI[];
+  results: IFilm[];
   total_results: number;
 }
 export interface VideoI {

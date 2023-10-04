@@ -1,8 +1,7 @@
+import { type ISpinnerProps } from '../../constants/types/interfaces';
 import { SpinnerStyled } from './styled';
+import { type FC } from 'react';
 
-interface SpinnerProps {
-  size: number;
-}
-export const Spinner: React.FC<SpinnerProps> = ({ size }) => {
+export const Spinner: FC<ISpinnerProps> = ({ size }) => {
   return <SpinnerStyled $size={size} />;
 };

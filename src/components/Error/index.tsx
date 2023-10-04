@@ -1,9 +1,9 @@
 import ErrorPic from '../../assets/img/Error.svg';
+import { type IErrorProps } from '../../constants/types/interfaces';
 import { ErrorStyled, ErrorTitle } from './styled';
-interface ErrorProps {
-  text: string;
-}
-export const Error: React.FC<ErrorProps> = ({ text }) => {
+import { type FC } from 'react';
+
+export const Error: FC<IErrorProps> = ({ text = 'Something went wrong' }) => {
   return (
     <ErrorStyled>
       <ErrorPic />

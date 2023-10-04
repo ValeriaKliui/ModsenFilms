@@ -1,8 +1,8 @@
-import { type FilmI } from '../../FilmsApi/types';
+import { type IFilm } from '../../FilmsApi/interface';
 
 export interface UseFilmsI {
   page: number;
   filmLimitPerPage: number;
-  filmsReceived: FilmI[];
+  filmsReceived: IFilm[];
   genre: number | null;
 }

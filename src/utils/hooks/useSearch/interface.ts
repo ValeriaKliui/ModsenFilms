@@ -1,8 +1,8 @@
 import { type ChangeEvent } from 'react';
-import { type FilmI } from '../../FilmsApi/types';
+import { type IFilm } from '../../FilmsApi/interface';
 export interface useSearchI {
   searchQuery: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   debouncedValue: string;
-  onClick: (films: FilmI[]) => void;
+  onClick: (films: IFilm[]) => void;
 }

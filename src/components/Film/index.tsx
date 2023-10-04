@@ -1,17 +1,13 @@
-import { type FilmI } from '../../utils/FilmsApi/types';
 import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
 import noImage from '../../assets/img/no-image.jpg';
 import { useAppDispatch } from '../../store/hooks/hooks';
-import { setIsModalOpened } from '../../store/slices/ModalsSlice';
 import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
 import { setMovieID } from '../../store/slices/filmsSlice';
+import { useModals } from '../../utils/hooks/useModals/useModals';
+import { type FC } from 'react';
+import { type IFilmProps } from '../../constants/types/interfaces';
 
-interface FilmProps {
-  film: FilmI;
-  isFetching?: boolean;
-}
-
-export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
+export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
   const {
     backdrop_path: backdropPath,
     poster_path: posterPath,
@@ -22,13 +18,14 @@ export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
   } = film;
 
   const dispatch = useAppDispatch();
+  const { openModal } = useModals();
   const photoSrc = (src: string): string => {
     if (src === null) return noImage;
     else return `https://image.tmdb.org/t/p/w300${src}`;
   };
   const handleFilmClick = (): void => {
     dispatch(setMovieID(id));
-    dispatch(setIsModalOpened(true));
+    openModal();
   };
 
   return (
@@ -43,8 +40,12 @@ export const Film: React.FC<FilmProps> = ({ film, isFetching }) => {
             <Details>
               <Text>{title}</Text>
               <SubDetails>
-                <Text>{new Date(releaseDate).getFullYear()}</Text>
-                <Dot />
+                {+releaseDate > 0 && (
+                  <>
+                    <Text>{new Date(releaseDate).getFullYear()}</Text>
+                    <Dot />
+                  </>
+                )}
                 <Text>Rating: {voteAverage}</Text>
               </SubDetails>
             </Details>

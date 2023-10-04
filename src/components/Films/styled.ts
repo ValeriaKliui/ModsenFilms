@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import { devices } from '../../constants/styles/media';
-interface FilmsStyledProps {
-  $isError: boolean;
-}
-export const FilmsStyled = styled.div<FilmsStyledProps>`
-  display: ${(props) => (props.$isError ? 'block' : 'grid')};
+
+export const FilmsStyled = styled.div<{ $isError: boolean }>`
+  display: ${({ $isError }) => ($isError ? 'block' : 'grid')};
   grid-template-columns: repeat(4, minmax(100px, 340px));
   gap: 2em;
   @media ${devices.lg} {

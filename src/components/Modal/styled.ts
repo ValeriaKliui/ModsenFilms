@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-interface ModalProps {
-  $opened?: boolean;
-}
-export const ModalStyled = styled.div<ModalProps>`
+
+export const ModalStyled = styled.div<{ $opened: boolean }>`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -31,4 +29,8 @@ export const Overlay = styled.div`
 export const Content = styled.div`
   width: 70vw;
   height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
