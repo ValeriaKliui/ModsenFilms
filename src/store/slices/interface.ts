@@ -4,7 +4,7 @@ import { type IFilm } from '@constants/types/interfaces';
 export interface FilmsIState {
   filmsPerPage: number;
   page: number;
-  filmsReceived: IFilm[];
+  films: IFilm[];
   genre: number | null;
   searchQuery: string;
   movieID: number | null;

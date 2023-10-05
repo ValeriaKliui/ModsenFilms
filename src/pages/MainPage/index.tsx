@@ -11,24 +11,24 @@ import { FILMS_LIMIT } from '@constants/filmsConstants';
 
 export const MainPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { filmLimitPerPage, filmsReceived } = useFilms();
+  const { filmLimitPerPage, films } = useFilms();
   const increaseFilmsLimit = (): void => {
     dispatch(setFilmsPerPage(FILMS_LIMIT + filmLimitPerPage));
-    if ((filmsReceived.length - 2 * filmLimitPerPage) / filmLimitPerPage < 0) dispatch(increasePage());
+    if ((films.length - 2 * filmLimitPerPage) / filmLimitPerPage < 0) dispatch(increasePage());
   };
 
   return (
-    <>
-      <Sort />
-      <Modal>
-        <Video />
-      </Modal>
-      <Main>
-        <Container>
-          <Films />
-          {filmsReceived.length > FILMS_LIMIT && <Button text="Show More" onClick={increaseFilmsLimit} />}
-        </Container>
-      </Main>
-    </>
+      <>
+          <Sort />
+          <Modal>
+              <Video />
+          </Modal>
+          <Main>
+              <Container>
+                  <Films />
+                  {films.length > FILMS_LIMIT && <Button text="Show More" onClick={increaseFilmsLimit} />}
+              </Container>
+          </Main>
+      </>
   );
 };

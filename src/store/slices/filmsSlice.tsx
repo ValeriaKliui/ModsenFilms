@@ -6,7 +6,7 @@ import { type IFilm } from '@constants/types/interfaces';
 const initialState: FilmsIState = {
   filmsPerPage: FILMS_LIMIT,
   page: 1,
-  filmsReceived: [],
+  films: [],
   genre: null,
   searchQuery: '',
   movieID: null,
@@ -25,11 +25,11 @@ export const filmsSlice = createSlice({
     setFirstPage: (state) => {
       state.page = 1;
     },
-    setFilmsReceived: (state, action: PayloadAction<IFilm[]>) => {
-      state.filmsReceived = [...state.filmsReceived, ...action.payload];
+    setFilms: (state, action: PayloadAction<IFilm[]>) => {
+      state.films = [...state.films, ...action.payload];
     },
     clearFilms: (state) => {
-      state.filmsReceived = [];
+      state.films = [];
     },
     setGenre: (state, action: PayloadAction<number | null>) => {
       state.genre = action.payload;
@@ -46,7 +46,7 @@ export const filmsSlice = createSlice({
 export const {
   setFilmsPerPage,
   increasePage,
-  setFilmsReceived,
+  setFilms,
   setGenre,
   clearFilms,
   setSearchQuery,

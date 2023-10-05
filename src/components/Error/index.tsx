@@ -5,9 +5,9 @@ import { type IErrorProps } from '@constants/types/interfaces';
 
 export const Error: FC<IErrorProps> = ({ text = 'Something went wrong' }) => {
   return (
-    <ErrorStyled>
-      <ErrorPic />
-      <ErrorTitle>{text}</ErrorTitle>
-    </ErrorStyled>
+      <ErrorStyled>
+          <ErrorPic />
+          <ErrorTitle>{text}</ErrorTitle>
+      </ErrorStyled>
   );
 };

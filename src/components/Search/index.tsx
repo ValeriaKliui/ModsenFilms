@@ -6,7 +6,7 @@ import { useGetFilmsByTitleQuery } from '@utils/FilmsApi/FilmsApi';
 import { SearchedFilm } from '@components/SearchedFilm';
 import { Spinner } from '@components/Spinner';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
-import { setFilmsReceived } from '@store/slices/filmsSlice';
+import { setFilms } from '@store/slices/filmsSlice';
 import { useEffect, type FC } from 'react';
 import { useModals } from '@hooks/useModals/useModals';
 import { useClickOutside } from '@hooks/useClickOutside/useClickOutside';
@@ -26,7 +26,7 @@ export const Search: FC = () => {
   const badSearchResult = isError || (searchedFilms.length < 1 && !isFetching && !isUninitialized);
 
   useEffect(() => {
-    dispatch(setFilmsReceived(searchedFilms));
+    if (data) dispatch(setFilms(searchedFilms));
   }, [data]);
 
   const handleClick = (e: React.MouseEvent): void => {
@@ -38,21 +38,21 @@ export const Search: FC = () => {
   };
 
   return (
-    <SearchContainer>
-      <SearchForm ref={ref}>
-        <Input placeholder="Search" value={searchQuery} onChange={onChange} onFocus={handleFocus} />
-        <SearchButton onClick={handleClick}>
-          <SearchIcon />
-        </SearchButton>
-      </SearchForm>
-      {isSearchOpened && (
-        <SearchedFilmsContainer $isScrolled={searchedFilms.length > 2 && !isFetching}>
-          {isFetching && <Spinner size={50} />}
-          {badSearchResult && <Info>Nothing was found.</Info>}
-          {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
-          {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
-        </SearchedFilmsContainer>
+      <SearchContainer>
+          <SearchForm ref={ref}>
+              <Input placeholder="Search" value={searchQuery} onChange={onChange} onFocus={handleFocus} />
+              <SearchButton onClick={handleClick}>
+                  <SearchIcon />
+              </SearchButton>
+          </SearchForm>
+          {isSearchOpened && (
+          <SearchedFilmsContainer $isScrolled={searchedFilms.length > 2 && !isFetching}>
+              {isFetching && <Spinner size={50} />}
+              {badSearchResult && <Info>Nothing was found.</Info>}
+              {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
+              {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
+          </SearchedFilmsContainer>
       )}
-    </SearchContainer>
+      </SearchContainer>
   );
 };

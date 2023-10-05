@@ -3,6 +3,6 @@ import { type IFilm } from '@constants/types/interfaces';
 export interface UseFilmsI {
   page: number;
   filmLimitPerPage: number;
-  filmsReceived: IFilm[];
+  films: IFilm[];
   genre: number | null;
 }

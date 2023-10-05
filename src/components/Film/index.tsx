@@ -29,29 +29,29 @@ export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
   };
 
   return (
-    <>
-      {isFetching !== undefined && isFetching ? (
-        <SkeletonLoader />
+      <>
+          {isFetching !== undefined && isFetching ? (
+              <SkeletonLoader />
       ) : (
-        <FilmStyled onClick={handleFilmClick}>
-          <Preview src={photoSrc(backdropPath)} alt={title} />
-          <InfoContainer>
-            <Poster src={photoSrc(posterPath)} alt={title} />
-            <Details>
-              <Text>{title}</Text>
-              <SubDetails>
-                {+releaseDate > 0 && (
-                  <>
-                    <Text>{new Date(releaseDate).getFullYear()}</Text>
-                    <Dot />
-                  </>
+          <FilmStyled onClick={handleFilmClick}>
+              <Preview src={photoSrc(backdropPath)} alt={title} />
+              <InfoContainer>
+                  <Poster src={photoSrc(posterPath)} alt={title} />
+                  <Details>
+                      <Text>{title}</Text>
+                      <SubDetails>
+                          {+releaseDate > 0 && (
+                          <>
+                              <Text>{new Date(releaseDate).getFullYear()}</Text>
+                              <Dot />
+                          </>
                 )}
-                <Text>Rating: {voteAverage}</Text>
-              </SubDetails>
-            </Details>
-          </InfoContainer>
-        </FilmStyled>
+                          <Text>Rating: {voteAverage}</Text>
+                      </SubDetails>
+                  </Details>
+              </InfoContainer>
+          </FilmStyled>
       )}
-    </>
+      </>
   );
 };

@@ -18,10 +18,10 @@ export const Modal: FC<IModalProps> = ({ children }) => {
   };
 
   return (
-    <ModalStyled $opened={isModalOpened}>
-      <Overlay onClick={closeHandler}>
-        <Content onClick={onContentClick}>{children}</Content>
-      </Overlay>
-    </ModalStyled>
+      <ModalStyled $opened={isModalOpened}>
+          <Overlay onClick={closeHandler}>
+              <Content onClick={onContentClick}>{children}</Content>
+          </Overlay>
+      </ModalStyled>
   );
 };

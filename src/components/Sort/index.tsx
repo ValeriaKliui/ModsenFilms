@@ -12,20 +12,20 @@ export const Sort: FC = () => {
   };
 
   return (
-    <Genres>
-      <Container>
-        {Object.keys(genres)
+      <Genres>
+          <Container>
+              {Object.keys(genres)
           .filter((key) => Number.parseInt(key) !== +key)
           .map((genre) => (
-            <Genre
-              key={genre}
-              onClick={() => {
+              <Genre
+                  key={genre}
+                  onClick={() => {
                 handleClickGenre(genre as GenresType);
               }}
-              genre={genre as GenresType}
+                  genre={genre as GenresType}
             />
           ))}
-      </Container>
-    </Genres>
+          </Container>
+      </Genres>
   );
 };

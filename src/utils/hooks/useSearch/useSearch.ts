@@ -1,6 +1,6 @@
 import { type IFilm } from '@constants/types/interfaces';
 import { selectSearchQuery } from '@store/selectors/filmsSelectors';
-import { clearFilms, setFilmsReceived, setFirstPage, setSearchQuery } from '@store/slices/filmsSlice';
+import { clearFilms, setFilms, setFirstPage, setSearchQuery } from '@store/slices/filmsSlice';
 import { type ChangeEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
@@ -22,7 +22,7 @@ export const useSearch = (): useSearchI => {
   const onClick = (films: IFilm[]): void => {
     closeSearch();
     dispatch(clearFilms());
-    dispatch(setFilmsReceived(films));
+    dispatch(setFilms(films));
   };
 
   return { searchQuery, onChange, debouncedValue, onClick };
