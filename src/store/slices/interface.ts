@@ -7,6 +7,7 @@ export interface FilmsIState {
   films: IFilm[];
   genre: number | null;
   searchQuery: string;
+  searchTitle: string;
   movieID: number | null;
 }
 

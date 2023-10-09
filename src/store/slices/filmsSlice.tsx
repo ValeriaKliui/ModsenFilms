@@ -9,6 +9,7 @@ const initialState: FilmsIState = {
   films: [],
   genre: null,
   searchQuery: '',
+  searchTitle: '',
   movieID: null,
 };
 
@@ -25,7 +26,7 @@ export const filmsSlice = createSlice({
     setFirstPage: (state) => {
       state.page = 1;
     },
-    setFilms: (state, action: PayloadAction<IFilm[]>) => {
+    addFilms: (state, action: PayloadAction<IFilm[]>) => {
       state.films = [...state.films, ...action.payload];
     },
     clearFilms: (state) => {
@@ -37,6 +38,9 @@ export const filmsSlice = createSlice({
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
     },
+    setSearchTitle: (state, action: PayloadAction<string>) => {
+      state.searchTitle = action.payload;
+    },
     setMovieID: (state, action: PayloadAction<number | null>) => {
       state.movieID = action.payload;
     },
@@ -46,12 +50,13 @@ export const filmsSlice = createSlice({
 export const {
   setFilmsPerPage,
   increasePage,
-  setFilms,
+  addFilms,
   setGenre,
   clearFilms,
   setSearchQuery,
   setMovieID,
   setFirstPage,
+  setSearchTitle,
 } = filmsSlice.actions;
 
 export default filmsSlice.reducer;

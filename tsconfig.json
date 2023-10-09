@@ -19,11 +19,11 @@
       "@store/*": ["./src/store/*"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/constants/styles/*"],
-      "@interfaces/*": ["./src/constants/types/interfaces"],
       "@hooks/*": ["./src/utils/hooks/*"],
     }
   },
-  "include": [".eslintrc.js", "src/constants/types/global.d.ts", "src"],
+  "types": ["node", "jest", "@testing-library/jest-dom"],
+  "include": [".eslintrc.js", "src/constants/types/global.d.ts", "src", "styled.d.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

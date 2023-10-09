@@ -1,6 +1,4 @@
-import { type IFilm } from '@constants/types/interfaces';
-import { selectSearchQuery } from '@store/selectors/filmsSelectors';
-import { clearFilms, setFilms, setFirstPage, setSearchQuery } from '@store/slices/filmsSlice';
+import { clearFilms, setFirstPage, setGenre, setSearchQuery, setSearchTitle } from '@store/slices/filmsSlice';
 import { type ChangeEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
@@ -9,21 +7,24 @@ import { type useSearchI } from './interface';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();
-  const searchQuery = useAppSelector(selectSearchQuery);
-  const debouncedValue = useDebounce(searchQuery);
+  const { searchQuery, searchTitle } = useAppSelector((store) => store.films);
+  const debouncedValue = useDebounce(searchTitle);
   const { openSearch, closeSearch } = useModals();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
     openSearch();
-    dispatch(setFirstPage());
-    dispatch(setSearchQuery(event.target.value));
+    dispatch(setSearchTitle(event.target.value));
   };
 
-  const onClick = (films: IFilm[]): void => {
+  const onClick = (): void => {
     closeSearch();
-    dispatch(clearFilms());
-    dispatch(setFilms(films));
+    if (searchTitle !== searchQuery) {
+      dispatch(clearFilms());
+    }
+    dispatch(setSearchQuery(searchTitle));
+    dispatch(setFirstPage());
+    dispatch(setGenre(null));
   };
 
-  return { searchQuery, onChange, debouncedValue, onClick };
+  return { searchQuery, onChange, debouncedValue, onClick, searchTitle };
 };
