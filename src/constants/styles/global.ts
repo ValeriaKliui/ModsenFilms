@@ -1,23 +1,16 @@
 import { createGlobalStyle, css } from 'styled-components';
-import RobotoWoff from '@assets/fonts/Roboto.woff';
-import RobotoWoff2 from '@assets/fonts/Roboto.woff2';
 import { devices } from './media';
 import { hoverAnimation } from './animation';
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-  font-family: 'Roboto Condensed';
-  src:
-    url(${RobotoWoff2}) format('woff2'),
-    url(${RobotoWoff}) format('woff');
-}
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,600,700);
 html {
   height: 100%;
 }
 body {
   color: ${({ theme }) => theme.colors.font};
   background-color: ${({ theme }) => theme.colors.background};
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto';
   font-size: 16px;
   height: 100%;
   @media ${devices.md} {

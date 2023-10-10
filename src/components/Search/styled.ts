@@ -3,22 +3,12 @@ import { hoverAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
 
 export const SearchContainer = styled.div`
-  border: 2px solid ${({ theme }) => theme.colors.border};
   position: relative;
   z-index: 100;
   flex-grow: 1;
   width: 100%;
   max-width: 627px;
   justify-self: center;
-  svg {
-    path {
-      fill: ${({ theme }) => theme.colors.font};
-    }
-  }
-  &:hover {
-    border: ${({ theme }) => theme.colors.primary} 2px solid;
-  }
-  ${hoverAnimation}
   @media ${devices.sm} {
     grid-area: 2 / 1 / 2 / 4;
   }
@@ -37,6 +27,16 @@ export const Input = styled.input`
 
 export const SearchForm = styled.form`
   display: flex;
+  border: 2px solid ${({ theme }) => theme.colors.border};
+  svg {
+    path {
+      fill: ${({ theme }) => theme.colors.font};
+    }
+  }
+  &:hover {
+    border: ${({ theme }) => theme.colors.primary} 2px solid;
+  }
+  ${hoverAnimation}
 `;
 export const SearchButton = styled.button`
   width: 50px;
@@ -58,13 +58,13 @@ export const SearchButton = styled.button`
     }
   }
 `;
-export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean }>`
+export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean; $isSearchOpened: boolean }>`
   max-height: 350px;
   overflow-y: ${({ $isScrolled }) => $isScrolled && 'scroll'};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border: ${({ $isSearchOpened, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`} 
   &::-webkit-scrollbar {
     width: 10px;
   }
