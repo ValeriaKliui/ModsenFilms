@@ -47,16 +47,16 @@ export const Films: FC = () => {
   const isError = isErrorCatalog || isErrorByTitle;
 
   return (
-    <>
-      <FilmsStyled $isError={isError}>
-        {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
-        {filmsByTitle?.results.length === 0 && <Error text="Nothing was found." />}
-        {films.slice(0, filmsPerPage).map((film) => (
-          <Film film={film} key={film.id} />
+      <>
+          <FilmsStyled $isError={isError}>
+              {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
+              {filmsByTitle?.results.length === 0 && <Error text="Nothing was found." />}
+              {films.slice(0, filmsPerPage).map((film) => (
+                  <Film film={film} key={film.id} />
         ))}
-        {isFetching &&
+              {isFetching &&
           new Array(FILMS_LIMIT).fill({}).map((film, index) => <Film film={film} isFetching={true} key={index} />)}
-      </FilmsStyled>
-    </>
+          </FilmsStyled>
+      </>
   );
 };

@@ -1,12 +1,17 @@
+import path from 'path';
+
 export default {
   clearMocks: true,
-  testEnvironment: 'jest-environment-jsdom',
+  testEnvironment: 'jsdom',
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'scss', 'node'],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules'],
   modulePaths: ['<rootDir>src'],
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).ts?(x)'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom', './jest.setup.ts'],
+  rootDir: path.resolve(__dirname, '../../'),
   moduleNameMapper: {
+    '\\.svg$': path.resolve(__dirname, '__mocks__', 'svg.js'),
+    '\\.png': path.resolve(__dirname, 'jest-empty-component.tsx'),
     '^@assets/(.*)': '<rootDir>src/assets/$1',
     '^@components/(.*)': '<rootDir>src/components/$1',
     '^@constants/(.*)': '<rootDir>src/constants/$1',
@@ -16,11 +21,11 @@ export default {
     '^@store/(.*)': '<rootDir>src/store/$1',
     '^@styles/(.*)': '<rootDir>src/constants/styles/$1',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>__mocks__/fileMock.js',
+      '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/identity-obj-proxy',
   },
 
-  // setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
   // setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
   // Indicates whether the coverage information should be collected while executing the test

@@ -17,7 +17,7 @@ export const Sort: FC = () => {
   };
 
   return (
-    <Genres>
+    <Genres data-testid="sort">
       <Container>
         {Object.keys(genres)
           .filter((key) => Number.parseInt(key) !== +key)

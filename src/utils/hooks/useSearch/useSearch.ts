@@ -12,7 +12,7 @@ export const useSearch = (): useSearchI => {
   const { openSearch, closeSearch } = useModals();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    openSearch();
+    event.target.value.length > 3 && openSearch();
     dispatch(setSearchTitle(event.target.value));
   };
 
