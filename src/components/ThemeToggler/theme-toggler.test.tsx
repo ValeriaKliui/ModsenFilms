@@ -15,11 +15,11 @@ describe('Theme toggler', () => {
 
   test('Should be rendered on the page', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const toggler = screen.getByTestId('theme-toggler');
     expect(toggler).toBeInTheDocument();
@@ -27,11 +27,11 @@ describe('Theme toggler', () => {
 
   test('Should toggle the theme checkbox', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
     const toggleTheme = jest.spyOn(actions, 'toggleTheme');
@@ -41,40 +41,39 @@ describe('Theme toggler', () => {
     expect(themeCheckbox).not.toBeChecked();
 
     fireEvent.click(themeCheckbox);
-    expect(mockDispatch).toHaveBeenCalled();
-    expect(toggleTheme).toHaveBeenCalled();
+    expect(mockDispatch).toBeCalled();
+    expect(toggleTheme).toBeCalled();
     expect(themeCheckbox).toBeChecked();
 
     fireEvent.click(themeCheckbox);
-    expect(mockDispatch).toHaveBeenCalled();
-    expect(toggleTheme).toHaveBeenCalled();
+    expect(mockDispatch).toBeCalled();
+    expect(toggleTheme).toBeCalled();
     expect(themeCheckbox).not.toBeChecked();
   });
 
   test('Should change the state', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const initialState = { theme: lightTheme };
     const toggler = screen.getByTestId('theme-checkbox');
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
-    screen.debug();
 
     expect(themeReducer(initialState, { type: '' }).theme).toEqual(initialState.theme);
 
     fireEvent.click(toggler);
-    expect(mockDispatch).toHaveBeenCalled();
-    expect(toggleTheme).toHaveBeenCalled();
+    expect(mockDispatch).toBeCalled();
+    expect(toggleTheme).toBeCalled();
     expect(themeReducer(initialState, toggleTheme()).theme).toEqual(darkTheme);
 
     const prevState = { theme: darkTheme };
     fireEvent.click(toggler);
-    expect(mockDispatch).toHaveBeenCalled();
-    expect(toggleTheme).toHaveBeenCalled();
+    expect(mockDispatch).toBeCalled();
+    expect(toggleTheme).toBeCalled();
     expect(themeReducer(prevState, toggleTheme()).theme).toEqual(lightTheme);
   });
 });

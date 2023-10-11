@@ -17,7 +17,7 @@ export const Search: FC = () => {
     { searchQuery: debouncedValue, page: 1 },
     { skip: debouncedValue.length < 2 || !isSearchOpened },
   );
-  console.log(isSearchOpened);
+
   const { results: searchedFilms, total_results: filmsAmount } = data ?? { results: [] };
   const badSearchResult = isError || (searchedFilms.length < 1 && !isFetching && !isUninitialized);
 
@@ -30,21 +30,21 @@ export const Search: FC = () => {
   };
 
   return (
-    <SearchContainer>
-      <SearchForm ref={ref}>
-        <Input placeholder="Search" value={searchTitle} onChange={onChange} onFocus={handleFocus} />
-        <SearchButton onClick={handleClick}>
-          <SearchIcon />
-        </SearchButton>
-      </SearchForm>
-      {isSearchOpened && (
-        <SearchedFilmsContainer $isScrolled={searchedFilms.length > 2 && !isFetching}>
-          {isFetching && <Spinner size={50} />}
-          {badSearchResult && <Info>Nothing was found.</Info>}
-          {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
-          {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
-        </SearchedFilmsContainer>
+      <SearchContainer>
+          <SearchForm ref={ref}>
+              <Input placeholder="Search" value={searchTitle} onChange={onChange} onFocus={handleFocus} />
+              <SearchButton onClick={handleClick}>
+                  <SearchIcon />
+              </SearchButton>
+          </SearchForm>
+          {isSearchOpened && (
+          <SearchedFilmsContainer $isScrolled={searchedFilms.length > 2 && !isFetching} $isSearchOpened={isSearchOpened}>
+              {isFetching && <Spinner size={50} />}
+              {badSearchResult && <Info>Nothing was found.</Info>}
+              {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
+              {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
+          </SearchedFilmsContainer>
       )}
-    </SearchContainer>
+      </SearchContainer>
   );
 };

@@ -23,7 +23,14 @@
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],
-  "include": [".eslintrc.js", "src/constants/types/global.d.ts", "src", "styled.d.ts", "__mocks__"],
+  "include": [
+    ".eslintrc.js",
+    "src/constants/types/global.d.ts",
+    "src",
+    "styled.d.ts",
+    "jest.setup.ts",
+    "jest.config.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

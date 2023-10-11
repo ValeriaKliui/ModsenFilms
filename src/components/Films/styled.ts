@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { devices } from '@constants/styles/media';
+import { wrapper } from '@constants/styles/global';
 
+export const FilmsContainer = styled.div`
+  ${wrapper};
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-self: center;
+`;
 export const FilmsStyled = styled.div<{ $isError: boolean }>`
   display: ${({ $isError }) => ($isError ? 'block' : 'grid')};
   grid-template-columns: repeat(4, minmax(100px, 340px));

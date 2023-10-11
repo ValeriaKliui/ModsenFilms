@@ -1,13 +1,14 @@
 import { Film } from '@components/Film';
-import { FilmsStyled } from './styled';
+import { FilmsContainer, FilmsStyled } from './styled';
 import { useGetFilmsByTitleQuery, useGetFilmsQuery } from '@utils/FilmsApi/FilmsApi';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useEffect, type FC } from 'react';
-import { addFilms, clearFilms } from '@store/slices/filmsSlice';
+import { addFilms, clearFilms, increasePage, setFilmsPerPage } from '@store/slices/filmsSlice';
 import { useSearch } from '@utils/hooks/useSearch/useSearch';
 import { Error } from '@components/Error';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilmsResponse } from '@constants/types/interfaces';
+import { Button } from '@components/Button';
 
 export const Films: FC = () => {
   const dispatch = useAppDispatch();
@@ -46,9 +47,14 @@ export const Films: FC = () => {
   const isFetching = isFetchingCatalog || isFetchingByTitle;
   const isError = isErrorCatalog || isErrorByTitle;
 
+  const increaseFilms = (): void => {
+    dispatch(setFilmsPerPage(FILMS_LIMIT + filmsPerPage));
+    if ((films.length - 2 * filmsPerPage) / filmsPerPage < 0) dispatch(increasePage());
+  };
+
   return (
-      <>
-          <FilmsStyled $isError={isError}>
+      <FilmsContainer>
+          <FilmsStyled $isError={isError} data-testid="films-container">
               {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
               {filmsByTitle?.results.length === 0 && <Error text="Nothing was found." />}
               {films.slice(0, filmsPerPage).map((film) => (
@@ -57,6 +63,7 @@ export const Films: FC = () => {
               {isFetching &&
           new Array(FILMS_LIMIT).fill({}).map((film, index) => <Film film={film} isFetching={true} key={index} />)}
           </FilmsStyled>
-      </>
+          <Button text="Show More" onClick={increaseFilms} isHidden={films.length < filmsPerPage} />
+      </FilmsContainer>
   );
 };

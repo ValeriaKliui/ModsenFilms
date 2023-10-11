@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 import { scaleAnimation } from '@constants/styles/animation';
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<{ $isHidden?: boolean }>`
+  display: ${({ $isHidden }) => $isHidden === true && 'none'};
   align-self: center;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.lightest};

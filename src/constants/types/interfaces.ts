@@ -4,6 +4,7 @@ import { type GenresType } from './genres';
 export interface IButtonProps {
   text: string;
   onClick?: () => void;
+  isHidden?: boolean;
 }
 export interface IErrorProps {
   text?: string;

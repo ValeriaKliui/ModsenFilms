@@ -3,16 +3,21 @@ import { devices } from './media';
 import { hoverAnimation } from './animation';
 
 export const GlobalStyle = createGlobalStyle`
-@import url(https://fonts.googleapis.com/css?family=Roboto:regular,600,700);
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src:
+    url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+}
 html {
   height: 100%;
 }
 body {
   color: ${({ theme }) => theme.colors.font};
   background-color: ${({ theme }) => theme.colors.background};
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   height: 100%;
+  
   @media ${devices.md} {
     font-size: 14px;
   }

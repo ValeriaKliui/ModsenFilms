@@ -33,7 +33,7 @@ export const SearchForm = styled.form`
       fill: ${({ theme }) => theme.colors.font};
     }
   }
-  &:hover {
+  &:focus-within {
     border: ${({ theme }) => theme.colors.primary} 2px solid;
   }
   ${hoverAnimation}
@@ -64,7 +64,8 @@ export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean; $isSearc
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
-  border: ${({ $isSearchOpened, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`} 
+  border: ${({ $isSearchOpened, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`};
+  border-top: none;
   &::-webkit-scrollbar {
     width: 10px;
   }

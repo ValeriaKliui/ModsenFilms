@@ -21,7 +21,7 @@ export const Footer: FC = () => {
               <FooterText>
                   <FooterLinks>
                       <Link to={fakeLink} target="_blank">
-                          TermsPrivacyPolicy & Safety{' '}
+                          TermsPrivacyPolicy & Safety
                       </Link>
                       <Link to={fakeLink} target="_blank">
                           How YouTube works
@@ -32,7 +32,7 @@ export const Footer: FC = () => {
                   </FooterLinks>
                   <FooterLinks>
                       <Link to={fakeLink} target="_blank">
-                          About Press Copyright{' '}
+                          About Press Copyright
                       </Link>
                       <Link to={fakeLink} target="_blank">
                           Contact us Creators

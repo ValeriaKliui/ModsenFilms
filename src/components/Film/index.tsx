@@ -28,11 +28,10 @@ export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
     openModal();
   };
 
+  if (isFetching !== undefined && isFetching) return <SkeletonLoader />;
+
   return (
-      <>
-          {isFetching !== undefined && isFetching ? (
-              <SkeletonLoader />
-      ) : (
+      <div data-testid="film-card">
           <FilmStyled onClick={handleFilmClick}>
               <Preview src={photoSrc(backdropPath)} alt={title} />
               <InfoContainer>
@@ -45,13 +44,12 @@ export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
                               <Text>{new Date(releaseDate).getFullYear()}</Text>
                               <Dot />
                           </>
-                )}
+              )}
                           <Text>Rating: {voteAverage}</Text>
                       </SubDetails>
                   </Details>
               </InfoContainer>
           </FilmStyled>
-      )}
-      </>
+      </div>
   );
 };
