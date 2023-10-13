@@ -22,14 +22,16 @@
       "@hooks/*": ["./src/utils/hooks/*"]
     }
   },
-  "types": ["node", "jest", "@testing-library/jest-dom"],
+  "types": ["cypress", "jest", "@testing-library/jest-dom", "node"],
   "include": [
     ".eslintrc.js",
     "src/constants/types/global.d.ts",
     "src",
     "styled.d.ts",
     "jest.setup.ts",
-    "jest.config.ts"
+    "jest.config.ts",
+    "mocks/filmsMockData.ts",
+    "cypress"
   ],
   "ts-node": {
     "compilerOptions": {

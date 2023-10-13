@@ -1,6 +1,5 @@
 import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
 import noImage from '@assets/img/no-image.jpg';
-import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
 import { type FC } from 'react';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useModals } from '@hooks/useModals/useModals';
@@ -28,28 +27,24 @@ export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
     openModal();
   };
 
-  if (isFetching !== undefined && isFetching) return <SkeletonLoader />;
-
   return (
-      <div data-testid="film-card">
-          <FilmStyled onClick={handleFilmClick}>
-              <Preview src={photoSrc(backdropPath)} alt={title} />
-              <InfoContainer>
-                  <Poster src={photoSrc(posterPath)} alt={title} />
-                  <Details>
-                      <Text>{title}</Text>
-                      <SubDetails>
-                          {+releaseDate > 0 && (
-                          <>
-                              <Text>{new Date(releaseDate).getFullYear()}</Text>
-                              <Dot />
-                          </>
-              )}
-                          <Text>Rating: {voteAverage}</Text>
-                      </SubDetails>
-                  </Details>
-              </InfoContainer>
-          </FilmStyled>
-      </div>
+    <FilmStyled onClick={handleFilmClick} data-testid="film-card">
+      <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
+      <InfoContainer>
+        <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
+        <Details>
+          <Text data-testid="film-title">{title}</Text>
+          <SubDetails>
+            {+releaseDate > 0 && (
+              <>
+                <Text>{new Date(releaseDate).getFullYear()}</Text>
+                <Dot />
+              </>
+            )}
+            <Text>Rating: {voteAverage}</Text>
+          </SubDetails>
+        </Details>
+      </InfoContainer>
+    </FilmStyled>
   );
 };

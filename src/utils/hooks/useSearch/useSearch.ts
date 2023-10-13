@@ -13,6 +13,7 @@ export const useSearch = (): useSearchI => {
 
   const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.target.value.length > 3 && openSearch();
+    event.target.value.length <= 3 && closeSearch();
     dispatch(setSearchTitle(event.target.value));
   };
 

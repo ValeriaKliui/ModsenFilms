@@ -14,7 +14,7 @@ export const Video: FC = () => {
   if (isFetching) return <Spinner size={100} />;
 
   return (
-      <VideoContainer>
+      <VideoContainer data-testid="video">
           <VideoStyled
               width="100%"
               height="100%"

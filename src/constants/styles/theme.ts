@@ -26,7 +26,7 @@ export const baseTheme: ITheme = {
     primary: '#ff8a00',
     secondary: 'rgba(0, 0, 0, 0.06)',
     background: '#ffffff',
-    font: '#000000',
+    font: '#19191B',
     fontActive: '#ffffff',
     bgActive: '#000000',
     border: '#C4C4C4',
@@ -43,7 +43,6 @@ export const lightTheme: DefaultTheme = {
 
   colors: {
     ...baseTheme.colors,
-    font: '#19191B',
   },
 };
 

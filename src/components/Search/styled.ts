@@ -58,13 +58,13 @@ export const SearchButton = styled.button`
     }
   }
 `;
-export const SearchedFilmsContainer = styled.ul<{ $isScrolled: boolean; $isSearchOpened: boolean }>`
+export const SearchedFilmsContainer = styled.ul<{ $isScrolled?: boolean; $isSearchOpened?: boolean }>`
   max-height: 350px;
-  overflow-y: ${({ $isScrolled }) => $isScrolled && 'scroll'};
+  overflow-y: ${({ $isScrolled = false }) => $isScrolled && 'scroll'};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
-  border: ${({ $isSearchOpened, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`};
+  border: ${({ $isSearchOpened = false, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`};
   border-top: none;
   &::-webkit-scrollbar {
     width: 10px;

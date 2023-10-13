@@ -52,7 +52,7 @@ export const Footer: FC = () => {
           ))}
               </FooterNetworks>
           </FooterInfo>
-          <Copyright>2023 Modsen company</Copyright>
+          <Copyright data-testid="copyright">2023 Modsen company</Copyright>
       </FooterStyled>
   );
 };

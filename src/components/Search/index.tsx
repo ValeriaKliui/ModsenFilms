@@ -23,28 +23,39 @@ export const Search: FC = () => {
 
   const handleClick = (e: React.MouseEvent): void => {
     e.preventDefault();
-    searchedFilms.length > 0 && onClick();
+    onClick();
+    // searchedFilms.length > 0 && onClick();
   };
   const handleFocus = (): void => {
     searchTitle.length > 3 && openSearch();
   };
 
   return (
-      <SearchContainer>
-          <SearchForm ref={ref}>
-              <Input placeholder="Search" value={searchTitle} onChange={onChange} onFocus={handleFocus} />
-              <SearchButton onClick={handleClick}>
-                  <SearchIcon />
-              </SearchButton>
-          </SearchForm>
-          {isSearchOpened && (
-          <SearchedFilmsContainer $isScrolled={searchedFilms.length > 2 && !isFetching} $isSearchOpened={isSearchOpened}>
-              {isFetching && <Spinner size={50} />}
-              {badSearchResult && <Info>Nothing was found.</Info>}
-              {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
-              {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
-          </SearchedFilmsContainer>
+    <SearchContainer data-testid="search">
+      <SearchForm ref={ref} data-testid="search-form">
+        <Input
+          placeholder="Search"
+          value={searchTitle}
+          onChange={onChange}
+          onFocus={handleFocus}
+          data-testid="search-input"
+        />
+        <SearchButton onClick={handleClick} data-testid="search-button">
+          <SearchIcon />
+        </SearchButton>
+      </SearchForm>
+      {isSearchOpened && (
+        <SearchedFilmsContainer
+          $isScrolled={searchedFilms.length > 2 && !isFetching}
+          $isSearchOpened={isSearchOpened}
+          data-testid="searched-films"
+        >
+          {isFetching && <Spinner size={50} />}
+          {badSearchResult && <Info>Nothing was found.</Info>}
+          {!isFetching && searchedFilms.length > 0 && <Info>Found: {filmsAmount} films.</Info>}
+          {!isFetching && searchedFilms.map((film) => <SearchedFilm key={film.id} film={film} />)}
+        </SearchedFilmsContainer>
       )}
-      </SearchContainer>
+    </SearchContainer>
   );
 };

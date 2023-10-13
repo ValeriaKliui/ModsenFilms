@@ -7,18 +7,18 @@ import { genres } from '@constants/types/genres';
 import * as actions from '@store/slices/filmsSlice';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 
-describe('Sort by genre', () => {
+describe('Sort by genre module', () => {
   afterAll(() => {
     jest.clearAllMocks();
   });
 
   test('Should be rendered on the page', () => {
     const { getByText } = render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Sort />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Sort />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const sort = screen.getByTestId('sort');
     const genreButtons = screen.getAllByTestId('genre');
@@ -39,11 +39,11 @@ describe('Sort by genre', () => {
 
   test('Should change the genre in store after click', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Sort />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Sort />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const setGenre = jest.spyOn(actions, 'setGenre');
 
@@ -58,11 +58,11 @@ describe('Sort by genre', () => {
 
   test('Should reset page, searchTitle, filmsPerPage while clicking on genre', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Sort />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Sort />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const setFirstPage = jest.spyOn(actions, 'setFirstPage');
     const setFilmsPerPage = jest.spyOn(actions, 'setFilmsPerPage');

@@ -8,18 +8,18 @@ import { ThemeToggler } from '.';
 import { darkTheme, lightTheme } from '@constants/styles/theme';
 import themeReducer, { toggleTheme } from '@store/slices/theme';
 
-describe('Theme toggler', () => {
+describe('Theme toggler module', () => {
   afterAll(() => {
     jest.clearAllMocks();
   });
 
   test('Should be rendered on the page', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <ThemeToggler />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <ThemeToggler />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const toggler = screen.getByTestId('theme-toggler');
     expect(toggler).toBeInTheDocument();
@@ -27,11 +27,11 @@ describe('Theme toggler', () => {
 
   test('Should toggle the theme checkbox', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <ThemeToggler />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <ThemeToggler />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
     const toggleTheme = jest.spyOn(actions, 'toggleTheme');
@@ -53,11 +53,11 @@ describe('Theme toggler', () => {
 
   test('Should change the state', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <ThemeToggler />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <ThemeToggler />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const initialState = { theme: lightTheme };
     const toggler = screen.getByTestId('theme-checkbox');

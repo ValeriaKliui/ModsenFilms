@@ -9,6 +9,7 @@ import { Error } from '@components/Error';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilmsResponse } from '@constants/types/interfaces';
 import { Button } from '@components/Button';
+import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
 
 export const Films: FC = () => {
   const dispatch = useAppDispatch();
@@ -39,7 +40,7 @@ export const Films: FC = () => {
 
   useEffect(() => {
     const filmsData = getDisplayedFilms();
-    if (filmsData !== undefined) {
+    if (filmsData !== undefined && filmsData !== null) {
       dispatch(addFilms(filmsData.results));
     }
   }, [filmsCatalog, filmsByTitle, genre, searchQuery]);
@@ -53,17 +54,19 @@ export const Films: FC = () => {
   };
 
   return (
-      <FilmsContainer>
-          <FilmsStyled $isError={isError} data-testid="films-container">
-              {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
-              {filmsByTitle?.results.length === 0 && <Error text="Nothing was found." />}
-              {films.slice(0, filmsPerPage).map((film) => (
-                  <Film film={film} key={film.id} />
+    <FilmsContainer>
+      <FilmsStyled
+        $isError={isError || (filmsByTitle?.results.length === 0 && searchQuery.length !== 0)}
+        data-testid="films-container"
+      >
+        {isError && <Error text="Sorry, you have to enable VPN for this site to run" />}
+        {filmsByTitle?.results.length === 0 && searchQuery.length !== 0 && <Error text="Nothing was found." />}
+        {films.slice(0, filmsPerPage).map((film) => (
+          <Film film={film} key={film.id} />
         ))}
-              {isFetching &&
-          new Array(FILMS_LIMIT).fill({}).map((film, index) => <Film film={film} isFetching={true} key={index} />)}
-          </FilmsStyled>
-          <Button text="Show More" onClick={increaseFilms} isHidden={films.length < filmsPerPage} />
-      </FilmsContainer>
+        {isFetching && new Array(FILMS_LIMIT).fill({}).map((f, index) => <SkeletonLoader key={index} />)}
+      </FilmsStyled>
+      <Button text="Show More" onClick={increaseFilms} isHidden={films.length < filmsPerPage} />
+    </FilmsContainer>
   );
 };
