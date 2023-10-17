@@ -1,6 +1,8 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { SourceMapDevToolPlugin } from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 interface BuildEnv {
   mode: 'development' | 'production';
@@ -42,6 +44,7 @@ export default (env: BuildEnv) => {
       new webpack.DefinePlugin({
         'process.env': JSON.stringify(process.env),
       }),
+      new BundleAnalyzerPlugin({ openAnalyzer: false }),
     ],
     module: {
       rules: [
@@ -88,7 +91,9 @@ export default (env: BuildEnv) => {
         }
       : undefined,
     optimization: {
-      runtimeChunk: 'single',
+      splitChunks: {
+        chunks: 'all',
+      },
     },
   };
   return config;
