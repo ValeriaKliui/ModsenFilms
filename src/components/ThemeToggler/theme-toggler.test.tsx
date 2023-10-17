@@ -2,11 +2,11 @@ import { store } from '@store/index';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
 import * as hooks from '@utils/hooks/reduxHooks/hooks';
-import * as actions from '@store/slices/theme';
+import * as actions from '@store/slices/themeSlice';
 import { Provider } from 'react-redux';
 import { ThemeToggler } from '.';
 import { darkTheme, lightTheme } from '@constants/styles/theme';
-import themeReducer, { toggleTheme } from '@store/slices/theme';
+import themeReducer, { toggleTheme } from '@store/slices/themeSlice';
 
 describe('Theme toggler module', () => {
   afterAll(() => {
@@ -15,11 +15,11 @@ describe('Theme toggler module', () => {
 
   test('Should be rendered on the page', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const toggler = screen.getByTestId('theme-toggler');
     expect(toggler).toBeInTheDocument();
@@ -27,11 +27,11 @@ describe('Theme toggler module', () => {
 
   test('Should toggle the theme checkbox', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
     const toggleTheme = jest.spyOn(actions, 'toggleTheme');
@@ -53,11 +53,11 @@ describe('Theme toggler module', () => {
 
   test('Should change the state', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <ThemeToggler />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <ThemeToggler />
+            </DarkThemeProvider>
+        </Provider>,
     );
     const initialState = { theme: lightTheme };
     const toggler = screen.getByTestId('theme-checkbox');

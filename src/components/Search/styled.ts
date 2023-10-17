@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hoverAnimation } from '@constants/styles/animation';
+import { transitionAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
 
 export const SearchContainer = styled.div`
@@ -27,16 +27,16 @@ export const Input = styled.input`
 
 export const SearchForm = styled.form`
   display: flex;
-  border: 2px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   svg {
     path {
       fill: ${({ theme }) => theme.colors.font};
     }
   }
   &:focus-within {
-    border: ${({ theme }) => theme.colors.primary} 2px solid;
+    border: 1px ${({ theme }) => theme.colors.primary} solid;
   }
-  ${hoverAnimation}
+  ${transitionAnimation}
 `;
 export const SearchButton = styled.button`
   width: 50px;
@@ -47,7 +47,7 @@ export const SearchButton = styled.button`
   background-color: ${({ theme }) => theme.colors.background};
   border: none;
   border-left: 2px solid ${({ theme }) => theme.colors.border};
-  ${hoverAnimation}
+  ${transitionAnimation}
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary};
     border-left: 2px solid ${({ theme }) => theme.colors.primary};

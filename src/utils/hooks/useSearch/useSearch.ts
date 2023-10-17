@@ -1,9 +1,17 @@
-import { clearFilms, setFirstPage, setGenre, setSearchQuery, setSearchTitle } from '@store/slices/filmsSlice';
+import {
+  clearFilms,
+  setFilmsPerPage,
+  setFirstPage,
+  setGenre,
+  setSearchQuery,
+  setSearchTitle,
+} from '@store/slices/filmsSlice';
 import { type ChangeEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
 import { useModals } from '@hooks/useModals/useModals';
 import { type useSearchI } from './interface';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();
@@ -25,6 +33,7 @@ export const useSearch = (): useSearchI => {
     dispatch(setSearchQuery(searchTitle));
     dispatch(setFirstPage());
     dispatch(setGenre(null));
+    dispatch(setFilmsPerPage(FILMS_LIMIT));
   };
 
   return { searchQuery, onChange, debouncedValue, onClick, searchTitle };

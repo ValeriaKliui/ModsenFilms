@@ -14,5 +14,3 @@ export const rtkApi = createApi({
   }),
   endpoints: (builder) => ({}),
 });
-
-// TODO https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery

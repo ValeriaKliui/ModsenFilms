@@ -28,23 +28,23 @@ export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
   };
 
   return (
-    <FilmStyled onClick={handleFilmClick} data-testid="film-card">
-      <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
-      <InfoContainer>
-        <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
-        <Details>
-          <Text data-testid="film-title">{title}</Text>
-          <SubDetails>
-            {+releaseDate > 0 && (
-              <>
-                <Text>{new Date(releaseDate).getFullYear()}</Text>
-                <Dot />
-              </>
+      <FilmStyled onClick={handleFilmClick} data-testid="film-card">
+          <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
+          <InfoContainer>
+              <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
+              <Details>
+                  <Text data-testid="film-title">{title}</Text>
+                  <SubDetails>
+                      {+releaseDate > 0 && (
+                      <>
+                          <Text>{new Date(releaseDate).getFullYear()}</Text>
+                          <Dot />
+                      </>
             )}
-            <Text>Rating: {voteAverage}</Text>
-          </SubDetails>
-        </Details>
-      </InfoContainer>
-    </FilmStyled>
+                      <Text>Rating: {voteAverage}</Text>
+                  </SubDetails>
+              </Details>
+          </InfoContainer>
+      </FilmStyled>
   );
 };

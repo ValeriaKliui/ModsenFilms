@@ -32,10 +32,10 @@ describe('Search module', () => {
   });
 
   it('Should show searched films after entering more than 3 symbols', () => {
+    const titleTest = 'Titanic';
     cy.get('[data-testid=search-input]').as('search-input');
-    cy.get('[data-testid=searched-films]').as('searched-films');
-    cy.get('@search-input').type('Titanic');
-    cy.wait(3000);
-    cy.get('@searched-films').should('be.visible');
+    cy.get('@search-input').type(titleTest);
+    cy.get('[data-testid=searched-films]').should('be.visible');
+    cy.get('[data-testid=searched-film]').should('include.text', titleTest);
   });
 });

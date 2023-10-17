@@ -1,7 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { SourceMapDevToolPlugin } from 'webpack';
-import webpackDevServer from 'webpack-dev-server';
 
 interface BuildEnv {
   mode: 'development' | 'production';
@@ -23,7 +22,7 @@ export default (env: BuildEnv) => {
   };
 
   const config = {
-    mode: mode,
+    mode,
     entry: {
       main: path.resolve(__dirname, 'src', 'index.tsx'),
     },

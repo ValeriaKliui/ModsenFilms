@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { devices } from '@constants/styles/media';
 import { wrapper } from '@constants/styles/global';
 
-export const FilmsContainer = styled.div`
+export const FilmsContainer = styled.div<{ $isError: boolean }>`
   ${wrapper};
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-self: center;
+  align-self: ${({ $isError }) => ($isError ? 'center' : 'flex-start')};
 `;
 export const FilmsStyled = styled.div<{ $isError: boolean }>`
   display: ${({ $isError }) => ($isError ? 'block' : 'grid')};

@@ -1,3 +1,5 @@
+import { transitionAnimation } from '@constants/styles/animation';
+import { devices } from '@constants/styles/media';
 import styled from 'styled-components';
 
 export const ModalStyled = styled.div<{ $opened: boolean }>`
@@ -10,12 +12,13 @@ export const ModalStyled = styled.div<{ $opened: boolean }>`
   pointer-events: none;
   z-index: -1;
   color: black;
+  ${transitionAnimation}
   ${({ $opened }) =>
     ($opened ?? false) &&
     `
     pointer-events: auto;
     opacity: 1;
-    z-index: 100;
+    z-index: 200;
   `}
 `;
 export const Overlay = styled.div`
@@ -33,4 +36,8 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
+  @media ${devices.sm} {
+    width: 90vw;
+    height: 50vw;
+  }
 `;

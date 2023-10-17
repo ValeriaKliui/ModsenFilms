@@ -11,7 +11,7 @@ import { FilmsStyled } from './styled';
 import { Film } from '@components/Film';
 import { type IFilm } from '@constants/types/interfaces';
 import { Button } from '@components/Button';
-import { filmsMockData } from 'mocks/filmsMockData';
+import { filmsMockData } from '@mocks/filmsMockData';
 
 describe('Films module', () => {
   afterAll(() => {
@@ -23,16 +23,16 @@ describe('Films module', () => {
     const response = await fetchItems();
 
     const { findByText } = render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <FilmsStyled $isError={false}>
-            {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-              <Film film={film} key={film.id} />
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <FilmsStyled $isError={false}>
+                    {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
+                        <Film film={film} key={film.id} />
             ))}
-            <Button text="Show More" />
-          </FilmsStyled>
-        </DarkThemeProvider>
-      </Provider>,
+                    <Button text="Show More" />
+                </FilmsStyled>
+            </DarkThemeProvider>
+        </Provider>,
     );
 
     const films = screen.getAllByTestId('film-card');
@@ -48,11 +48,11 @@ describe('Films module', () => {
 
   test('Should increase page and film amount after click on show-more button', () => {
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <Films />
-        </DarkThemeProvider>
-      </Provider>,
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <Films />
+            </DarkThemeProvider>
+        </Provider>,
     );
 
     const increasePage = jest.spyOn(actions, 'increasePage');
@@ -77,19 +77,19 @@ describe('Films module', () => {
     const response = await fetchItems();
 
     render(
-      <Provider store={store}>
-        <DarkThemeProvider>
-          <FilmsStyled $isError={false}>
-            {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-              <Film film={film} key={film.id} />
+        <Provider store={store}>
+            <DarkThemeProvider>
+                <FilmsStyled $isError={false}>
+                    {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
+                        <Film film={film} key={film.id} />
             ))}
-            <Button text="Show More" />
-          </FilmsStyled>
-          <Modal>
-            <Video />
-          </Modal>
-        </DarkThemeProvider>
-      </Provider>,
+                    <Button text="Show More" />
+                </FilmsStyled>
+                <Modal>
+                    <Video />
+                </Modal>
+            </DarkThemeProvider>
+        </Provider>,
     );
 
     const filmsCards = screen.getAllByTestId('film-card');

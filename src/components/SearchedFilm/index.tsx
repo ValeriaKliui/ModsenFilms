@@ -26,7 +26,7 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   };
 
   return (
-      <SearchedFilmStyled onClick={handleFilmClick}>
+      <SearchedFilmStyled onClick={handleFilmClick} data-testid="searched-film">
           <FilmInfo>
               <SearchedTitle>{title}</SearchedTitle>
               <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>

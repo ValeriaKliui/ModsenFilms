@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hoverAnimation } from '@constants/styles/animation';
+import { transitionAnimation } from '@constants/styles/animation';
 
 export const GenreStyled = styled.div<{ $isActive: boolean }>`
   padding: 0.4em 1em;
@@ -10,7 +10,7 @@ export const GenreStyled = styled.div<{ $isActive: boolean }>`
   border-radius: 15px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   cursor: pointer;
-  ${hoverAnimation}
+  ${transitionAnimation}
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgActive};
     color: ${({ theme }) => theme.colors.fontActive};

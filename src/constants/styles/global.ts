@@ -1,12 +1,15 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { devices } from './media';
-import { hoverAnimation } from './animation';
+import { transitionAnimation } from './animation';
+import RobotoWoff from '@assets/fonts/Roboto.woff';
+import RobotoWoff2 from '@assets/fonts/Roboto.woff2';
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
   src:
-    url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    url(${RobotoWoff2}) format('woff2'),
+    url(${RobotoWoff}) format('woff');
 }
 html {
   height: 100%;
@@ -39,12 +42,15 @@ body {
 }
 a {
   text-decoration: none;
-  ${hoverAnimation};
+  ${transitionAnimation};
   cursor: pointer;
   color: inherit;
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: ${({ theme }) => theme.colors.font};
 }
 li {
   list-style-type: none;

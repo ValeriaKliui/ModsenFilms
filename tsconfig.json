@@ -19,20 +19,12 @@
       "@store/*": ["./src/store/*"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/constants/styles/*"],
-      "@hooks/*": ["./src/utils/hooks/*"]
+      "@hooks/*": ["./src/utils/hooks/*"],
+      "@mocks/*": ["./__mocks__/*"]
     }
   },
   "types": ["cypress", "jest", "@testing-library/jest-dom", "node"],
-  "include": [
-    ".eslintrc.js",
-    "src/constants/types/global.d.ts",
-    "src",
-    "styled.d.ts",
-    "jest.setup.ts",
-    "jest.config.ts",
-    "mocks/filmsMockData.ts",
-    "cypress"
-  ],
+  "include": ["src", "./*.ts", "./**/**/*.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

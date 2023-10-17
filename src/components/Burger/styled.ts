@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { devices } from '@constants/styles/media';
+import { transitionAnimation } from '@constants/styles/animation';
 
 export const BurgerContainer = styled.div`
   display: none;
@@ -12,13 +13,14 @@ export const BurgerContainer = styled.div`
     align-items: flex-end;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 2000;
+    z-index: 150;
     justify-self: flex-end;
   }
 `;
 export const BurgerLine = styled.span<{ $isMenuOpened: boolean }>`
+  ${transitionAnimation}
   background-color: ${({ theme }) => theme.colors.font};
-  width: 30px;
+  width: 35px;
   height: 2px;
   border-radius: 4px;
   &:first-child {
@@ -27,7 +29,6 @@ export const BurgerLine = styled.span<{ $isMenuOpened: boolean }>`
 
   &:nth-child(2) {
     opacity: ${({ $isMenuOpened }) => ($isMenuOpened ? '0' : '1')};
-    transform: ${({ $isMenuOpened }) => ($isMenuOpened ? 'translateX(20px)' : 'translateX(0)')};
   }
 
   &:nth-child(3) {
