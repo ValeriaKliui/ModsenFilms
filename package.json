@@ -13,9 +13,7 @@
     "test": "jest",
     "test:cypress": "cypress run",
     "cypress:start": "start-server-and-test start http://localhost:8080 cypress",
-    "cypress": "cypress open",
-    "predeploy": "yarn run build:prod",
-    "deploy": "gh-pages -d build:prod"
+    "cypress": "cypress open"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",

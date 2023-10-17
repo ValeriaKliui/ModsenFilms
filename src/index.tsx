@@ -1,6 +1,6 @@
 import { StrictMode, type FC } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { GlobalStyle } from '@constants/styles/global';
 import { MainPage } from '@pages/MainPage';
 import { Provider } from 'react-redux';
@@ -15,14 +15,14 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement as Element);
 
 const BasicLayout: FC = () => (
-    <ErrorBoundary fallback={<Error text="Something went wrong" />}>
-        <Header />
-        <Outlet />
-        <Footer />
-    </ErrorBoundary>
+  <ErrorBoundary fallback={<Error text="Something went wrong" />}>
+    <Header />
+    <Outlet />
+    <Footer />
+  </ErrorBoundary>
 );
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <BasicLayout />,
     children: [
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-    <StrictMode>
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <GlobalStyle />
-                <RouterProvider router={router} />
-            </DarkThemeProvider>
-        </Provider>
-    </StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <DarkThemeProvider>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </DarkThemeProvider>
+    </Provider>
+  </StrictMode>,
 );
