@@ -3,7 +3,7 @@ import { devices } from '@constants/styles/media';
 
 export const TogglerContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
 `;
 export const TogglerInput = styled.input`

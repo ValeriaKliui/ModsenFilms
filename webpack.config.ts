@@ -2,7 +2,6 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { SourceMapDevToolPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 interface BuildEnv {
   mode: 'development' | 'production';

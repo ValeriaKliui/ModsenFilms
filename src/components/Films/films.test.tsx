@@ -92,8 +92,10 @@ describe('Films module', () => {
         </Provider>,
     );
 
-    const filmsCards = screen.getAllByTestId('film-card');
-    fireEvent.click(filmsCards[0]);
+    await waitFor(() => {
+      const filmsCards = screen.getAllByTestId('film-card');
+      fireEvent.click(filmsCards[0]);
+    });
     expect(store.getState().modals.isModalOpened).toBe(true);
     expect(store.getState().films.movieID).toBe(response[0].id);
     expect(screen.getByTestId('modal')).toBeInTheDocument();
