@@ -26,17 +26,17 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   };
 
   return (
-      <SearchedFilmStyled onClick={handleFilmClick} data-testid="searched-film">
-          <FilmInfo>
-              <SearchedTitle>{title}</SearchedTitle>
-              <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
-              <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
-              <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
-          </FilmInfo>
-          <PosterSearched
-              src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
-              alt={title}
+    <SearchedFilmStyled onClick={handleFilmClick} data-testid="searched-film">
+      <FilmInfo>
+        <SearchedTitle>{title}</SearchedTitle>
+        <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
+        <SearchedDetail>Released: {releaseDate != null && new Date(releaseDate).getFullYear()}</SearchedDetail>
+        <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
+      </FilmInfo>
+      <PosterSearched
+        src={posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage}
+        alt={title}
       ></PosterSearched>
-      </SearchedFilmStyled>
+    </SearchedFilmStyled>
   );
 };
