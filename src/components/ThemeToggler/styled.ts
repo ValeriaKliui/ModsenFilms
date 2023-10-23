@@ -1,5 +1,5 @@
-import { devices } from '@constants/styles/media';
 import styled from 'styled-components';
+import { devices } from '@constants/styles/media';
 
 export const TogglerContainer = styled.div`
   display: flex;

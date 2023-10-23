@@ -36,38 +36,74 @@ describe('Theme module', () => {
     cy.get('[data-testid=copyright]').as('copyright');
 
     // testing body
-    cy.get('@body').should('have.css', 'background-color').and('be.colored', `${colors.background}`);
+    cy.get('@body')
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.background}`);
     cy.get('@body').should('have.css', 'color').and('be.colored', `${colors.font}`);
 
     // testing genre
-    cy.get('@genre').last().should('have.css', 'background-color').and('be.colored', `${colors.secondary}`);
-    cy.get('@genre').last().should('have.css', 'color').and('be.colored', `${colors.font}`);
-    cy.get('@genre').first().should('have.css', 'background-color').and('be.colored', `${colors.bgActive}`);
-    cy.get('@genre').first().should('have.css', 'color').and('be.colored', `${colors.fontActive}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.secondary}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.font}`);
+    cy.get('@genre')
+      .first()
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.bgActive}`);
+    cy.get('@genre')
+      .first()
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.fontActive}`);
 
     // testing search-form
-    cy.get('@search-form').should('have.css', 'border-color').and('be.colored', `${colors.border}`);
+    cy.get('@search-form')
+      .should('have.css', 'border-color')
+      .and('be.colored', `${colors.border}`);
 
     // testing copyright
-    cy.get('@copyright').should('have.css', 'color').and('be.colored', `${colors.copyright}`);
+    cy.get('@copyright')
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.copyright}`);
 
     // click on toggler
     cy.get('@toggler').first().should('be.visible').click();
 
     // testing body-dark
-    cy.get('@body').should('have.css', 'background-color').and('be.colored', `${colors.background_dark}`);
+    cy.get('@body')
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.background_dark}`);
     cy.get('@body').should('have.css', 'color').and('be.colored', `${colors.font_dark}`);
 
     // testing genre-dark
-    cy.get('@genre').last().should('have.css', 'background-color').and('be.colored', `${colors.secondary_dark}`);
-    cy.get('@genre').last().should('have.css', 'color').and('be.colored', `${colors.font_dark}`);
-    cy.get('@genre').first().should('have.css', 'background-color').and('be.colored', `${colors.bgActive_dark}`);
-    cy.get('@genre').first().should('have.css', 'color').and('be.colored', `${colors.fontActive_dark}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.secondary_dark}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.font_dark}`);
+    cy.get('@genre')
+      .first()
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.bgActive_dark}`);
+    cy.get('@genre')
+      .first()
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.fontActive_dark}`);
 
     // testing search-form-dark
-    cy.get('@genre').should('have.css', 'border-color').and('be.colored', `${colors.border_dark}`);
+    cy.get('@genre')
+      .should('have.css', 'border-color')
+      .and('be.colored', `${colors.border_dark}`);
 
     // testing copyright-dark
-    cy.get('@copyright').should('have.css', 'color').and('be.colored', `${colors.copyright_dark}`);
+    cy.get('@copyright')
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.copyright_dark}`);
   });
 });

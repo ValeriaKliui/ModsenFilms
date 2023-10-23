@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import { Button } from '@components/Button';
 import { Film } from '@components/Film';
 import { Films } from '@components/Films';
@@ -10,7 +11,6 @@ import { store } from '@store/index';
 import * as actions from '@store/slices/filmsSlice';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
-import { Provider } from 'react-redux';
 
 import { FilmsStyled } from './styled';
 
@@ -24,19 +24,20 @@ describe('Films module', () => {
     const response = await fetchItems();
 
     const { findByText } = render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <FilmsStyled $isError={false}>
-                    {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-                        <Film film={film} key={film.id} />
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <FilmsStyled $isError={false}>
+            {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
+              <Film film={film} key={film.id} />
             ))}
-                    <Button text="Show More" />
-                </FilmsStyled>
-            </DarkThemeProvider>
-        </Provider>,
+            <Button text='Show More' />
+          </FilmsStyled>
+        </DarkThemeProvider>
+      </Provider>,
     );
 
     const films = screen.getAllByTestId('film-card');
+
     expect(screen.getByTestId('button-show-more')).toBeInTheDocument();
     expect(films.length).toBe(store.getState().films.filmsPerPage);
 
@@ -44,16 +45,17 @@ describe('Films module', () => {
       expect(fetchItems).toBeCalledTimes(1);
     });
     const firstFilmTitle = await findByText(filmsMockData[0].title);
+
     expect(firstFilmTitle).toBeInTheDocument();
   });
 
   test('Should increase page and film amount after click on show-more button', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Films />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Films />
+        </DarkThemeProvider>
+      </Provider>,
     );
 
     const increasePage = jest.spyOn(actions, 'increasePage');
@@ -78,23 +80,24 @@ describe('Films module', () => {
     const response = await fetchItems();
 
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <FilmsStyled $isError={false}>
-                    {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-                        <Film film={film} key={film.id} />
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <FilmsStyled $isError={false}>
+            {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
+              <Film film={film} key={film.id} />
             ))}
-                    <Button text="Show More" />
-                </FilmsStyled>
-                <Modal>
-                    <Video />
-                </Modal>
-            </DarkThemeProvider>
-        </Provider>,
+            <Button text='Show More' />
+          </FilmsStyled>
+          <Modal>
+            <Video />
+          </Modal>
+        </DarkThemeProvider>
+      </Provider>,
     );
 
     await waitFor(() => {
       const filmsCards = screen.getAllByTestId('film-card');
+
       fireEvent.click(filmsCards[0]);
     });
     expect(store.getState().modals.isModalOpened).toBe(true);

@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import { Search } from '@components/Search';
 import { SearchedFilm } from '@components/SearchedFilm';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
@@ -8,7 +9,6 @@ import * as actions from '@store/slices/filmsSlice';
 import filmsReducer from '@store/slices/filmsSlice';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
-import { Provider } from 'react-redux';
 
 import { SearchedFilmsContainer } from './styled';
 
@@ -27,6 +27,7 @@ describe('Search module', () => {
   };
   const testTitle = filmsMockData[0].title;
   const testTitleShort = '123';
+
   test('Should be rendered on the page', () => {
     render(
       <Provider store={store}>
@@ -51,13 +52,18 @@ describe('Search module', () => {
     const searchInput = screen.getByTestId('search-input');
     const setSearchTitle = jest.spyOn(actions, 'setSearchTitle');
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
+
     expect(filmsReducer(initialState, { type: '' }).searchTitle).toEqual('');
 
     fireEvent.change(searchInput, { target: { value: testTitle } });
     expect(mockDispatch).toBeCalled();
     expect(setSearchTitle).toBeCalledWith(testTitle);
-    expect(filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchTitle).toEqual(testTitle);
-    expect(filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchQuery).not.toEqual(testTitle);
+    expect(
+      filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchTitle,
+    ).toEqual(testTitle);
+    expect(
+      filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchQuery,
+    ).not.toEqual(testTitle);
     fireEvent.change(searchInput, { target: { value: '' } });
   });
 
@@ -93,6 +99,7 @@ describe('Search module', () => {
     const setSearchQuery = jest.spyOn(actions, 'setSearchQuery');
     const mockDispatch = jest.spyOn(hooks, 'useAppDispatch');
     const searchButton = screen.getByTestId('search-button');
+
     expect(filmsReducer(initialState, { type: '' }).searchQuery).toEqual('');
 
     fireEvent.change(searchInput, { target: { value: testTitle } });
@@ -100,9 +107,15 @@ describe('Search module', () => {
     fireEvent.click(searchButton);
 
     expect(setSearchQuery).toBeCalledWith(store.getState().films.searchTitle);
-    expect(filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchTitle).toEqual(testTitle);
-    expect(filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchQuery).not.toEqual(testTitle);
-    expect(filmsReducer(initialState, actions.setSearchQuery(testTitle)).searchQuery).toEqual(testTitle);
+    expect(
+      filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchTitle,
+    ).toEqual(testTitle);
+    expect(
+      filmsReducer(initialState, actions.setSearchTitle(testTitle)).searchQuery,
+    ).not.toEqual(testTitle);
+    expect(
+      filmsReducer(initialState, actions.setSearchQuery(testTitle)).searchQuery,
+    ).toEqual(testTitle);
   });
 
   test('Should display searched films in search menu', async () => {
@@ -113,7 +126,7 @@ describe('Search module', () => {
       <Provider store={store}>
         <DarkThemeProvider>
           <SearchedFilmsContainer>
-            {response.map((film) => (
+            {response.map(film => (
               <SearchedFilm key={film.id} film={film} />
             ))}
           </SearchedFilmsContainer>
@@ -121,6 +134,7 @@ describe('Search module', () => {
       </Provider>,
     );
     const firstSearchedFilm = await findByText(filmsMockData[0].title);
+
     expect(firstSearchedFilm).toBeInTheDocument();
     await waitFor(() => {
       expect(fetchItems).toBeCalledTimes(1);

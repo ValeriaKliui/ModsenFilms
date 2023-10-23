@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { transitionAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const SearchContainer = styled.div`
   position: relative;
@@ -58,13 +58,17 @@ export const SearchButton = styled.button`
     }
   }
 `;
-export const SearchedFilmsContainer = styled.ul<{ $isScrolled?: boolean; $isSearchOpened?: boolean }>`
+export const SearchedFilmsContainer = styled.ul<{
+  $isScrolled?: boolean;
+  $isSearchOpened?: boolean;
+}>`
   max-height: 350px;
   overflow-y: ${({ $isScrolled = false }) => $isScrolled && 'scroll'};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
-  border: ${({ $isSearchOpened = false, theme }) => $isSearchOpened && `1px solid ${theme.colors.primary}`};
+  border: ${({ $isSearchOpened = false, theme }) =>
+    $isSearchOpened && `1px solid ${theme.colors.primary}`};
   border-top: none;
   &::-webkit-scrollbar {
     width: 10px;

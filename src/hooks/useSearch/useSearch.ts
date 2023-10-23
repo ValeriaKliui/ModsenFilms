@@ -1,3 +1,4 @@
+import { type ChangeEvent } from 'react';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
@@ -10,13 +11,12 @@ import {
   setSearchQuery,
   setSearchTitle,
 } from '@store/slices/filmsSlice';
-import { type ChangeEvent } from 'react';
 
 import { type useSearchI } from './interface';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();
-  const { searchQuery, searchTitle } = useAppSelector((store) => store.films);
+  const { searchQuery, searchTitle } = useAppSelector(store => store.films);
   const debouncedValue = useDebounce(searchTitle);
   const { openSearch, closeSearch } = useModals();
 

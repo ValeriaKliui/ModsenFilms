@@ -7,14 +7,14 @@ import { Main } from './styled';
 
 export const MainPage: React.FC = () => {
   return (
-      <>
-          <Sort />
-          <Modal>
-              <Video />
-          </Modal>
-          <Main>
-              <Films />
-          </Main>
-      </>
+    <>
+      <Sort />
+      <Modal>
+        <Video />
+      </Modal>
+      <Main>
+        <Films />
+      </Main>
+    </>
   );
 };

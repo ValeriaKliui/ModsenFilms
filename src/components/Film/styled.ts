@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { scaleAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const FilmContainer = styled.div``;
 export const FilmStyled = styled.div`

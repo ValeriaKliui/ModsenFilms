@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { wrapper } from '@constants/styles/global';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const FilmsContainer = styled.div<{ $isError: boolean }>`
   ${wrapper};

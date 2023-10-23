@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import { darkTheme, lightTheme } from '@constants/styles/theme';
 import * as hooks from '@hooks/reduxHooks/hooks';
 import { store } from '@store/index';
@@ -5,7 +6,6 @@ import * as actions from '@store/slices/themeSlice';
 import themeReducer, { toggleTheme } from '@store/slices/themeSlice';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
-import { Provider } from 'react-redux';
 
 import { ThemeToggler } from '.';
 
@@ -23,6 +23,7 @@ describe('Theme toggler module', () => {
       </Provider>,
     );
     const toggler = screen.getByTestId('theme-toggler');
+
     expect(toggler).toBeInTheDocument();
   });
 
@@ -72,6 +73,7 @@ describe('Theme toggler module', () => {
     expect(themeReducer(initialState, toggleTheme()).theme).toEqual(darkTheme);
 
     const prevState = { theme: darkTheme };
+
     fireEvent.click(toggler);
     expect(mockDispatch).toBeCalled();
     expect(toggleTheme).toBeCalled();

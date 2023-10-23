@@ -1,3 +1,5 @@
+import { type FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import LogoPic from '@assets/img/logo.svg';
 import { Burger } from '@components/Burger';
 import { Menu } from '@components/Menu';
@@ -14,8 +16,6 @@ import {
   setSearchQuery,
   setSearchTitle,
 } from '@store/slices/filmsSlice';
-import { type FC } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import { Container, Logo, LogoTitle, StyledHeader, Theme } from './styled';
 
@@ -30,10 +30,11 @@ export const Header: FC = () => {
     dispatch(setSearchTitle(''));
     dispatch(setSearchQuery(''));
   };
+
   return (
     <StyledHeader>
       <Container>
-        <NavLink to="/" onClick={handleClick}>
+        <NavLink to='/' onClick={handleClick}>
           <Logo>
             <LogoPic />
             <LogoTitle>ModsenFilms</LogoTitle>

@@ -1,7 +1,7 @@
+import { type DefaultTheme } from 'styled-components';
 import { darkTheme, lightTheme, ThemeEnum } from '@constants/styles/theme';
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@store/index';
-import { type DefaultTheme } from 'styled-components';
 
 import { type ThemeState } from './interface';
 
@@ -13,7 +13,7 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    toggleTheme: (state) => {
+    toggleTheme: state => {
       state.theme = state.theme.type === ThemeEnum.light ? darkTheme : lightTheme;
     },
   },

@@ -22,16 +22,32 @@ describe('Sort module', () => {
   it('First genre All should be activated and have unique color', () => {
     cy.get('[data-testid=genre]').contains('all').as('all-genre');
     cy.get('[data-testid=genre]').as('genre');
-    cy.get('@all-genre').should('have.css', 'background-color').and('be.colored', `${colors.bgActive}`);
-    cy.get('@all-genre').should('have.css', 'color').and('be.colored', `${colors.fontActive}`);
-    cy.get('@genre').last().should('have.css', 'background-color').and('not.be.colored', `${colors.bgActive}`);
-    cy.get('@genre').last().should('have.css', 'color').and('not.be.colored', `${colors.fontActive}`);
+    cy.get('@all-genre')
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.bgActive}`);
+    cy.get('@all-genre')
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.fontActive}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'background-color')
+      .and('not.be.colored', `${colors.bgActive}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'color')
+      .and('not.be.colored', `${colors.fontActive}`);
   });
 
   it('Should change genre color after click', () => {
     cy.get('[data-testid=genre]').as('genre');
     cy.get('@genre').last().click();
-    cy.get('@genre').last().should('have.css', 'background-color').and('be.colored', `${colors.bgActive}`);
-    cy.get('@genre').last().should('have.css', 'color').and('be.colored', `${colors.fontActive}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'background-color')
+      .and('be.colored', `${colors.bgActive}`);
+    cy.get('@genre')
+      .last()
+      .should('have.css', 'color')
+      .and('be.colored', `${colors.fontActive}`);
   });
 });

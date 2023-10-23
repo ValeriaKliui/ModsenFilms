@@ -1,6 +1,6 @@
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilm } from '@constants/types/interfaces';
-import { createSlice,type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { type FilmsIState } from './interface';
 
@@ -21,16 +21,16 @@ export const filmsSlice = createSlice({
     setFilmsPerPage: (state, action: PayloadAction<number>) => {
       state.filmsPerPage = action.payload;
     },
-    increasePage: (state) => {
+    increasePage: state => {
       state.page = state.page + 1;
     },
-    setFirstPage: (state) => {
+    setFirstPage: state => {
       state.page = 1;
     },
     addFilms: (state, action: PayloadAction<IFilm[]>) => {
       state.films = [...state.films, ...action.payload];
     },
-    clearFilms: (state) => {
+    clearFilms: state => {
       state.films = [];
     },
     setGenre: (state, action: PayloadAction<number | null>) => {

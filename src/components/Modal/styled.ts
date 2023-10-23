@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { transitionAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const ModalStyled = styled.div<{ $opened: boolean }>`
   position: fixed;

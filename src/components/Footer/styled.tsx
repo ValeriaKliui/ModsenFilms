@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { scaleAnimation } from '@constants/styles/animation';
 import { wrapper } from '@constants/styles/global';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const FooterStyled = styled.footer`
   ${wrapper};

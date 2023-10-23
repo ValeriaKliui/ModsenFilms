@@ -10,7 +10,8 @@ export default {
   setupFilesAfterEnv: ['@testing-library/jest-dom', '<rootDir>src/config/jest-setup.ts'],
   rootDir: path.resolve(__dirname),
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>__mocks__/fileMock.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>__mocks__/fileMock.js',
     '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/identity-obj-proxy',
     '\\.svg$': '<rootDir>__mocks__/svg.js',
     '^@assets/(.*)': '<rootDir>src/assets/$1',

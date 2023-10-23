@@ -1,5 +1,5 @@
-import { spin } from '@constants/styles/animation';
 import styled from 'styled-components';
+import { spin } from '@constants/styles/animation';
 
 export const SpinnerStyled = styled.div<{ $size: number }>`
   border: ${({ $size }) => $size / 6}px solid ${({ theme }) => theme.colors.primary};

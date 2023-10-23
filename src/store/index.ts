@@ -11,7 +11,7 @@ export const store = configureStore({
     films: FilmsReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(rtkApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

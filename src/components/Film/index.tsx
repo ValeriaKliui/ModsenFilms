@@ -1,11 +1,20 @@
+import { type FC } from 'react';
 import noImage from '@assets/img/no-image.jpg';
 import { type IFilmProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useModals } from '@hooks/useModals/useModals';
 import { setMovieID } from '@store/slices/filmsSlice';
-import { type FC } from 'react';
 
-import { Details, Dot, FilmStyled, InfoContainer, Poster, Preview, SubDetails, Text } from './styled';
+import {
+  Details,
+  Dot,
+  FilmStyled,
+  InfoContainer,
+  Poster,
+  Preview,
+  SubDetails,
+  Text,
+} from './styled';
 
 export const Film: FC<IFilmProps> = ({ film }) => {
   const {
@@ -29,12 +38,12 @@ export const Film: FC<IFilmProps> = ({ film }) => {
   };
 
   return (
-    <FilmStyled onClick={handleFilmClick} data-testid="film-card">
-      <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
+    <FilmStyled onClick={handleFilmClick} data-testid='film-card'>
+      <Preview src={photoSrc(backdropPath)} alt={title} data-testid='film-preview' />
       <InfoContainer>
-        <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
+        <Poster src={photoSrc(posterPath)} alt={title} data-testid='film-poster' />
         <Details>
-          <Text data-testid="film-title">{title}</Text>
+          <Text data-testid='film-title'>{title}</Text>
           <SubDetails>
             {+releaseDate > 0 && (
               <>

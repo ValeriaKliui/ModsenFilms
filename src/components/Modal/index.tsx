@@ -1,8 +1,8 @@
+import { type FC } from 'react';
 import { type IModalProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useModals } from '@hooks/useModals/useModals';
 import { setMovieID } from '@store/slices/filmsSlice';
-import { type FC } from 'react';
 
 import { Content, ModalStyled, Overlay } from './styled';
 
@@ -19,10 +19,10 @@ export const Modal: FC<IModalProps> = ({ children }) => {
   };
 
   return (
-      <ModalStyled $opened={isModalOpened} data-testid="modal">
-          <Overlay onClick={closeHandler} data-testid="overlay">
-              <Content onClick={onContentClick}>{children}</Content>
-          </Overlay>
-      </ModalStyled>
+    <ModalStyled $opened={isModalOpened} data-testid='modal'>
+      <Overlay onClick={closeHandler} data-testid='overlay'>
+        <Content onClick={onContentClick}>{children}</Content>
+      </Overlay>
+    </ModalStyled>
   );
 };

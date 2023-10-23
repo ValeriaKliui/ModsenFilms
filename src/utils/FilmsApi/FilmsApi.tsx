@@ -8,7 +8,7 @@ import {
 import { rtkApi } from '@store/rtkApi/rtkApi';
 
 const filmsApi = rtkApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     getFilms: build.query<IFilmsResponse, IFilmsParams>({
       query: ({ page, genre }) => ({
         method: 'GET',
@@ -42,6 +42,7 @@ const filmsApi = rtkApi.injectEndpoints({
   }),
   overrideExisting: false,
 });
+
 export const useGetFilmsQuery = filmsApi.useGetFilmsQuery;
 export const useGetFilmsByTitleQuery = filmsApi.useGetFilmsByTitleQuery;
 export const useGetFilmVideoQuery = filmsApi.useGetFilmVideoQuery;

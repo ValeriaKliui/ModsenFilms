@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { transitionAnimation } from '@constants/styles/animation';
 import { devices } from '@constants/styles/media';
-import styled from 'styled-components';
 
 export const BurgerContainer = styled.div`
   display: none;
@@ -24,7 +24,8 @@ export const BurgerLine = styled.span<{ $isMenuOpened: boolean }>`
   height: 2px;
   border-radius: 4px;
   &:first-child {
-    transform: ${({ $isMenuOpened }) => ($isMenuOpened ? 'rotate(45deg) translate(5px, 6px);' : 'rotate(0)')};
+    transform: ${({ $isMenuOpened }) =>
+      $isMenuOpened ? 'rotate(45deg) translate(5px, 6px);' : 'rotate(0)'};
   }
 
   &:nth-child(2) {
@@ -32,6 +33,7 @@ export const BurgerLine = styled.span<{ $isMenuOpened: boolean }>`
   }
 
   &:nth-child(3) {
-    transform: ${({ $isMenuOpened }) => ($isMenuOpened ? 'rotate(-45deg) translate(5px, -6px);' : 'rotate(0)')};
+    transform: ${({ $isMenuOpened }) =>
+      $isMenuOpened ? 'rotate(-45deg) translate(5px, -6px);' : 'rotate(0)'};
   }
 `;
