@@ -1,9 +1,10 @@
-import { type FC } from 'react';
-import { Content, ModalStyled, Overlay } from './styled';
-import { useAppDispatch } from '@hooks/reduxHooks/hooks';
-import { setMovieID } from '@store/slices/filmsSlice';
-import { useModals } from '@hooks/useModals/useModals';
 import { type IModalProps } from '@constants/types/interfaces';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { useModals } from '@hooks/useModals/useModals';
+import { setMovieID } from '@store/slices/filmsSlice';
+import { type FC } from 'react';
+
+import { Content, ModalStyled, Overlay } from './styled';
 
 export const Modal: FC<IModalProps> = ({ children }) => {
   const dispatch = useAppDispatch();

@@ -1,11 +1,12 @@
-import { store } from '@store/index';
-import { screen, render, fireEvent } from '@testing-library/react';
-import { Sort } from '.';
-import { Provider } from 'react-redux';
-import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
-import { genres } from '@constants/types/genres';
-import * as actions from '@store/slices/filmsSlice';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { genres } from '@constants/types/genres';
+import { store } from '@store/index';
+import * as actions from '@store/slices/filmsSlice';
+import { fireEvent,render, screen } from '@testing-library/react';
+import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
+import { Provider } from 'react-redux';
+
+import { Sort } from '.';
 
 describe('Sort by genre module', () => {
   afterAll(() => {

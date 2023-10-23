@@ -1,9 +1,10 @@
-import { useAppSelector } from '@hooks/reduxHooks/hooks';
-import { useVideo } from '@hooks/useVideo/useVideo';
 import { Error } from '@components/Error';
 import { Spinner } from '@components/Spinner';
-import { VideoStyled, VideoContainer } from './styled';
+import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { useVideo } from '@hooks/useVideo/useVideo';
 import { type FC } from 'react';
+
+import { VideoContainer,VideoStyled } from './styled';
 
 const Video: FC = () => {
   const { movieID } = useAppSelector((store) => store.films);

@@ -1,8 +1,9 @@
-import { Sort } from '@components/Sort';
 import { Films } from '@components/Films';
-import { Main } from './styled';
-import { Video } from '@components/Video';
 import { Modal } from '@components/Modal';
+import { Sort } from '@components/Sort';
+import { Video } from '@components/Video';
+
+import { Main } from './styled';
 
 export const MainPage: React.FC = () => {
   return (

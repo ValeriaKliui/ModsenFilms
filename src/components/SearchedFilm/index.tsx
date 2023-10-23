@@ -1,10 +1,11 @@
-import { FilmInfo, PosterSearched, SearchedDetail, SearchedFilmStyled, SearchedTitle } from './styled';
 import noImage from '@assets/img/no-image.jpg';
-import { useAppDispatch } from '@hooks/reduxHooks/hooks';
-import { setMovieID } from '@store/slices/filmsSlice';
-import { useModals } from '@hooks/useModals/useModals';
-import { type FC } from 'react';
 import { type ISearchedFilmProps } from '@constants/types/interfaces';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { useModals } from '@hooks/useModals/useModals';
+import { setMovieID } from '@store/slices/filmsSlice';
+import { type FC } from 'react';
+
+import { FilmInfo, PosterSearched, SearchedDetail, SearchedFilmStyled, SearchedTitle } from './styled';
 
 export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   const {

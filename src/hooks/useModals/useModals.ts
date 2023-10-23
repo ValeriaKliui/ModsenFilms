@@ -1,5 +1,6 @@
-import { setIsModalOpened, setIsSearchOpened, toggleMenu as toggle } from '@store/slices/modalsSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { setIsModalOpened, setIsSearchOpened, toggleMenu as toggle } from '@store/slices/modalsSlice';
+
 import { type useModalI } from './interface';
 
 export const useModals = (): useModalI => {

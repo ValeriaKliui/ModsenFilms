@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
-import { FooterStyled, FooterLinks, FooterText, FooterNetworks, NetworkIcon, Copyright, FooterInfo } from './styled';
 import FbIcon from '@assets/img/networks/fb.svg';
-import TwitterIcon from '@assets/img/networks/twitter.svg';
 import IgIcon from '@assets/img/networks/ig.svg';
 import LinkedinIcon from '@assets/img/networks/linkedin.svg';
+import TwitterIcon from '@assets/img/networks/twitter.svg';
 import { type FC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Copyright, FooterInfo,FooterLinks, FooterNetworks, FooterStyled, FooterText, NetworkIcon } from './styled';
 
 export const Footer: FC = () => {
   const networks = [

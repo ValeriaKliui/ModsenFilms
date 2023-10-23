@@ -1,8 +1,9 @@
-import { GenreStyled } from './styled';
-import { type FC } from 'react';
-import { type IGenreProps } from '@constants/types/interfaces';
 import { genres } from '@constants/types/genres';
-import { useAppSelector } from '@utils/hooks/reduxHooks/hooks';
+import { type IGenreProps } from '@constants/types/interfaces';
+import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { type FC } from 'react';
+
+import { GenreStyled } from './styled';
 
 export const Genre: FC<IGenreProps> = ({ onClick, genre }) => {
   const { genre: genreActive } = useAppSelector((store) => store.films);
@@ -12,8 +13,8 @@ export const Genre: FC<IGenreProps> = ({ onClick, genre }) => {
   };
 
   return (
-      <GenreStyled onClick={onClick} $isActive={isActiveGenre()} data-testid="genre">
-          {genre.toLowerCase()}
-      </GenreStyled>
+    <GenreStyled onClick={onClick} $isActive={isActiveGenre()} data-testid="genre">
+      {genre.toLowerCase()}
+    </GenreStyled>
   );
 };

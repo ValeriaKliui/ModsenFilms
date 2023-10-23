@@ -1,15 +1,16 @@
-import { Film } from '@components/Film';
-import { FilmsContainer, FilmsStyled } from './styled';
-import { useGetFilmsByTitleQuery, useGetFilmsQuery } from '@utils/FilmsApi/FilmsApi';
-import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
-import { useEffect, type FC } from 'react';
-import { addFilms, clearFilms, increasePage, setFilmsPerPage } from '@store/slices/filmsSlice';
-import { useSearch } from '@utils/hooks/useSearch/useSearch';
+import { Button } from '@components/Button';
 import { Error } from '@components/Error';
+import { Film } from '@components/Film';
+import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilmsResponse } from '@constants/types/interfaces';
-import { Button } from '@components/Button';
-import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { useSearch } from '@hooks/useSearch/useSearch';
+import { addFilms, clearFilms, increasePage, setFilmsPerPage } from '@store/slices/filmsSlice';
+import { useGetFilmsByTitleQuery, useGetFilmsQuery } from '@utils/FilmsApi/FilmsApi';
+import { type FC, useEffect } from 'react';
+
+import { FilmsContainer, FilmsStyled } from './styled';
 
 export const Films: FC = () => {
   const dispatch = useAppDispatch();
@@ -59,16 +60,16 @@ export const Films: FC = () => {
   const noFilmsFound = !isFetching && isSuccess && films.length === 0;
 
   return (
-      <FilmsContainer $isError={isError || noFilmsFound} data-testid="films-container">
-          <FilmsStyled $isError={isError || noFilmsFound} data-testid="films-container">
-              {isError && <Error text="Sorry, you have to enable VPN for this site to run." />}
-              {(isSuccess && shortAmountOfFilms) || (noFilmsFound && <Error text="Nothing was found." />)}
-              {films.slice(0, filmsPerPage).map((film) => (
-                  <Film film={film} key={film.id} />
+    <FilmsContainer $isError={isError || noFilmsFound} data-testid="films-container">
+      <FilmsStyled $isError={isError || noFilmsFound} data-testid="films-container">
+        {isError && <Error text="Sorry, you have to enable VPN for this site to run." />}
+        {(isSuccess && shortAmountOfFilms) || (noFilmsFound && <Error text="Nothing was found." />)}
+        {films.slice(0, filmsPerPage).map((film) => (
+          <Film film={film} key={film.id} />
         ))}
-              {isFetching && new Array(FILMS_LIMIT).fill({}).map((f, index) => <SkeletonLoader key={index} />)}
-          </FilmsStyled>
-          <Button text="Show More" onClick={increaseFilms} isHidden={films.length <= filmsPerPage} />
-      </FilmsContainer>
+        {isFetching && new Array(FILMS_LIMIT).fill({}).map((f, index) => <SkeletonLoader key={index} />)}
+      </FilmsStyled>
+      <Button text="Show More" onClick={increaseFilms} isHidden={films.length <= filmsPerPage} />
+    </FilmsContainer>
   );
 };

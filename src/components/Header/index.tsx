@@ -1,12 +1,11 @@
 import LogoPic from '@assets/img/logo.svg';
-import { StyledHeader, Logo, Container, LogoTitle, Theme } from './styled';
-import { NavLink } from 'react-router-dom';
-import { ThemeToggler } from '@components/ThemeToggler';
-import { Search } from '@components/Search';
-import { Menu } from '@components/Menu';
 import { Burger } from '@components/Burger';
-import { type FC } from 'react';
-import { useAppDispatch } from '@utils/hooks/reduxHooks/hooks';
+import { Menu } from '@components/Menu';
+import { Search } from '@components/Search';
+import { ThemeToggler } from '@components/ThemeToggler';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { useSearch } from '@hooks/useSearch/useSearch';
 import {
   clearFilms,
   setFilmsPerPage,
@@ -15,8 +14,10 @@ import {
   setSearchQuery,
   setSearchTitle,
 } from '@store/slices/filmsSlice';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
-import { useSearch } from '@utils/hooks/useSearch/useSearch';
+import { type FC } from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { Container, Logo, LogoTitle, StyledHeader, Theme } from './styled';
 
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -30,21 +31,21 @@ export const Header: FC = () => {
     dispatch(setSearchQuery(''));
   };
   return (
-      <StyledHeader>
-          <Container>
-              <NavLink to="/" onClick={handleClick}>
-                  <Logo>
-                      <LogoPic />
-                      <LogoTitle>ModsenFilms</LogoTitle>
-                  </Logo>
-              </NavLink>
-              <Search />
-              <Theme>
-                  <ThemeToggler />
-              </Theme>
-              <Burger />
-              <Menu />
-          </Container>
-      </StyledHeader>
+    <StyledHeader>
+      <Container>
+        <NavLink to="/" onClick={handleClick}>
+          <Logo>
+            <LogoPic />
+            <LogoTitle>ModsenFilms</LogoTitle>
+          </Logo>
+        </NavLink>
+        <Search />
+        <Theme>
+          <ThemeToggler />
+        </Theme>
+        <Burger />
+        <Menu />
+      </Container>
+    </StyledHeader>
   );
 };

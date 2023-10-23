@@ -1,6 +1,7 @@
-import { ButtonStyled } from './styled';
-import { type FC } from 'react';
 import { type IButtonProps } from '@constants/types/interfaces';
+import { type FC } from 'react';
+
+import { ButtonStyled } from './styled';
 
 export const Button: FC<IButtonProps> = ({ text, onClick, isHidden }) => {
   return (

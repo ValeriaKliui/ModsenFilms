@@ -1,50 +1,51 @@
-import { FilmStyled, Poster, Text, InfoContainer, Details, SubDetails, Dot, Preview } from './styled';
 import noImage from '@assets/img/no-image.jpg';
-import { type FC } from 'react';
+import { type IFilmProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useModals } from '@hooks/useModals/useModals';
 import { setMovieID } from '@store/slices/filmsSlice';
-import { type IFilmProps } from '@constants/types/interfaces';
+import { type FC } from 'react';
 
-export const Film: FC<IFilmProps> = ({ film, isFetching }) => {
-    const {
-        backdrop_path: backdropPath,
-        poster_path: posterPath,
-        title,
-        release_date: releaseDate,
-        vote_average: voteAverage,
-        id,
-    } = film;
+import { Details, Dot, FilmStyled, InfoContainer, Poster, Preview, SubDetails, Text } from './styled';
 
-    const dispatch = useAppDispatch();
-    const { openModal } = useModals();
-    const photoSrc = (src: string): string => {
-        if (src === null) return noImage;
-        else return `https://image.tmdb.org/t/p/w300${src}`;
-    };
-    const handleFilmClick = (): void => {
-        dispatch(setMovieID(id));
-        openModal();
-    };
+export const Film: FC<IFilmProps> = ({ film }) => {
+  const {
+    backdrop_path: backdropPath,
+    poster_path: posterPath,
+    title,
+    release_date: releaseDate,
+    vote_average: voteAverage,
+    id,
+  } = film;
 
-    return (
-        <FilmStyled onClick={handleFilmClick} data-testid="film-card">
-            <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
-            <InfoContainer>
-                <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
-                <Details>
-                    <Text data-testid="film-title">{title}</Text>
-                    <SubDetails>
-                        {+releaseDate > 0 && (
-                            <>
-                                <Text>{new Date(releaseDate).getFullYear()}</Text>
-                                <Dot />
-                            </>
-                        )}
-                        <Text>Rating: {voteAverage}</Text>
-                    </SubDetails>
-                </Details>
-            </InfoContainer>
-        </FilmStyled>
-    );
+  const dispatch = useAppDispatch();
+  const { openModal } = useModals();
+  const photoSrc = (src: string): string => {
+    if (src === null) return noImage;
+    else return `${process.env.REACT_APP_TMDB_POSTER_URL}${src}`;
+  };
+  const handleFilmClick = (): void => {
+    dispatch(setMovieID(id));
+    openModal();
+  };
+
+  return (
+    <FilmStyled onClick={handleFilmClick} data-testid="film-card">
+      <Preview src={photoSrc(backdropPath)} alt={title} data-testid="film-preview" />
+      <InfoContainer>
+        <Poster src={photoSrc(posterPath)} alt={title} data-testid="film-poster" />
+        <Details>
+          <Text data-testid="film-title">{title}</Text>
+          <SubDetails>
+            {+releaseDate > 0 && (
+              <>
+                <Text>{new Date(releaseDate).getFullYear()}</Text>
+                <Dot />
+              </>
+            )}
+            <Text>Rating: {voteAverage}</Text>
+          </SubDetails>
+        </Details>
+      </InfoContainer>
+    </FilmStyled>
+  );
 };

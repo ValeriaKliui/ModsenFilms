@@ -15,7 +15,7 @@ export const useVideo = ({ movieID }: hookProps): hookReturns => {
   const video = data?.results.filter((film) => film.type === 'Trailer');
   const src =
     isSuccess && video !== undefined && video.length > 0
-      ? `https://www.youtube-nocookie.com/embed/${video[0].key}?autoplay=1&mute=0&enablejsapi=1`
+      ? `${process.env.REACT_APP_YOUTUBE_URL}${video[0].key}?autoplay=1&mute=0&enablejsapi=1`
       : '';
   return { src, isFetching, isError, isSuccess };
 };

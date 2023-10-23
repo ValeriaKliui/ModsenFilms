@@ -1,15 +1,16 @@
+import { Search } from '@components/Search';
+import { SearchedFilm } from '@components/SearchedFilm';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
+import * as hooks from '@hooks/reduxHooks/hooks';
+import { filmsMockData } from '@mocks/filmsMockData';
 import { store } from '@store/index';
-import { fireEvent, render, screen, cleanup, waitFor } from '@testing-library/react';
+import * as actions from '@store/slices/filmsSlice';
+import filmsReducer from '@store/slices/filmsSlice';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
 import { Provider } from 'react-redux';
-import { Search } from '@components/Search';
-import * as actions from '@store/slices/filmsSlice';
-import * as hooks from '@utils/hooks/reduxHooks/hooks';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
-import filmsReducer from '@store/slices/filmsSlice';
+
 import { SearchedFilmsContainer } from './styled';
-import { SearchedFilm } from '@components/SearchedFilm';
-import { filmsMockData } from '@mocks/filmsMockData';
 
 describe('Search module', () => {
   afterAll(() => jest.clearAllMocks());
@@ -28,11 +29,11 @@ describe('Search module', () => {
   const testTitleShort = '123';
   test('Should be rendered on the page', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Search />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Search />
+        </DarkThemeProvider>
+      </Provider>,
     );
     expect(screen.getByTestId('search')).toBeInTheDocument();
     expect(screen.getByTestId('search-input')).toBeInTheDocument();
@@ -41,11 +42,11 @@ describe('Search module', () => {
 
   test('Should set search title when typing in input', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Search />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Search />
+        </DarkThemeProvider>
+      </Provider>,
     );
     const searchInput = screen.getByTestId('search-input');
     const setSearchTitle = jest.spyOn(actions, 'setSearchTitle');
@@ -62,11 +63,11 @@ describe('Search module', () => {
 
   test('Should open search menu after typing more than 3 symbols or close if value is empty', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Search />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Search />
+        </DarkThemeProvider>
+      </Provider>,
     );
 
     const searchInput = screen.getByTestId('search-input');
@@ -81,11 +82,11 @@ describe('Search module', () => {
 
   test('Should set searchQuery as searchTitle after submitting', () => {
     render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <Search />
-            </DarkThemeProvider>
-        </Provider>,
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <Search />
+        </DarkThemeProvider>
+      </Provider>,
     );
 
     const searchInput = screen.getByTestId('search-input');
@@ -109,15 +110,15 @@ describe('Search module', () => {
     const response = await fetchItems();
 
     const { findByText } = render(
-        <Provider store={store}>
-            <DarkThemeProvider>
-                <SearchedFilmsContainer>
-                    {response.map((film) => (
-                        <SearchedFilm key={film.id} film={film} />
+      <Provider store={store}>
+        <DarkThemeProvider>
+          <SearchedFilmsContainer>
+            {response.map((film) => (
+              <SearchedFilm key={film.id} film={film} />
             ))}
-                </SearchedFilmsContainer>
-            </DarkThemeProvider>
-        </Provider>,
+          </SearchedFilmsContainer>
+        </DarkThemeProvider>
+      </Provider>,
     );
     const firstSearchedFilm = await findByText(filmsMockData[0].title);
     expect(firstSearchedFilm).toBeInTheDocument();

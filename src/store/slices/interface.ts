@@ -1,5 +1,5 @@
-import { type DefaultTheme } from 'styled-components/dist/types';
 import { type IFilm } from '@constants/types/interfaces';
+import { type DefaultTheme } from 'styled-components/dist/types';
 
 export interface FilmsIState {
   filmsPerPage: number;

@@ -1,7 +1,8 @@
-import { useModals } from '@hooks/useModals/useModals';
 import { ThemeToggler } from '@components/ThemeToggler';
-import { MenuStyled, Theme } from './styled';
+import { useModals } from '@hooks/useModals/useModals';
 import { type FC } from 'react';
+
+import { MenuStyled, Theme } from './styled';
 
 export const Menu: FC = () => {
   const { isMenuOpened } = useModals();

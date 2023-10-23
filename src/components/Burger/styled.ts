@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { devices } from '@constants/styles/media';
 import { transitionAnimation } from '@constants/styles/animation';
+import { devices } from '@constants/styles/media';
+import styled from 'styled-components';
 
 export const BurgerContainer = styled.div`
   display: none;

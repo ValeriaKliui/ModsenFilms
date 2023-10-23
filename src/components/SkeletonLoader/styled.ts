@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { loading } from '@constants/styles/animation';
+import styled from 'styled-components';
 
 export const AnimatedBlock = styled.div`
   background: linear-gradient(

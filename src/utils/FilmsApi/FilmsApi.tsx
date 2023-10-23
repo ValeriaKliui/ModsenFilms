@@ -1,9 +1,9 @@
 import {
-  type IFilmsResponse,
   type IFilmsParams,
+  type IFilmsResponse,
   type ISearchParams,
-  type IVideoResponse,
   type IVideoParams,
+  type IVideoResponse,
 } from '@constants/types/interfaces';
 import { rtkApi } from '@store/rtkApi/rtkApi';
 

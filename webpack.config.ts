@@ -2,15 +2,11 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { SourceMapDevToolPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import dotenv from 'dotenv-webpack';
 
-interface BuildEnv {
-  mode: 'development' | 'production';
-  port: number;
-}
-
-export default (env: BuildEnv) => {
-  const mode = env.mode || 'development';
-  const isDev = env.mode === 'development';
+export default () => {
+  const mode = 'development';
+  const isDev = 'development';
   const alias = {
     '@assets': path.resolve(__dirname, 'src', 'assets'),
     '@components': path.resolve(__dirname, 'src', 'components'),
@@ -19,7 +15,7 @@ export default (env: BuildEnv) => {
     '@store': path.resolve(__dirname, 'src', 'store'),
     '@utils': path.resolve(__dirname, 'src', 'utils'),
     '@styles': path.resolve(__dirname, 'src', 'constants', 'styles'),
-    '@hooks': path.resolve(__dirname, 'src', 'utils', 'hooks'),
+    '@hooks': path.resolve(__dirname, 'src', 'hooks'),
   };
 
   const config = {
@@ -42,9 +38,10 @@ export default (env: BuildEnv) => {
         filename: '[file].map',
       }),
       new webpack.DefinePlugin({
-        'process.env': JSON.stringify(process.env),
+        NODE_ENV: JSON.stringify('development'),
       }),
       new BundleAnalyzerPlugin({ openAnalyzer: false }),
+      new dotenv(),
     ],
     module: {
       rules: [

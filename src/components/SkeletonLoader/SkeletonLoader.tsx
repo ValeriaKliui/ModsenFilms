@@ -1,5 +1,6 @@
-import { Skeleton, Image, Description, Avatar, Info } from './styled';
 import { type FC } from 'react';
+
+import { Avatar, Description, Image, Info,Skeleton } from './styled';
 
 export const SkeletonLoader: FC = () => {
   return (

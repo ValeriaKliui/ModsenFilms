@@ -1,10 +1,11 @@
-import { useAppDispatch } from '@hooks/reduxHooks/hooks';
-import { Genres, Container } from './styled';
 import { Genre } from '@components/Genre';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { genres, type GenresType } from '@constants/types/genres';
+import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { setFilmsPerPage, setFirstPage, setGenre, setSearchQuery, setSearchTitle } from '@store/slices/filmsSlice';
 import { type FC } from 'react';
-import { genres, type GenresType } from '@constants/types/genres';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+
+import { Container,Genres } from './styled';
 
 export const Sort: FC = () => {
   const dispatch = useAppDispatch();

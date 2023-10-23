@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import ThemeReducer from '@store/slices/themeSlice';
-import ModalsReducer from '@store/slices/modalsSlice';
-import FilmsReducer from '@store/slices/filmsSlice';
 import { rtkApi } from '@store/rtkApi/rtkApi';
+import FilmsReducer from '@store/slices/filmsSlice';
+import ModalsReducer from '@store/slices/modalsSlice';
+import ThemeReducer from '@store/slices/themeSlice';
 
 export const store = configureStore({
   reducer: {

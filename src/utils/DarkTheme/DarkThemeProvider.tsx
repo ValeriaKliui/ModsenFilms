@@ -1,7 +1,7 @@
-import { type ReactNode } from 'react';
-import { useAppSelector } from '@hooks/reduxHooks/hooks';
-import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '@constants/styles/theme';
+import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { type ReactNode } from 'react';
+import { ThemeProvider } from 'styled-components';
 
 interface DarkThemeProviderProps {
   children?: ReactNode;

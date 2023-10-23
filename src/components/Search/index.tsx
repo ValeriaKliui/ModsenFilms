@@ -1,12 +1,13 @@
-import { Input, SearchButton, SearchContainer, SearchForm, SearchedFilmsContainer, Info } from './styled';
 import SearchIcon from '@assets/img/search.svg';
-import { useSearch } from '@hooks/useSearch/useSearch';
-import { useGetFilmsByTitleQuery } from '@utils/FilmsApi/FilmsApi';
 import { SearchedFilm } from '@components/SearchedFilm';
 import { Spinner } from '@components/Spinner';
-import { type FC } from 'react';
-import { useModals } from '@hooks/useModals/useModals';
 import { useClickOutside } from '@hooks/useClickOutside/useClickOutside';
+import { useModals } from '@hooks/useModals/useModals';
+import { useSearch } from '@hooks/useSearch/useSearch';
+import { useGetFilmsByTitleQuery } from '@utils/FilmsApi/FilmsApi';
+import { type FC } from 'react';
+
+import { Info,Input, SearchButton, SearchContainer, SearchedFilmsContainer, SearchForm } from './styled';
 
 export const Search: FC = () => {
   const { isSearchOpened, closeSearch, openSearch } = useModals();

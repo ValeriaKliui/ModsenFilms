@@ -1,8 +1,9 @@
-import { ThemeEnum } from '@styles/theme';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { toggleTheme } from '@store/slices/themeSlice';
-import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './styled';
+import { ThemeEnum } from '@styles/theme';
 import { type FC } from 'react';
+
+import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './styled';
 
 export const ThemeToggler: FC = () => {
   const dispatch = useAppDispatch();

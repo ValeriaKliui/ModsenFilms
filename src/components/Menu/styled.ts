@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { devices } from '@constants/styles/media';
 import { transitionAnimation } from '@constants/styles/animation';
+import { devices } from '@constants/styles/media';
+import styled from 'styled-components';
 
 export const MenuStyled = styled.div<{ $isOpened: boolean }>`
   ${transitionAnimation}

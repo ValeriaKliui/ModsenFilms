@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { transitionAnimation } from '@constants/styles/animation';
+import styled from 'styled-components';
 
 export const GenreStyled = styled.div<{ $isActive: boolean }>`
   padding: 0.4em 1em;

@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
 import { scaleAnimation } from '@constants/styles/animation';
+import { styled } from 'styled-components';
 
 export const ButtonStyled = styled.button<{ $isHidden?: boolean }>`
   display: ${({ $isHidden = false }) => $isHidden && 'none'};

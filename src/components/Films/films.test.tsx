@@ -1,17 +1,18 @@
-import { store } from '@store/index';
-import { Provider } from 'react-redux';
-import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
+import { Button } from '@components/Button';
+import { Film } from '@components/Film';
 import { Films } from '@components/Films';
-import { screen, render, fireEvent, waitFor } from '@testing-library/react';
-import * as actions from '@store/slices/filmsSlice';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { Modal } from '@components/Modal';
 import { Video } from '@components/Video';
-import { FilmsStyled } from './styled';
-import { Film } from '@components/Film';
+import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilm } from '@constants/types/interfaces';
-import { Button } from '@components/Button';
 import { filmsMockData } from '@mocks/filmsMockData';
+import { store } from '@store/index';
+import * as actions from '@store/slices/filmsSlice';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
+import { Provider } from 'react-redux';
+
+import { FilmsStyled } from './styled';
 
 describe('Films module', () => {
   afterAll(() => {

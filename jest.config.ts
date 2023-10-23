@@ -18,7 +18,7 @@ export default {
     '^@constants/(.*)': '<rootDir>src/constants/$1',
     '^@pages/(.*)': '<rootDir>src/pages/$1',
     '^@utils/(.*)': '<rootDir>src/utils/$1',
-    '^@hooks/(.*)': '<rootDir>src/utils/hooks/$1',
+    '^@hooks/(.*)': '<rootDir>src/hooks/$1',
     '^@store/(.*)': '<rootDir>src/store/$1',
     '^@styles/(.*)': '<rootDir>src/constants/styles/$1',
     '^@mocks/(.*)': '<rootDir>__mocks__/$1',
