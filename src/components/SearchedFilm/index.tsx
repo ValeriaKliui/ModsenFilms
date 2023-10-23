@@ -19,7 +19,7 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
     title,
     release_date: releaseDate,
     vote_average: voteAverage,
-    overview,
+    overview = 'Description was not found',
     id,
   } = film ?? {};
   const dispatch = useAppDispatch();
@@ -36,7 +36,7 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
     <SearchedFilmStyled onClick={handleFilmClick} data-testid='searched-film'>
       <FilmInfo>
         <SearchedTitle>{title}</SearchedTitle>
-        <SearchedDetail>{overview ?? 'Description was not found'}</SearchedDetail>
+        <SearchedDetail>{overview}</SearchedDetail>
         <SearchedDetail>
           Released: {releaseDate != null && new Date(releaseDate).getFullYear()}
         </SearchedDetail>

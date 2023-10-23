@@ -12,7 +12,6 @@ export interface IErrorProps {
 }
 export interface IFilmProps {
   film: IFilm;
-  isFetching?: boolean;
 }
 export interface IGenreProps {
   onClick: () => void;

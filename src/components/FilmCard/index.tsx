@@ -45,7 +45,7 @@ export const FilmCard: FC<IFilmProps> = ({ film }) => {
         <Details>
           <Text data-testid='film-title'>{title}</Text>
           <SubDetails>
-            {+releaseDate > 0 && (
+            {Number(releaseDate) > 0 && (
               <>
                 <Text>{new Date(releaseDate).getFullYear()}</Text>
                 <Dot />

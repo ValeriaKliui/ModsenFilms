@@ -1,4 +1,3 @@
 node_modules
 build
 eslintrc
-webpack.config.ts

@@ -13,7 +13,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint", "simple-import-sort"],
+  "plugins": ["simple-import-sort", "react", "prettier", "@typescript-eslint"],
   "overrides": [
     {
       "files": [

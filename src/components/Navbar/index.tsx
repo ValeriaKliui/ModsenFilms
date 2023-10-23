@@ -27,7 +27,7 @@ export const Navbar: FC = () => {
     <NavbarStyled data-testid='navbar'>
       <Container>
         {Object.keys(genres)
-          .filter(key => Number.parseInt(key) !== +key)
+          .filter(key => Number.parseInt(key) !== Number(key))
           .map(genre => (
             <GenreButton
               key={genre}

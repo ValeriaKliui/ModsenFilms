@@ -10,7 +10,7 @@ export const DarkThemeProvider: React.FC<DarkThemeProviderProps> = ({
 
   return (
     <ThemeProvider theme={darkThemeEnabled.type === 'dark' ? darkTheme : lightTheme}>
-      {children}
+      {typeof children !== 'undefined' && children}
     </ThemeProvider>
   );
 };
