@@ -75,7 +75,7 @@ export const SearchedFilmsContainer = styled.ul<{
   }
 
   &::-webkit-scrollbar-track {
-    background-color: rgba(196, 196, 196, 0.8);
+    background-color: #c4c4c4cc;
   }
 
   &::-webkit-scrollbar-thumb {

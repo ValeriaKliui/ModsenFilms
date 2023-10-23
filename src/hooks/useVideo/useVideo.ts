@@ -1,16 +1,7 @@
+import type { IUseVideoResponse, IVideoParams } from '@constants/types/interfaces';
 import { useGetFilmVideoQuery } from '@utils/FilmsApi/FilmsApi';
 
-interface hookProps {
-  movieID: number | null;
-}
-interface hookReturns {
-  src: string;
-  isFetching: boolean;
-  isError: boolean;
-  isSuccess: boolean;
-}
-
-export const useVideo = ({ movieID }: hookProps): hookReturns => {
+export const useVideo = ({ movieID }: IVideoParams): IUseVideoResponse => {
   const { data, isFetching, isSuccess, isError } = useGetFilmVideoQuery(
     { movieID },
     { skip: movieID === null },

@@ -64,3 +64,12 @@ export interface IVideoResponse {
 export interface IVideoParams {
   movieID: number | null;
 }
+export interface DarkThemeProviderProps {
+  children?: ReactNode;
+}
+export interface IUseVideoResponse {
+  src: string;
+  isFetching: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+}

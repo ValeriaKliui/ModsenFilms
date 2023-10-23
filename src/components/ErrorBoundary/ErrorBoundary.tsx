@@ -1,30 +1,32 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { Error } from '@components/Error';
 
 interface Props {
   children?: ReactNode;
-  fallback?: ReactNode;
 }
 
 interface State {
   hasError: boolean;
+  errorInfo: string | '';
 }
 
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
+    errorInfo: '',
   };
-
-  public static getDerivedStateFromError(_: Error): State {
-    return { hasError: true };
-  }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     console.error('Uncaught error:', error, errorInfo);
+    this.setState({
+      hasError: true,
+      errorInfo: `${error.name}\n${error.message}`,
+    });
   }
 
   public render(): ReactNode {
     if (this.state.hasError) {
-      return this.props.fallback;
+      return <Error text={this.state.errorInfo} />;
     }
 
     return this.props.children;

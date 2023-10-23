@@ -24,16 +24,16 @@ export interface ITheme {
 export const baseTheme: ITheme = {
   colors: {
     primary: '#ff8a00',
-    secondary: 'rgba(0, 0, 0, 0.06)',
+    secondary: '#0000000f',
     background: '#ffffff',
     font: '#19191B',
     fontActive: '#ffffff',
     bgActive: '#000000',
     border: '#C4C4C4',
-    videoBg: 'rgba(0, 0, 0, 0.6)',
-    shadow: '4px 4px 8px 0px rgba(34, 60, 80, 0.2)',
+    videoBg: '#00000099',
+    shadow: '4px 4px 8px 0px #223c5033',
     lightest: '#ffffff',
-    copyright: 'rgba(0, 0, 0, 0.40)',
+    copyright: '#00000066',
   },
 };
 
@@ -58,6 +58,6 @@ export const darkTheme: DefaultTheme = {
     bgActive: '#ffffff',
     fontActive: '#000000',
     border: '#383838',
-    copyright: 'rgba(255, 255, 255, 0.40)',
+    copyright: '#ffffff66',
   },
 };

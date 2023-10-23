@@ -30,7 +30,7 @@ export const Film: FC<IFilmProps> = ({ film }) => {
   const { openModal } = useModals();
   const photoSrc = (src: string): string => {
     if (src === null) return noImage;
-    else return `${process.env.REACT_APP_TMDB_POSTER_URL}${src}`;
+    else return `${process.env.REACT_APP_TMDB_POSTER_HIGH_URL}${src}`;
   };
   const handleFilmClick = (): void => {
     dispatch(setMovieID(id));

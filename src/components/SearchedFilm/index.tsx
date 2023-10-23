@@ -44,7 +44,9 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
       </FilmInfo>
       <PosterSearched
         src={
-          posterPath != null ? `https://image.tmdb.org/t/p/w154${posterPath}` : noImage
+          posterPath != null
+            ? `${process.env.REACT_APP_TMDB_POSTER_LOW_URL}${posterPath}`
+            : noImage
         }
         alt={title}
       ></PosterSearched>

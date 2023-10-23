@@ -2,12 +2,7 @@ import styled from 'styled-components';
 import { loading } from '@constants/styles/animation';
 
 export const AnimatedBlock = styled.div`
-  background: linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 60%
-    )
+  background: linear-gradient(100deg, #ffffff00 40%, #ffffff80 50%, #ffffff00 60%)
     ${({ theme }) => theme.colors.background};
   background-size: 200% 100%;
   background-position-x: 180%;
