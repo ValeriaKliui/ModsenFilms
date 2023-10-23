@@ -11,3 +11,6 @@ export interface BuildOptions {
   isDev: boolean;
   alias: Record<string, string>;
 }
+export interface BuildEnv {
+  mode: BuildMode;
+}

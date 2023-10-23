@@ -17,12 +17,9 @@ export function buildPlugins({ paths }: BuildOptions): WebpackPluginInstance[] {
       favicon: paths.favicon,
     }),
     new ProgressPlugin(),
-    new SourceMapDevToolPlugin({
-      filename: '[file].map',
-    }),
-    new DefinePlugin({
-      NODE_ENV: JSON.stringify('development'),
-    }),
+    // new DefinePlugin({
+    //   NODE_ENV: JSON.stringify('development'),
+    // }),
     new BundleAnalyzerPlugin({ openAnalyzer: false }),
     new dotenv(),
   ];

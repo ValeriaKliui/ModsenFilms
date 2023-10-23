@@ -5,8 +5,8 @@
   "homepage": "https://ValeriaKliui.github.io/ModsenFilms",
   "scripts": {
     "start": "webpack serve --open  --env port=8080",
-    "build:dev": "webpack --mode development --watch",
-    "build:prod": "webpack --mode production",
+    "build:dev": "webpack --env mode=development --watch",
+    "build:prod": "webpack --env mode=production",
     "lint": "eslint --fix --ext .ts,.tsx ./src",
     "format": "prettier . --write",
     "prepare": "husky install",
