@@ -5,7 +5,7 @@ import { useAppSelector } from '@hooks/reduxHooks/hooks';
 
 import { GenreStyled } from './styled';
 
-export const Genre: FC<IGenreProps> = ({ onClick, genre }) => {
+export const GenreButton: FC<IGenreProps> = ({ onClick, genre }) => {
   const { genre: genreActive } = useAppSelector(store => store.films);
   const isActiveGenre = (): boolean => {
     if (genres[genre] === 0 && genreActive === null) return true;
@@ -13,7 +13,7 @@ export const Genre: FC<IGenreProps> = ({ onClick, genre }) => {
   };
 
   return (
-    <GenreStyled onClick={onClick} $isActive={isActiveGenre()} data-testid='genre'>
+    <GenreStyled onClick={onClick} $isActive={isActiveGenre()} data-testid='genre-button'>
       {genre.toLowerCase()}
     </GenreStyled>
   );

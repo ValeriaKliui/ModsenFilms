@@ -1,7 +1,7 @@
 import { type FC, useEffect } from 'react';
 import { Button } from '@components/Button';
 import { Error } from '@components/Error';
-import { Film } from '@components/Film';
+import { FilmCard } from '@components/FilmCard';
 import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { type IFilmsResponse } from '@constants/types/interfaces';
@@ -17,7 +17,7 @@ import { useGetFilmsByTitleQuery, useGetFilmsQuery } from '@utils/FilmsApi/Films
 
 import { FilmsContainer, FilmsStyled } from './styled';
 
-export const Films: FC = () => {
+export const FilmsCatalog: FC = () => {
   const dispatch = useAppDispatch();
   const { page, films, genre, filmsPerPage } = useAppSelector(store => store.films);
   const { searchQuery } = useSearch();
@@ -69,13 +69,13 @@ export const Films: FC = () => {
   const noFilmsFound = !isFetching && isSuccess && films.length === 0;
 
   return (
-    <FilmsContainer $isError={isError || noFilmsFound} data-testid='films-container'>
-      <FilmsStyled $isError={isError || noFilmsFound} data-testid='films-container'>
+    <FilmsContainer $isError={isError || noFilmsFound} data-testid='films-catalog'>
+      <FilmsStyled $isError={isError || noFilmsFound}>
         {isError && <Error text='Sorry, you have to enable VPN for this site to run.' />}
         {(isSuccess && shortAmountOfFilms) ||
           (noFilmsFound && <Error text='Nothing was found.' />)}
         {films.slice(0, filmsPerPage).map(film => (
-          <Film film={film} key={film.id} />
+          <FilmCard film={film} key={film.id} />
         ))}
         {isFetching &&
           new Array(FILMS_LIMIT)

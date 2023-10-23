@@ -6,7 +6,7 @@ import * as actions from '@store/slices/filmsSlice';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
 
-import { Sort } from '.';
+import { Navbar } from '.';
 
 describe('Sort by genre module', () => {
   afterAll(() => {
@@ -17,12 +17,12 @@ describe('Sort by genre module', () => {
     const { getByText } = render(
       <Provider store={store}>
         <DarkThemeProvider>
-          <Sort />
+          <Navbar />
         </DarkThemeProvider>
       </Provider>,
     );
-    const sort = screen.getByTestId('sort');
-    const genreButtons = screen.getAllByTestId('genre');
+    const sort = screen.getByTestId('navbar');
+    const genreButtons = screen.getAllByTestId('genre-button');
     const genresNames = Object.values(genres)
       .filter(genre => !Number.isInteger(+genre))
       .map(genre => genre.toLocaleString());
@@ -44,7 +44,7 @@ describe('Sort by genre module', () => {
     render(
       <Provider store={store}>
         <DarkThemeProvider>
-          <Sort />
+          <Navbar />
         </DarkThemeProvider>
       </Provider>,
     );
@@ -63,7 +63,7 @@ describe('Sort by genre module', () => {
     render(
       <Provider store={store}>
         <DarkThemeProvider>
-          <Sort />
+          <Navbar />
         </DarkThemeProvider>
       </Provider>,
     );

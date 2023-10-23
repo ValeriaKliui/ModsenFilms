@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { border, wrapper } from '@constants/styles/global';
 import { devices } from '@constants/styles/media';
-export const Genres = styled.div`
+export const NavbarStyled = styled.nav`
   ${border}
 `;
 export const Container = styled.div`

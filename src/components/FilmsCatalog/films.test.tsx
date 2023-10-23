@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { Button } from '@components/Button';
-import { Film } from '@components/Film';
-import { Films } from '@components/Films';
+import { FilmCard } from '@components/FilmCard';
+import { FilmsCatalog } from '@components/FilmsCatalog';
 import { Modal } from '@components/Modal';
 import { Video } from '@components/Video';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
@@ -28,7 +28,7 @@ describe('Films module', () => {
         <DarkThemeProvider>
           <FilmsStyled $isError={false}>
             {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-              <Film film={film} key={film.id} />
+              <FilmCard film={film} key={film.id} />
             ))}
             <Button text='Show More' />
           </FilmsStyled>
@@ -53,7 +53,7 @@ describe('Films module', () => {
     render(
       <Provider store={store}>
         <DarkThemeProvider>
-          <Films />
+          <FilmsCatalog />
         </DarkThemeProvider>
       </Provider>,
     );
@@ -84,7 +84,7 @@ describe('Films module', () => {
         <DarkThemeProvider>
           <FilmsStyled $isError={false}>
             {response.slice(0, store.getState().films.filmsPerPage).map((film: IFilm) => (
-              <Film film={film} key={film.id} />
+              <FilmCard film={film} key={film.id} />
             ))}
             <Button text='Show More' />
           </FilmsStyled>

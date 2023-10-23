@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { Genre } from '@components/Genre';
+import { GenreButton } from '@components/GenreButton';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { genres, type GenresType } from '@constants/types/genres';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
@@ -11,9 +11,9 @@ import {
   setSearchTitle,
 } from '@store/slices/filmsSlice';
 
-import { Container, Genres } from './styled';
+import { Container, NavbarStyled } from './styled';
 
-export const Sort: FC = () => {
+export const Navbar: FC = () => {
   const dispatch = useAppDispatch();
   const handleClickGenre = (genre: GenresType): void => {
     dispatch(setGenre(genres[genre] === genres.ALL ? null : genres[genre]));
@@ -24,12 +24,12 @@ export const Sort: FC = () => {
   };
 
   return (
-    <Genres data-testid='sort'>
+    <NavbarStyled data-testid='navbar'>
       <Container>
         {Object.keys(genres)
           .filter(key => Number.parseInt(key) !== +key)
           .map(genre => (
-            <Genre
+            <GenreButton
               key={genre}
               onClick={() => {
                 handleClickGenre(genre as GenresType);
@@ -38,6 +38,6 @@ export const Sort: FC = () => {
             />
           ))}
       </Container>
-    </Genres>
+    </NavbarStyled>
   );
 };

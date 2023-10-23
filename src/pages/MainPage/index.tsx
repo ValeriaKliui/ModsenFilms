@@ -1,6 +1,6 @@
-import { Films } from '@components/Films';
+import { FilmsCatalog } from '@components/FilmsCatalog';
 import { Modal } from '@components/Modal';
-import { Sort } from '@components/Sort';
+import { Navbar } from '@components/Navbar';
 import { Video } from '@components/Video';
 
 import { Main } from './styled';
@@ -8,12 +8,12 @@ import { Main } from './styled';
 export const MainPage: React.FC = () => {
   return (
     <>
-      <Sort />
+      <Navbar />
       <Modal>
         <Video />
       </Modal>
       <Main>
-        <Films />
+        <FilmsCatalog />
       </Main>
     </>
   );

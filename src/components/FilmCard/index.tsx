@@ -16,7 +16,7 @@ import {
   Text,
 } from './styled';
 
-export const Film: FC<IFilmProps> = ({ film }) => {
+export const FilmCard: FC<IFilmProps> = ({ film }) => {
   const {
     backdrop_path: backdropPath,
     poster_path: posterPath,
