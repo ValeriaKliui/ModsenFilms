@@ -10,7 +10,7 @@ export const Container = styled.div`
   ${wrapper}
   display:grid;
   grid-template-columns: 1fr 3fr 0.5fr;
-  gap: 1em;
+  gap: ${({ theme }) => theme.gaps.gap16};
   align-items: center;
   @media ${devices.sm} {
     grid-template-columns: 1fr 1fr;
@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  gap: 0.5em;
+  gap: ${({ theme }) => theme.gaps.gap8};
   align-items: center;
   ${scaleAnimation}
 `;

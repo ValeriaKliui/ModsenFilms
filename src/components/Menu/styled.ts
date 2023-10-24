@@ -7,7 +7,7 @@ export const MenuStyled = styled.div<{ $isOpened: boolean }>`
   transform: translateX(100%);
   transform: ${({ $isOpened }) => $isOpened && 'translateX(0%)'};
   @media ${devices.sm} {
-    padding: 1.5em;
+    padding: 24px;
     justify-content: center;
     background: ${({ theme }) => theme.colors.background};
     position: fixed;

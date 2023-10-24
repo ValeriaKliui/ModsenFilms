@@ -84,6 +84,6 @@ export const SuggestedFilmsContainer = styled.ul<{
   }
 `;
 export const Info = styled.div`
-  padding: 1em;
+  padding: 16px;
   color: ${({ theme }) => theme.colors.primary};
 `;

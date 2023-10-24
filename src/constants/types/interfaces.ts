@@ -1,7 +1,42 @@
 import { type ReactNode } from 'react';
+import { type DefaultTheme } from 'styled-components/dist/types';
 
 import { type GenresType } from './genres';
 
+export enum ThemeEnum {
+  light = 'light',
+  dark = 'dark',
+}
+
+export interface ITheme {
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    font: string;
+    fontActive: string;
+    bgActive: string;
+    border: string;
+    videoBg: string;
+    shadow: string;
+    lightest: string;
+    copyright: string;
+  };
+  fontSizes: {
+    medium: string;
+    large: string;
+  };
+  fontWeight: {
+    semibold: number;
+    bold: number;
+  };
+  gaps: {
+    gap4: string;
+    gap8: string;
+    gap16: string;
+    gap32: string;
+  };
+}
 export interface IButtonProps {
   text: string;
   onClick?: () => void;
@@ -72,4 +107,23 @@ export interface IUseVideoResponse {
 }
 export interface IUseCatalogProps {
   genre: number | null;
+}
+
+export interface FilmsIState {
+  filmsPerPage: number;
+  page: number;
+  films: IFilm[];
+  genre: number | null;
+  searchQuery: string;
+  searchTitle: string;
+  movieID: number | null;
+}
+
+export interface ThemeState {
+  theme: DefaultTheme;
+}
+export interface ModalsState {
+  isSearchOpened: boolean;
+  isModalOpened: boolean;
+  isMenuOpened: boolean;
 }

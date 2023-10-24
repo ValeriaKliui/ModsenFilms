@@ -1,6 +1,5 @@
+import type { ModalsState } from '@constants/types/interfaces';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-import { type ModalsState } from './interface';
 
 const initialState: ModalsState = {
   isSearchOpened: false,

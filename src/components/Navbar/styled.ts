@@ -7,11 +7,11 @@ export const NavbarStyled = styled.nav`
 export const Container = styled.div`
   ${wrapper}
   display: flex;
-  gap: 1em;
+  gap: ${({ theme }) => theme.gaps.gap16};
   justify-content: center;
   flex-wrap: wrap;
   @media ${devices.md} {
-    gap: 0.5em;
+    gap: ${({ theme }) => theme.gaps.gap8};
   }
   @media ${devices.sm} {
     justify-content: flex-start;

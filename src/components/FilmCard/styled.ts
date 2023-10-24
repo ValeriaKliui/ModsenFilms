@@ -6,7 +6,7 @@ export const FilmContainer = styled.div``;
 export const FilmStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: ${({ theme }) => theme.gaps.gap8};
   cursor: pointer;
   ${scaleAnimation}
   @media (pointer: fine) {
@@ -42,8 +42,8 @@ export const Poster = styled.img`
 export const InfoContainer = styled.div`
   display: flex;
   align-content: center;
-  gap: 1em;
-  padding: 0.5em;
+  gap: ${({ theme }) => theme.gaps.gap16};
+  padding: 8px;
 `;
 export const Details = styled.div`
   display: flex;
@@ -53,5 +53,5 @@ export const Details = styled.div`
 export const SubDetails = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.35em;
+  gap: ${({ theme }) => theme.gaps.gap4};
 `;

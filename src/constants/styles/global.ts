@@ -19,11 +19,11 @@ body {
   color: ${({ theme }) => theme.colors.font};
   background-color: ${({ theme }) => theme.colors.background};
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.large};
   height: 100%;
   
   @media ${devices.md} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes.medium};
   }
 }
 #root {
@@ -59,7 +59,7 @@ li {
 `;
 export const wrapper = css`
   max-width: 1440px;
-  padding: 1.3em;
+  padding: 20px;
   margin: 0 auto;
   width: 100%;
   @media ${devices['2xl']} {

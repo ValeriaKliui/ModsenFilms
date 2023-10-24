@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { transitionAnimation } from '@constants/styles/animation';
 
 export const GenreStyled = styled.div<{ $isActive: boolean }>`
-  padding: 0.4em 1em;
+  padding: 8px 16px;
   display: flex;
   align-content: center;
   background-color: ${({ $isActive, theme }) =>

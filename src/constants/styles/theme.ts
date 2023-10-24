@@ -1,25 +1,6 @@
 import { type DefaultTheme } from 'styled-components';
-
-export enum ThemeEnum {
-  light = 'light',
-  dark = 'dark',
-}
-
-export interface ITheme {
-  colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-    font: string;
-    fontActive: string;
-    bgActive: string;
-    border: string;
-    videoBg: string;
-    shadow: string;
-    lightest: string;
-    copyright: string;
-  };
-}
+import type { ITheme } from '@constants/types/interfaces';
+import { ThemeEnum } from '@constants/types/interfaces';
 
 export const baseTheme: ITheme = {
   colors: {
@@ -35,15 +16,25 @@ export const baseTheme: ITheme = {
     lightest: '#ffffff',
     copyright: '#00000066',
   },
+  fontSizes: {
+    medium: '14px',
+    large: '16px',
+  },
+  fontWeight: {
+    semibold: 600,
+    bold: 700,
+  },
+  gaps: {
+    gap4: '4px',
+    gap8: '8px',
+    gap16: '16px',
+    gap32: '32px',
+  },
 };
 
 export const lightTheme: DefaultTheme = {
   ...baseTheme,
   type: ThemeEnum.light,
-
-  colors: {
-    ...baseTheme.colors,
-  },
 };
 
 export const darkTheme: DefaultTheme = {

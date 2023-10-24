@@ -22,8 +22,8 @@ export const Image = styled(AnimatedBlock)`
 `;
 export const Description = styled.div`
   display: flex;
-  gap: 1em;
-  padding: 0.5em;
+  gap: ${({ theme }) => theme.gaps.gap16};
+  padding: 8px;
   padding-right: 0;
   align-items: center;
 `;

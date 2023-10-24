@@ -7,9 +7,9 @@ export const ButtonStyled = styled.button<{ $isHidden?: boolean }>`
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.lightest};
   font-family: inherit;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: inherit;
-  padding: 1em 2em;
+  padding: 16px 32px;
   border-radius: 8px;
   border: none;
   cursor: pointer;

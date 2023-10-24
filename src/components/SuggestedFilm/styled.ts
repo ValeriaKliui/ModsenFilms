@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const SuggestedFilmStyled = styled.li`
   display: flex;
-  gap: 1em;
+  gap: ${({ theme }) => theme.gaps.gap16};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   border-collapse: collapse;
   justify-content: space-between;
-  padding: 1em;
+  padding: 16px;
 `;
 export const FilmInfo = styled.div`
   display: flex;
