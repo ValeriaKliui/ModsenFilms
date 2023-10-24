@@ -23,9 +23,7 @@ export interface IModalProps {
 export interface ISearchedFilmProps {
   film: IFilm;
 }
-export interface ISpinnerProps {
-  size: number;
-}
+
 export interface IFilm {
   title: string;
   release_date: string;
@@ -71,4 +69,7 @@ export interface IUseVideoResponse {
   isFetching: boolean;
   isError: boolean;
   isSuccess: boolean;
+}
+export interface IUseCatalogProps {
+  genre: number | null;
 }

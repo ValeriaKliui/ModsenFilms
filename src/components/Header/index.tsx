@@ -5,30 +5,21 @@ import { Burger } from '@components/Burger';
 import { Menu } from '@components/Menu';
 import { Search } from '@components/Search';
 import { ThemeToggler } from '@components/ThemeToggler';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
+import { useCatalog } from '@hooks/useCatalog/useCatalog';
 import { useSearch } from '@hooks/useSearch/useSearch';
-import {
-  clearFilms,
-  setFilmsPerPage,
-  setFirstPage,
-  setGenre,
-  setSearchQuery,
-  setSearchTitle,
-} from '@store/slices/filmsSlice';
+import { clearFilms, setGenre } from '@store/slices/filmsSlice';
 
 import { Container, Logo, LogoTitle, StyledHeader, Theme } from './styled';
 
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
   const { searchTitle } = useSearch();
+  const { setInitCatalog } = useCatalog();
   const handleClick = (): void => {
     searchTitle.length > 0 && dispatch(clearFilms());
     dispatch(setGenre(null));
-    dispatch(setFirstPage());
-    dispatch(setFilmsPerPage(FILMS_LIMIT));
-    dispatch(setSearchTitle(''));
-    dispatch(setSearchQuery(''));
+    setInitCatalog();
   };
 
   return (

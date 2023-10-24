@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC, memo } from 'react';
 import { type IModalProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
 import { useModals } from '@hooks/useModals/useModals';
@@ -6,7 +6,7 @@ import { setMovieID } from '@store/slices/filmsSlice';
 
 import { Content, ModalStyled, Overlay } from './styled';
 
-export const Modal: FC<IModalProps> = ({ children }) => {
+export const Modal: FC<IModalProps> = memo(({ children }) => {
   const dispatch = useAppDispatch();
   const { closeModal, isModalOpened } = useModals();
 
@@ -25,4 +25,4 @@ export const Modal: FC<IModalProps> = ({ children }) => {
       </Overlay>
     </ModalStyled>
   );
-};
+});

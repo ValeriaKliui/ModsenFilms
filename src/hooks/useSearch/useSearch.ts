@@ -3,6 +3,7 @@ import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
 import { useModals } from '@hooks/useModals/useModals';
+import { selectSearchQuery, selectSearchTitle } from '@store/selectors/filmsSelectors';
 import {
   clearFilms,
   setFilmsPerPage,
@@ -16,7 +17,8 @@ import { type useSearchI } from './interface';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();
-  const { searchQuery, searchTitle } = useAppSelector(store => store.films);
+  const searchQuery = useAppSelector(selectSearchQuery);
+  const searchTitle = useAppSelector(selectSearchTitle);
   const debouncedValue = useDebounce(searchTitle);
   const { openSearch, closeSearch } = useModals();
 

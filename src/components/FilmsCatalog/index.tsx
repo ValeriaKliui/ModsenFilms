@@ -8,6 +8,12 @@ import { type IFilmsResponse } from '@constants/types/interfaces';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useSearch } from '@hooks/useSearch/useSearch';
 import {
+  selectFilms,
+  selectFilmsPerPage,
+  selectGenre,
+  selectPage,
+} from '@store/selectors/filmsSelectors';
+import {
   addFilms,
   clearFilms,
   increasePage,
@@ -19,7 +25,11 @@ import { FilmsContainer, FilmsStyled } from './styled';
 
 export const FilmsCatalog: FC = () => {
   const dispatch = useAppDispatch();
-  const { page, films, genre, filmsPerPage } = useAppSelector(store => store.films);
+  const films = useAppSelector(selectFilms);
+  const page = useAppSelector(selectPage);
+  const genre = useAppSelector(selectGenre);
+  const filmsPerPage = useAppSelector(selectFilmsPerPage);
+
   const { searchQuery } = useSearch();
 
   const {
@@ -40,14 +50,13 @@ export const FilmsCatalog: FC = () => {
     if (isSuccessCatalog) return filmsCatalog;
     if (isSuccessByTitle) return filmsByTitle;
   };
+  const filmsData = getDisplayedFilms();
 
   useEffect(() => {
     dispatch(clearFilms());
   }, [genre]);
 
   useEffect(() => {
-    const filmsData = getDisplayedFilms();
-
     if (filmsData !== undefined && filmsData !== null) {
       dispatch(addFilms(filmsData.results));
     }

@@ -31,9 +31,9 @@ describe('Search module', () => {
 
   it('Should change input value and delete it after clicking on genres', () => {
     cy.get('[data-testid=search-input]').as('search-input');
-    cy.get('[data-testid=genre]').as('genre');
+    cy.get('[data-testid=genre-button]').as('genre-button');
     cy.get('@search-input').type('inputValue').should('have.value', 'inputValue');
-    cy.get('@genre').last().click();
+    cy.get('@genre-button').last().click();
     cy.get('@search-input').should('have.value', '');
   });
 

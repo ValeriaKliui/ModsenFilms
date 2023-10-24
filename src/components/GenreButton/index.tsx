@@ -1,12 +1,13 @@
-import { type FC } from 'react';
+import { type FC, memo } from 'react';
 import { genres } from '@constants/types/genres';
 import { type IGenreProps } from '@constants/types/interfaces';
 import { useAppSelector } from '@hooks/reduxHooks/hooks';
+import { selectGenre } from '@store/selectors/filmsSelectors';
 
 import { GenreStyled } from './styled';
 
-export const GenreButton: FC<IGenreProps> = ({ onClick, genre }) => {
-  const { genre: genreActive } = useAppSelector(store => store.films);
+export const GenreButton: FC<IGenreProps> = memo(({ onClick, genre }) => {
+  const genreActive = useAppSelector(selectGenre);
   const isActiveGenre = (): boolean => {
     if (genres[genre] === 0 && genreActive === null) return true;
     else return genreActive === genres[genre];
@@ -17,4 +18,4 @@ export const GenreButton: FC<IGenreProps> = ({ onClick, genre }) => {
       {genre.toLowerCase()}
     </GenreStyled>
   );
-};
+});

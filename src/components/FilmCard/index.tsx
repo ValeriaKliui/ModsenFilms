@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC, memo } from 'react';
 import noImage from '@assets/img/no-image.jpg';
 import { type IFilmProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
@@ -16,7 +16,7 @@ import {
   Text,
 } from './styled';
 
-export const FilmCard: FC<IFilmProps> = ({ film }) => {
+export const FilmCard: FC<IFilmProps> = memo(({ film }) => {
   const {
     backdrop_path: backdropPath,
     poster_path: posterPath,
@@ -57,4 +57,4 @@ export const FilmCard: FC<IFilmProps> = ({ film }) => {
       </InfoContainer>
     </FilmStyled>
   );
-};
+});

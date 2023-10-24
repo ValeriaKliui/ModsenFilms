@@ -31,7 +31,7 @@ describe('Theme module', () => {
     // aliases
     cy.get('body').as('body');
     cy.get('[data-testid=theme-toggler]').as('toggler');
-    cy.get('[data-testid=genre]').as('genre');
+    cy.get('[data-testid=genre-button]').as('genre-button');
     cy.get('[data-testid=search-form]').as('search-form');
     cy.get('[data-testid=copyright]').as('copyright');
 
@@ -42,19 +42,19 @@ describe('Theme module', () => {
     cy.get('@body').should('have.css', 'color').and('be.colored', `${colors.font}`);
 
     // testing genre
-    cy.get('@genre')
+    cy.get('@genre-button')
       .last()
       .should('have.css', 'background-color')
       .and('be.colored', `${colors.secondary}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .last()
       .should('have.css', 'color')
       .and('be.colored', `${colors.font}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .first()
       .should('have.css', 'background-color')
       .and('be.colored', `${colors.bgActive}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .first()
       .should('have.css', 'color')
       .and('be.colored', `${colors.fontActive}`);
@@ -79,25 +79,25 @@ describe('Theme module', () => {
     cy.get('@body').should('have.css', 'color').and('be.colored', `${colors.font_dark}`);
 
     // testing genre-dark
-    cy.get('@genre')
+    cy.get('@genre-button')
       .last()
       .should('have.css', 'background-color')
       .and('be.colored', `${colors.secondary_dark}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .last()
       .should('have.css', 'color')
       .and('be.colored', `${colors.font_dark}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .first()
       .should('have.css', 'background-color')
       .and('be.colored', `${colors.bgActive_dark}`);
-    cy.get('@genre')
+    cy.get('@genre-button')
       .first()
       .should('have.css', 'color')
       .and('be.colored', `${colors.fontActive_dark}`);
 
     // testing search-form-dark
-    cy.get('@genre')
+    cy.get('@genre-button')
       .should('have.css', 'border-color')
       .and('be.colored', `${colors.border_dark}`);
 

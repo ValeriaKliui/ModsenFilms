@@ -1,5 +1,6 @@
 import { type FC } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
+import { selectTheme } from '@store/selectors/themeSelectors';
 import { toggleTheme } from '@store/slices/themeSlice';
 import { ThemeEnum } from '@styles/theme';
 
@@ -7,7 +8,7 @@ import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './s
 
 export const ThemeToggler: FC = () => {
   const dispatch = useAppDispatch();
-  const { theme } = useAppSelector(store => store.theme);
+  const theme = useAppSelector(selectTheme);
 
   return (
     <TogglerContainer data-testid='theme-toggler'>

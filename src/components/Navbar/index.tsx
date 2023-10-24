@@ -1,27 +1,20 @@
-import { type FC } from 'react';
+import { type FC, useCallback } from 'react';
 import { GenreButton } from '@components/GenreButton';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
 import { genres, type GenresType } from '@constants/types/genres';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
-import {
-  setFilmsPerPage,
-  setFirstPage,
-  setGenre,
-  setSearchQuery,
-  setSearchTitle,
-} from '@store/slices/filmsSlice';
+import { useCatalog } from '@hooks/useCatalog/useCatalog';
+import { setGenre } from '@store/slices/filmsSlice';
 
 import { Container, NavbarStyled } from './styled';
 
 export const Navbar: FC = () => {
   const dispatch = useAppDispatch();
-  const handleClickGenre = (genre: GenresType): void => {
+  const { setInitCatalog } = useCatalog();
+
+  const handleClickGenre = useCallback((genre: GenresType): void => {
     dispatch(setGenre(genres[genre] === genres.ALL ? null : genres[genre]));
-    dispatch(setFirstPage());
-    dispatch(setFilmsPerPage(FILMS_LIMIT));
-    dispatch(setSearchTitle(''));
-    dispatch(setSearchQuery(''));
-  };
+    setInitCatalog();
+  }, []);
 
   return (
     <NavbarStyled data-testid='navbar'>

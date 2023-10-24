@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC, memo } from 'react';
 import noImage from '@assets/img/no-image.jpg';
 import { type ISearchedFilmProps } from '@constants/types/interfaces';
 import { useAppDispatch } from '@hooks/reduxHooks/hooks';
@@ -13,7 +13,7 @@ import {
   SuggestedTitle,
 } from './styled';
 
-export const SuggestedFilm: FC<ISearchedFilmProps> = ({ film }) => {
+export const SuggestedFilm: FC<ISearchedFilmProps> = memo(({ film }) => {
   const {
     poster_path: posterPath,
     title,
@@ -54,4 +54,4 @@ export const SuggestedFilm: FC<ISearchedFilmProps> = ({ film }) => {
       ></PosterSuggested>
     </SuggestedFilmStyled>
   );
-};
+});

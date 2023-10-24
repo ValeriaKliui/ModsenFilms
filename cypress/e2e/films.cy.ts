@@ -8,7 +8,7 @@ describe('Films module', () => {
   });
 
   it('Films should be visible', () => {
-    cy.get('[data-testid=films-container]')
+    cy.get('[data-testid=films-catalog]')
       .get('[data-testid=film-card')
       .get('[data-testid=button-show-more')
       .should('be.visible');

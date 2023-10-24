@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import SearchIcon from '@assets/img/search.svg';
-import { SuggestedFilm } from '@components/SuggestedFilm';
 import { Spinner } from '@components/Spinner';
+import { SuggestedFilm } from '@components/SuggestedFilm';
 import { useClickOutside } from '@hooks/useClickOutside/useClickOutside';
 import { useModals } from '@hooks/useModals/useModals';
 import { useSearch } from '@hooks/useSearch/useSearch';
@@ -12,8 +12,8 @@ import {
   Input,
   SearchButton,
   SearchContainer,
-  SuggestedFilmsContainer,
   SearchForm,
+  SuggestedFilmsContainer,
 } from './styled';
 
 export const Search: FC = () => {
@@ -58,7 +58,7 @@ export const Search: FC = () => {
           $isSearchOpened={isSearchOpened}
           data-testid='suggested-films'
         >
-          {isFetching && <Spinner size={50} />}
+          {isFetching && <Spinner />}
           {badSearchResult && <Info>Nothing was found.</Info>}
           {!isFetching && suggestedFilms.length > 0 && (
             <Info>Found: {data?.total_results} films.</Info>

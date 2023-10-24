@@ -3,15 +3,16 @@ import { Error } from '@components/Error';
 import { Spinner } from '@components/Spinner';
 import { useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useVideo } from '@hooks/useVideo/useVideo';
+import { selectMovieID } from '@store/selectors/filmsSelectors';
 
 import { VideoContainer, VideoStyled } from './styled';
 
 const Video: FC = () => {
-  const { movieID } = useAppSelector(store => store.films);
+  const movieID = useAppSelector(selectMovieID);
   const { src, isFetching, isError, isSuccess } = useVideo({ movieID });
 
   if (isError) return <Error />;
-  if (isFetching) return <Spinner size={100} />;
+  if (isFetching) return <Spinner />;
   if (isSuccess && src.length === 0) return <Error text='TMDB doesnt have this video.' />;
 
   return (
