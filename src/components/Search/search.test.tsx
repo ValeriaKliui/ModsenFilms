@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import { Search } from '@components/Search';
-import { SearchedFilm } from '@components/SearchedFilm';
+import { SuggestedFilm } from '@components/SuggestedFilm';
 import { FILMS_LIMIT } from '@constants/filmsConstants';
 import * as hooks from '@hooks/reduxHooks/hooks';
 import { filmsMockData } from '@mocks/filmsMockData';
@@ -10,7 +10,7 @@ import filmsReducer from '@store/slices/filmsSlice';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { DarkThemeProvider } from '@utils/DarkTheme/DarkThemeProvider';
 
-import { SearchedFilmsContainer } from './styled';
+import { SuggestedFilmsContainer } from './styled';
 
 describe('Search module', () => {
   afterAll(() => jest.clearAllMocks());
@@ -125,11 +125,11 @@ describe('Search module', () => {
     const { findByText } = render(
       <Provider store={store}>
         <DarkThemeProvider>
-          <SearchedFilmsContainer>
+          <SuggestedFilmsContainer>
             {response.map(film => (
-              <SearchedFilm key={film.id} film={film} />
+              <SuggestedFilm key={film.id} film={film} />
             ))}
-          </SearchedFilmsContainer>
+          </SuggestedFilmsContainer>
         </DarkThemeProvider>
       </Provider>,
     );

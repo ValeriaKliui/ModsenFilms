@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchedFilmStyled = styled.li`
+export const SuggestedFilmStyled = styled.li`
   display: flex;
   gap: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
@@ -13,15 +13,15 @@ export const FilmInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-export const SearchedTitle = styled.h4``;
-export const SearchedDetail = styled.p`
+export const SuggestedTitle = styled.h4``;
+export const SuggestedDetail = styled.p`
   -webkit-line-clamp: 4;
   display: block;
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
 `;
-export const PosterSearched = styled.img`
+export const PosterSuggested = styled.img`
   max-width: 120px;
   object-fit: contain;
 `;

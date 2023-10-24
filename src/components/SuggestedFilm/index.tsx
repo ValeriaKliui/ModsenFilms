@@ -7,13 +7,13 @@ import { setMovieID } from '@store/slices/filmsSlice';
 
 import {
   FilmInfo,
-  PosterSearched,
-  SearchedDetail,
-  SearchedFilmStyled,
-  SearchedTitle,
+  PosterSuggested,
+  SuggestedDetail,
+  SuggestedFilmStyled,
+  SuggestedTitle,
 } from './styled';
 
-export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
+export const SuggestedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   const {
     poster_path: posterPath,
     title,
@@ -21,7 +21,7 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
     vote_average: voteAverage,
     overview = 'Description was not found',
     id,
-  } = film ?? {};
+  } = film;
   const dispatch = useAppDispatch();
   const { openModal } = useModals();
 
@@ -33,23 +33,25 @@ export const SearchedFilm: FC<ISearchedFilmProps> = ({ film }) => {
   };
 
   return (
-    <SearchedFilmStyled onClick={handleFilmClick} data-testid='searched-film'>
+    <SuggestedFilmStyled onClick={handleFilmClick} data-testid='suggested-film'>
       <FilmInfo>
-        <SearchedTitle>{title}</SearchedTitle>
-        <SearchedDetail>{overview}</SearchedDetail>
-        <SearchedDetail>
-          Released: {releaseDate != null && new Date(releaseDate).getFullYear()}
-        </SearchedDetail>
-        <SearchedDetail>Rating: {voteAverage}</SearchedDetail>
+        <SuggestedTitle>{title}</SuggestedTitle>
+        <SuggestedDetail>{overview}</SuggestedDetail>
+        {releaseDate != null && (
+          <SuggestedDetail>
+            Released: {new Date(releaseDate).getFullYear()}
+          </SuggestedDetail>
+        )}
+        {voteAverage !== null && <SuggestedDetail>Rating: {voteAverage}</SuggestedDetail>}
       </FilmInfo>
-      <PosterSearched
+      <PosterSuggested
         src={
           posterPath != null
             ? `${process.env.REACT_APP_TMDB_POSTER_LOW_URL}${posterPath}`
             : noImage
         }
         alt={title}
-      ></PosterSearched>
-    </SearchedFilmStyled>
+      ></PosterSuggested>
+    </SuggestedFilmStyled>
   );
 };

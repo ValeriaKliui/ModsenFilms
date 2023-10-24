@@ -59,13 +59,14 @@ export const FilmsCatalog: FC = () => {
 
   const increaseFilms = (): void => {
     dispatch(setFilmsPerPage(FILMS_LIMIT + filmsPerPage));
-    if ((films.length - 2 * filmsPerPage) / filmsPerPage < 0) dispatch(increasePage());
+    dispatch(increasePage());
   };
 
   const shortAmountOfFilms =
     filmsByTitle?.results.length === 0 &&
     searchQuery.length !== 0 &&
     films.length >= filmsPerPage;
+
   const noFilmsFound = !isFetching && isSuccess && films.length === 0;
 
   return (

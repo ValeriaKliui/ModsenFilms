@@ -58,7 +58,7 @@ export const SearchButton = styled.button`
     }
   }
 `;
-export const SearchedFilmsContainer = styled.ul<{
+export const SuggestedFilmsContainer = styled.ul<{
   $isScrolled?: boolean;
   $isSearchOpened?: boolean;
 }>`

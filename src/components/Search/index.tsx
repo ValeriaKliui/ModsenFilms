@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import SearchIcon from '@assets/img/search.svg';
-import { SearchedFilm } from '@components/SearchedFilm';
+import { SuggestedFilm } from '@components/SuggestedFilm';
 import { Spinner } from '@components/Spinner';
 import { useClickOutside } from '@hooks/useClickOutside/useClickOutside';
 import { useModals } from '@hooks/useModals/useModals';
@@ -12,7 +12,7 @@ import {
   Input,
   SearchButton,
   SearchContainer,
-  SearchedFilmsContainer,
+  SuggestedFilmsContainer,
   SearchForm,
 } from './styled';
 
@@ -26,9 +26,9 @@ export const Search: FC = () => {
     { skip: debouncedValue.length < 2 || !isSearchOpened },
   );
 
-  const { results: searchedFilms, total_results: filmsAmount } = data ?? { results: [] };
+  const suggestedFilms = data?.results ?? [];
   const badSearchResult =
-    isError || (searchedFilms.length < 1 && !isFetching && !isUninitialized);
+    isError || (suggestedFilms.length < 1 && !isFetching && !isUninitialized);
 
   const handleClick = (e: React.MouseEvent): void => {
     e.preventDefault();
@@ -53,19 +53,19 @@ export const Search: FC = () => {
         </SearchButton>
       </SearchForm>
       {isSearchOpened && (
-        <SearchedFilmsContainer
-          $isScrolled={searchedFilms.length > 2 && !isFetching}
+        <SuggestedFilmsContainer
+          $isScrolled={suggestedFilms.length > 2 && !isFetching}
           $isSearchOpened={isSearchOpened}
-          data-testid='searched-films'
+          data-testid='suggested-films'
         >
           {isFetching && <Spinner size={50} />}
           {badSearchResult && <Info>Nothing was found.</Info>}
-          {!isFetching && searchedFilms.length > 0 && (
-            <Info>Found: {filmsAmount} films.</Info>
+          {!isFetching && suggestedFilms.length > 0 && (
+            <Info>Found: {data?.total_results} films.</Info>
           )}
           {!isFetching &&
-            searchedFilms.map(film => <SearchedFilm key={film.id} film={film} />)}
-        </SearchedFilmsContainer>
+            data?.results.map(film => <SuggestedFilm key={film.id} film={film} />)}
+        </SuggestedFilmsContainer>
       )}
     </SearchContainer>
   );

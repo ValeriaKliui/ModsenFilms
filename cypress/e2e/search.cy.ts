@@ -39,9 +39,10 @@ describe('Search module', () => {
 
   it('Should show searched films after entering more than 3 symbols', () => {
     const titleTest = 'Titanic';
+
     cy.get('[data-testid=search-input]').as('search-input');
     cy.get('@search-input').type(titleTest);
-    cy.get('[data-testid=searched-films]').should('be.visible');
-    cy.get('[data-testid=searched-film]').should('include.text', titleTest);
+    cy.get('[data-testid=suggested-films]').should('be.visible');
+    cy.get('[data-testid=suggested-film]').should('include.text', titleTest);
   });
 });
