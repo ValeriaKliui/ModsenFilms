@@ -3,7 +3,7 @@ import { Button } from '@components/Button';
 import { Error } from '@components/Error';
 import { FilmCard } from '@components/FilmCard';
 import { SkeletonLoader } from '@components/SkeletonLoader/SkeletonLoader';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import { type IFilmsResponse } from '@constants/types/interfaces';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useSearch } from '@hooks/useSearch/useSearch';
@@ -46,6 +46,15 @@ export const FilmsCatalog: FC = () => {
     isSuccess: isSuccessByTitle,
   } = useGetFilmsByTitleQuery({ searchQuery, page }, { skip: searchQuery === '' });
 
+  const isFetching = isFetchingCatalog || isFetchingByTitle;
+  const isError = isErrorCatalog || isErrorByTitle;
+  const isSuccess = isSuccessCatalog || isSuccessByTitle;
+
+  const increaseFilms = (): void => {
+    dispatch(setFilmsPerPage(FILMS_LIMIT + filmsPerPage));
+    dispatch(increasePage());
+  };
+
   const getDisplayedFilms = (): IFilmsResponse | undefined => {
     if (isSuccessCatalog) return filmsCatalog;
     if (isSuccessByTitle) return filmsByTitle;
@@ -61,15 +70,6 @@ export const FilmsCatalog: FC = () => {
       dispatch(addFilms(filmsData.results));
     }
   }, [filmsCatalog, filmsByTitle, genre, searchQuery]);
-
-  const isFetching = isFetchingCatalog || isFetchingByTitle;
-  const isError = isErrorCatalog || isErrorByTitle;
-  const isSuccess = isSuccessCatalog || isSuccessByTitle;
-
-  const increaseFilms = (): void => {
-    dispatch(setFilmsPerPage(FILMS_LIMIT + filmsPerPage));
-    dispatch(increasePage());
-  };
 
   const shortAmountOfFilms =
     filmsByTitle?.results.length === 0 &&

@@ -1,5 +1,6 @@
 import { type ChangeEvent } from 'react';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
+import { type useSearchI } from '@constants/types/interfaces';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { useDebounce } from '@hooks/useDebounce/useDebounce';
 import { useModals } from '@hooks/useModals/useModals';
@@ -12,8 +13,6 @@ import {
   setSearchQuery,
   setSearchTitle,
 } from '@store/slices/filmsSlice';
-
-import { type useSearchI } from './interface';
 
 export const useSearch = (): useSearchI => {
   const dispatch = useAppDispatch();

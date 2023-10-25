@@ -1,11 +1,10 @@
+import type { useModalI } from '@constants/types/interfaces';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import {
   setIsModalOpened,
   setIsSearchOpened,
   toggleMenu as toggle,
 } from '@store/slices/modalsSlice';
-
-import { type useModalI } from './interface';
 
 export const useModals = (): useModalI => {
   const dispatch = useAppDispatch();

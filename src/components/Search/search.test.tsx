@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { Search } from '@components/Search';
 import { SuggestedFilm } from '@components/SuggestedFilm';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import * as hooks from '@hooks/reduxHooks/hooks';
 import { filmsMockData } from '@mocks/filmsMockData';
 import { store } from '@store/index';

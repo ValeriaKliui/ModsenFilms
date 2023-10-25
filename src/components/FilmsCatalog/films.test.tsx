@@ -4,7 +4,7 @@ import { FilmCard } from '@components/FilmCard';
 import { FilmsCatalog } from '@components/FilmsCatalog';
 import { Modal } from '@components/Modal';
 import { Video } from '@components/Video';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import { type IFilm } from '@constants/types/interfaces';
 import { filmsMockData } from '@mocks/filmsMockData';
 import { store } from '@store/index';

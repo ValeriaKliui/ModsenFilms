@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 import { type DefaultTheme } from 'styled-components/dist/types';
 
 import { type GenresType } from './genres';
@@ -126,4 +126,29 @@ export interface ModalsState {
   isSearchOpened: boolean;
   isModalOpened: boolean;
   isMenuOpened: boolean;
+}
+export interface IErrorBoundaryProps {
+  children?: ReactNode;
+}
+
+export interface IErrorBoundaryState {
+  hasError: boolean;
+  errorInfo: string | '';
+}
+export interface useModalI {
+  openModal: () => void;
+  closeModal: () => void;
+  openSearch: () => void;
+  closeSearch: () => void;
+  toggleMenu: () => void;
+  isModalOpened: boolean;
+  isSearchOpened: boolean;
+  isMenuOpened: boolean;
+}
+export interface useSearchI {
+  searchQuery: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  debouncedValue: string;
+  searchTitle: string;
+  onClick: () => void;
 }

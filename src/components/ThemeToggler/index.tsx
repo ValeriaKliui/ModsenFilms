@@ -1,24 +1,21 @@
-import { type FC, useCallback, useEffect } from 'react';
-import { DefaultTheme } from 'styled-components/dist/types';
+import { type FC, memo, useEffect } from 'react';
 import { ThemeEnum } from '@constants/types/interfaces';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks/hooks';
 import { selectTheme } from '@store/selectors/themeSelectors';
-import { setTheme, toggleTheme } from '@store/slices/themeSlice';
+import { toggleTheme } from '@store/slices/themeSlice';
 
 import { TogglerButton, TogglerContainer, TogglerInput, TogglerLabel } from './styled';
 
-export const ThemeToggler: FC = () => {
+export const ThemeToggler: FC = memo(() => {
   const dispatch = useAppDispatch();
   const theme = useAppSelector(selectTheme);
   const onChange = () => {
     dispatch(toggleTheme());
   };
-  // const savedTHeme = localStorage.getItem('theme') as DefaultTheme;
 
-  // useEffect(() => {
-  //   dispatch(setTheme(savedTHeme));
-  //   localStorage.setItem('theme', JSON.stringify(theme));
-  // }, [theme]);
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <TogglerContainer data-testid='theme-toggler'>
@@ -34,4 +31,4 @@ export const ThemeToggler: FC = () => {
       </TogglerLabel>
     </TogglerContainer>
   );
-};
+});

@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import { genres } from '@constants/types/genres';
 import { store } from '@store/index';
 import * as actions from '@store/slices/filmsSlice';
@@ -24,7 +24,7 @@ describe('Sort by genre module', () => {
     const sort = screen.getByTestId('navbar');
     const genreButtons = screen.getAllByTestId('genre-button');
     const genresNames = Object.values(genres)
-      .filter(genre => !Number.isInteger(+genre))
+      .filter(genre => !Number.isInteger(Number(genre)))
       .map(genre => genre.toLocaleString());
 
     expect(sort).toBeInTheDocument();

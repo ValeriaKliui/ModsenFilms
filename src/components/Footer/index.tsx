@@ -1,9 +1,6 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
-import FbIcon from '@assets/img/networks/fb.svg';
-import IgIcon from '@assets/img/networks/ig.svg';
-import LinkedinIcon from '@assets/img/networks/linkedin.svg';
-import TwitterIcon from '@assets/img/networks/twitter.svg';
+import { fakeLink, networks } from '@constants/dataConstants/links';
 
 import {
   Copyright,
@@ -16,14 +13,6 @@ import {
 } from './styled';
 
 export const Footer: FC = () => {
-  const networks = [
-    { link: 'https://www.facebook.com/ModsenSoftware/', Icon: FbIcon },
-    { link: 'https://twitter.com/modsencompany', Icon: TwitterIcon },
-    { link: 'https://www.instagram.com/modsencompany', Icon: IgIcon },
-    { link: 'https://www.linkedin.com/company/modsen/', Icon: LinkedinIcon },
-  ];
-  const fakeLink = 'https://www.modsen-software.com/';
-
   return (
     <FooterStyled>
       <FooterInfo>

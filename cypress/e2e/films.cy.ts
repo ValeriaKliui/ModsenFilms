@@ -1,4 +1,4 @@
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import chaiColors from 'chai-colors';
 chai.use(chaiColors);
 

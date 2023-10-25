@@ -1,4 +1,4 @@
-import { FILMS_LIMIT } from '@constants/filmsConstants';
+import { FILMS_LIMIT } from '@constants/dataConstants/filmConstants';
 import type { FilmsIState, IFilm } from '@constants/types/interfaces';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 

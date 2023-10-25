@@ -7,10 +7,10 @@ import { selectGenre } from '@store/selectors/filmsSelectors';
 import { GenreStyled } from './styled';
 
 export const GenreButton: FC<IGenreProps> = memo(({ onClick, genre }) => {
-  const genreActive = useAppSelector(selectGenre);
+  const genreChoosen = useAppSelector(selectGenre);
   const isActiveGenre = (): boolean => {
-    if (genres[genre] === 0 && genreActive === null) return true;
-    else return genreActive === genres[genre];
+    if (genres[genre] === 0 && genreChoosen === null) return true;
+    else return genreChoosen === genres[genre];
   };
 
   return (
