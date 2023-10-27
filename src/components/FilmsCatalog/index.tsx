@@ -90,7 +90,7 @@ export const FilmsCatalog: FC = () => {
         {isFetching &&
           new Array(FILMS_LIMIT)
             .fill({})
-            .map((f, index) => <SkeletonLoader key={index} />)}
+            .map((_, index) => <SkeletonLoader key={index} />)}
       </FilmsStyled>
       <Button
         text='Show More'

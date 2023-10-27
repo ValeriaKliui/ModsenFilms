@@ -8,7 +8,7 @@ export const Burger: FC = () => {
 
   return (
     <BurgerContainer onClick={toggleMenu}>
-      <BurgerLine $isMenuOpened={isMenuOpened} />{' '}
+      <BurgerLine $isMenuOpened={isMenuOpened} />
       <BurgerLine $isMenuOpened={isMenuOpened} />
       <BurgerLine $isMenuOpened={isMenuOpened} />
     </BurgerContainer>

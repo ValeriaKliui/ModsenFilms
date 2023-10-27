@@ -36,6 +36,7 @@ export const FilmCard: FC<IFilmProps> = memo(({ film }) => {
     dispatch(setMovieID(id));
     openModal();
   };
+  const releaseDateYear = new Date(releaseDate).getFullYear();
 
   return (
     <FilmStyled onClick={handleFilmClick} data-testid='film-card'>
@@ -47,7 +48,7 @@ export const FilmCard: FC<IFilmProps> = memo(({ film }) => {
           <SubDetails>
             {Number(releaseDate) > 0 && (
               <>
-                <Text>{new Date(releaseDate).getFullYear()}</Text>
+                <Text>{releaseDateYear}</Text>
                 <Dot />
               </>
             )}
