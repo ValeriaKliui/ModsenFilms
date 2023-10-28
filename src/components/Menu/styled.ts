@@ -13,10 +13,9 @@ export const MenuStyled = styled.div<{ $isOpened: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: ${({ theme }) => theme.zIndexes.menu};
     width: 100%;
     height: 105vh;
-    background: ${({ theme }) => theme.colors.background};
     display: flex;
     justify-content: center;
     align-items: flex-start;

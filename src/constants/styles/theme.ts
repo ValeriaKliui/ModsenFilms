@@ -30,6 +30,13 @@ export const baseTheme: ITheme = {
     gap16: '16px',
     gap32: '32px',
   },
+  zIndexes: {
+    burger: 150,
+    menu: 100,
+    search: 100,
+    modalClosed: -1,
+    modalOpened: 200,
+  },
 };
 
 export const lightTheme: DefaultTheme = {

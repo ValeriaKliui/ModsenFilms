@@ -10,7 +10,7 @@ export const ModalStyled = styled.div<{ $opened: boolean }>`
   left: 0;
   opacity: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: ${({ theme }) => theme.zIndexes.search};
   color: black;
   ${transitionAnimation}
   ${({ $opened }) =>
@@ -18,7 +18,7 @@ export const ModalStyled = styled.div<{ $opened: boolean }>`
     `
     pointer-events: auto;
     opacity: 1;
-    z-index: 200;
+    z-index: 200
   `}
 `;
 export const Overlay = styled.div`

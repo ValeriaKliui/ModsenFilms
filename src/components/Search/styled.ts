@@ -4,7 +4,7 @@ import { devices } from '@constants/styles/media';
 
 export const SearchContainer = styled.div`
   position: relative;
-  z-index: 100;
+  z-index: ${({ theme }) => theme.zIndexes.search};
   flex-grow: 1;
   width: 100%;
   max-width: 627px;

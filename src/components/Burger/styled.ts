@@ -13,7 +13,7 @@ export const BurgerContainer = styled.div`
     align-items: flex-end;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 150;
+    z-index: ${({ theme }) => theme.zIndexes.burger};
     justify-self: flex-end;
   }
 `;

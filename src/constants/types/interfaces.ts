@@ -36,6 +36,13 @@ export interface ITheme {
     gap16: string;
     gap32: string;
   };
+  zIndexes: {
+    burger: number;
+    menu: number;
+    search: number;
+    modalOpened: number;
+    modalClosed: number;
+  };
 }
 export interface IButtonProps {
   text: string;
@@ -49,7 +56,6 @@ export interface IFilmProps {
   film: IFilm;
 }
 export interface IGenreProps {
-  onClick: () => void;
   genre: GenresType;
 }
 export interface IModalProps {
@@ -129,11 +135,11 @@ export interface ModalsState {
 }
 export interface IErrorBoundaryProps {
   children?: ReactNode;
+  fallback?: ReactNode;
 }
-
 export interface IErrorBoundaryState {
   hasError: boolean;
-  errorInfo: string | '';
+  errorInfo: string;
 }
 export interface useModalI {
   openModal: () => void;
